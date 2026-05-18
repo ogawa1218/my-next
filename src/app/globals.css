@@ -8,8 +8,8 @@
   --color-cream: #f5efe3;
   --color-cream-dim: #ece3d2;
 
-  --font-display: var(--font-cormorant);
-  --font-sans: var(--font-inter);
+  --font-display: var(--font-cormorant), var(--font-noto-serif-jp), serif;
+  --font-sans: var(--font-inter), var(--font-noto-sans-jp), sans-serif;
 
   --animate-rise: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-fade: fade 1.2s ease both;

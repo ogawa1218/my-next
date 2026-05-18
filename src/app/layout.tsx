@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Inter,
+  Noto_Sans_JP,
+  Noto_Serif_JP,
+} from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -16,22 +21,37 @@ const inter = Inter({
   display: "swap",
 });
 
+const notoSansJp = Noto_Sans_JP({
+  variable: "--font-noto-sans-jp",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
+
+const notoSerifJp = Noto_Serif_JP({
+  variable: "--font-noto-serif-jp",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "KAKU — Sushi, Squared.",
   description:
-    "KAKU is premium Grab & Go sushi, reimagined as a cube. Six jewelled flavours, a multigrain core, and a box made to be opened. Singapore & Kuala Lumpur.",
+    "KAKU は、寿司をキューブに再定義したプレミアム Grab & Go。宝石のような6つのフレーバー、雑穀ブレンドのシャリ、開けるために生まれた箱。シンガポール & クアラルンプール。",
   keywords: [
     "KAKU",
-    "premium sushi",
-    "grab and go",
-    "cube sushi",
-    "sushi Singapore",
-    "sushi Kuala Lumpur",
+    "プレミアム寿司",
+    "グラブアンドゴー",
+    "キューブ寿司",
+    "テイクアウト寿司",
+    "シンガポール",
+    "クアラルンプール",
   ],
   openGraph: {
     title: "KAKU — Sushi, Squared.",
     description:
-      "Premium Grab & Go sushi, reimagined as a cube. Six jewelled flavours in a box made to be opened.",
+      "寿司をキューブに再定義したプレミアム Grab & Go。宝石のような6つのフレーバーを、開けるために生まれた箱に。",
     type: "website",
   },
 };
@@ -43,8 +63,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${cormorant.variable} ${inter.variable} h-full`}
+      lang="ja"
+      className={`${cormorant.variable} ${inter.variable} ${notoSansJp.variable} ${notoSerifJp.variable} h-full`}
     >
       <body className="min-h-full bg-navy text-cream antialiased">
         {children}

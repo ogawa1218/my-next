@@ -1,17 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const links = [
-  { href: "#concept", label: "Concept" },
-  { href: "#menu", label: "Menu" },
-  { href: "#why", label: "Why KAKU" },
-  { href: "#locations", label: "Locations" },
-];
+import { useI18n } from "@/i18n/LanguageProvider";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Nav() {
+  const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const links = [
+    { href: "#concept", label: t.nav.concept },
+    { href: "#menu", label: t.nav.menu },
+    { href: "#why", label: t.nav.why },
+    { href: "#locations", label: t.nav.locations },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -41,7 +44,7 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-xs font-medium uppercase tracking-[0.22em] text-cream/70 transition-colors hover:text-gold"
+                className="text-xs font-medium tracking-[0.14em] text-cream/70 transition-colors hover:text-gold"
               >
                 {l.label}
               </a>
@@ -49,12 +52,15 @@ export default function Nav() {
           ))}
         </ul>
 
-        <a
-          href="#locations"
-          className="hidden rounded-full border border-gold/60 px-6 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-gold transition-all hover:bg-gold hover:text-navy-deep md:inline-block"
-        >
-          Find a Box
-        </a>
+        <div className="hidden items-center gap-5 md:flex">
+          <LanguageSwitcher />
+          <a
+            href="#locations"
+            className="rounded-full border border-gold/60 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-gold transition-all hover:bg-gold hover:text-navy-deep"
+          >
+            {t.nav.cta}
+          </a>
+        </div>
 
         <button
           aria-label="Toggle menu"
@@ -76,20 +82,21 @@ export default function Nav() {
       {open && (
         <div className="border-t border-gold/15 bg-navy-deep/95 px-6 py-6 md:hidden">
           <ul className="flex flex-col gap-5">
-            {[...links, { href: "#locations", label: "Find a Box" }].map(
-              (l) => (
-                <li key={l.label}>
-                  <a
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="text-sm uppercase tracking-[0.2em] text-cream/80"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ),
-            )}
+            {[...links, { href: "#locations", label: t.nav.cta }].map((l) => (
+              <li key={l.label}>
+                <a
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm tracking-[0.1em] text-cream/80"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
           </ul>
+          <div className="mt-6">
+            <LanguageSwitcher />
+          </div>
         </div>
       )}
     </header>
