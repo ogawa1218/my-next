@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
-import KakuBox from "@/components/KakuBox";
+import HeroProduct from "@/components/HeroProduct";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
@@ -51,9 +51,7 @@ export default function Landing() {
           </div>
 
           <div className="animate-rise">
-            <div className="animate-float mx-auto max-w-md drop-shadow-[0_40px_80px_rgba(0,0,0,0.55)]">
-              <KakuBox className="h-auto w-full" />
-            </div>
+            <HeroProduct />
           </div>
         </div>
 
