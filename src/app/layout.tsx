@@ -6,6 +6,7 @@ import {
   Noto_Serif_JP,
 } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -67,7 +68,7 @@ export default function RootLayout({
       className={`${cormorant.variable} ${inter.variable} ${notoSansJp.variable} ${notoSerifJp.variable} h-full`}
     >
       <body className="min-h-full bg-navy text-cream antialiased">
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

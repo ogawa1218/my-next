@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useI18n } from "@/i18n/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -10,10 +11,12 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: "#concept", label: t.nav.concept },
-    { href: "#menu", label: t.nav.menu },
-    { href: "#why", label: t.nav.why },
-    { href: "#locations", label: t.nav.locations },
+    { href: "/#concept", label: t.nav.concept },
+    { href: "/#menu", label: t.nav.menu },
+    { href: "/#why", label: t.nav.why },
+    { href: "/#locations", label: t.nav.locations },
+    { href: "/reserve", label: t.nav.reserve },
+    { href: "/#newsletter", label: t.nav.newsletter },
   ];
 
   useEffect(() => {
@@ -32,34 +35,34 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a
-          href="#top"
+        <Link
+          href="/"
           className="font-display text-2xl font-semibold tracking-[0.45em] text-cream"
         >
           KAKU
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-10 md:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
                 className="text-xs font-medium tracking-[0.14em] text-cream/70 transition-colors hover:text-gold"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         <div className="hidden items-center gap-5 md:flex">
           <LanguageSwitcher />
-          <a
-            href="#locations"
+          <Link
+            href="/reserve"
             className="rounded-full border border-gold/60 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-gold transition-all hover:bg-gold hover:text-navy-deep"
           >
             {t.nav.cta}
-          </a>
+          </Link>
         </div>
 
         <button
@@ -82,15 +85,15 @@ export default function Nav() {
       {open && (
         <div className="border-t border-gold/15 bg-navy-deep/95 px-6 py-6 md:hidden">
           <ul className="flex flex-col gap-5">
-            {[...links, { href: "#locations", label: t.nav.cta }].map((l) => (
+            {links.map((l) => (
               <li key={l.label}>
-                <a
+                <Link
                   href={l.href}
                   onClick={() => setOpen(false)}
                   className="text-sm tracking-[0.1em] text-cream/80"
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

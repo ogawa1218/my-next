@@ -18,9 +18,18 @@ type SetItem = {
 };
 type Stat = { n: string; l: string };
 type City = { city: string; tag: string; d: string };
+type Step = { k: string; t: string; d: string };
 
 export type Dict = {
-  nav: { concept: string; menu: string; why: string; locations: string; cta: string };
+  nav: {
+    concept: string;
+    menu: string;
+    why: string;
+    locations: string;
+    reserve: string;
+    newsletter: string;
+    cta: string;
+  };
   hero: {
     eyebrow: string;
     title1: string;
@@ -53,6 +62,23 @@ export type Dict = {
     nextLabel: string;
     next: string[];
   };
+  reserveCta: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    cta: string;
+    note: string;
+  };
+  newsletter: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    placeholder: string;
+    button: string;
+    success: string;
+    invalid: string;
+    privacy: string;
+  };
   social: {
     eyebrow: string;
     title1: string;
@@ -62,7 +88,20 @@ export type Dict = {
     ctaBuild: string;
     ctaTop: string;
   };
-  footer: { tagline: string };
+  footer: { tagline: string; reserve: string; newsletter: string };
+  reservePage: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    ctaPrimary: string;
+    ctaPrimaryNote: string;
+    ctaSecondary: string;
+    stepsTitle: string;
+    steps: Step[];
+    benefitsTitle: string;
+    benefits: string[];
+    backHome: string;
+  };
 };
 
 export const dictionaries: Record<Locale, Dict> = {
@@ -72,7 +111,9 @@ export const dictionaries: Record<Locale, Dict> = {
       menu: "メニュー",
       why: "KAKUとは",
       locations: "店舗",
-      cta: "箱を探す",
+      reserve: "予約",
+      newsletter: "メルマガ",
+      cta: "箱を予約",
     },
     hero: {
       eyebrow: "プレミアム Grab & Go 寿司",
@@ -141,6 +182,23 @@ export const dictionaries: Record<Locale, Dict> = {
       nextLabel: "次の展開：バンコク",
       next: ["香港", "シドニーCBD"],
     },
+    reserveCta: {
+      eyebrow: "Reserve",
+      title: "あなたの箱を、先に予約。",
+      lead: "オフィスのランチも、特別な手土産も。KAKU の予約管理システムで、受け取り時間を選んで並ばずに。",
+      cta: "予約ページへ",
+      note: "シンガポール・クアラルンプール（パイロット拠点）",
+    },
+    newsletter: {
+      eyebrow: "Newsletter",
+      title: "オープンを、誰より早く。",
+      lead: "新フレーバー投票、限定 KAKU of the Month、各都市のオープン情報をいち早くお届けします。",
+      placeholder: "メールアドレス",
+      button: "登録する",
+      success: "ご登録ありがとうございます。最新情報をお届けします。",
+      invalid: "有効なメールアドレスを入力してください。",
+      privacy: "登録はいつでも解除できます。スパムは送りません。",
+    },
     social: {
       eyebrow: "Join the Box",
       title1: "開けて。",
@@ -150,7 +208,32 @@ export const dictionaries: Record<Locale, Dict> = {
       ctaBuild: "箱をつくる",
       ctaTop: "トップへ戻る",
     },
-    footer: { tagline: "Sushi, Squared. — プレミアム Grab & Go" },
+    footer: {
+      tagline: "Sushi, Squared. — プレミアム Grab & Go",
+      reserve: "予約",
+      newsletter: "メルマガ登録",
+    },
+    reservePage: {
+      eyebrow: "Reservation",
+      title: "並ばない。待たせない。",
+      lead: "KAKU の予約管理システムは、受け取り店舗・時間・セットを事前に指定できます。ランチのピークでも、あなたの箱はすでに用意されています。",
+      ctaPrimary: "オンライン予約（近日公開）",
+      ctaPrimaryNote: "予約システムは現在準備中です。",
+      ctaSecondary: "オープン通知を受け取る",
+      stepsTitle: "予約の流れ",
+      steps: [
+        { k: "01", t: "店舗と時間を選ぶ", d: "最寄りのKAKU拠点と受け取り時間を指定。" },
+        { k: "02", t: "箱を組む", d: "セットとフレーバーを選んで事前決済。" },
+        { k: "03", t: "受け取るだけ", d: "予約レーンで、並ばず受け取り。" },
+      ],
+      benefitsTitle: "予約のメリット",
+      benefits: [
+        "ピークタイムでも待ち時間ゼロ。",
+        "限定・季節フレーバーを確実に確保。",
+        "オフィスへのまとめ注文・手土産にも最適。",
+      ],
+      backHome: "トップへ戻る",
+    },
   },
 
   en: {
@@ -159,7 +242,9 @@ export const dictionaries: Record<Locale, Dict> = {
       menu: "Menu",
       why: "Why KAKU",
       locations: "Locations",
-      cta: "Find a Box",
+      reserve: "Reserve",
+      newsletter: "Newsletter",
+      cta: "Reserve a Box",
     },
     hero: {
       eyebrow: "Premium Grab & Go Sushi",
@@ -228,6 +313,23 @@ export const dictionaries: Record<Locale, Dict> = {
       nextLabel: "Next: Bangkok",
       next: ["Hong Kong", "Sydney CBD"],
     },
+    reserveCta: {
+      eyebrow: "Reserve",
+      title: "Reserve your box, ahead of time.",
+      lead: "Office lunch or a special gift — pick your pickup time with KAKU's reservation system and skip the queue.",
+      cta: "Go to Reservations",
+      note: "Singapore & Kuala Lumpur (pilot sites)",
+    },
+    newsletter: {
+      eyebrow: "Newsletter",
+      title: "Be first through the door.",
+      lead: "Flavour votes, the limited KAKU of the Month, and city opening news — delivered before anyone else.",
+      placeholder: "Email address",
+      button: "Subscribe",
+      success: "Thank you — you're on the list. We'll be in touch.",
+      invalid: "Please enter a valid email address.",
+      privacy: "Unsubscribe anytime. No spam, ever.",
+    },
     social: {
       eyebrow: "Join the Box",
       title1: "Open it.",
@@ -237,7 +339,32 @@ export const dictionaries: Record<Locale, Dict> = {
       ctaBuild: "Build Your Box",
       ctaTop: "Back to Top",
     },
-    footer: { tagline: "Sushi, Squared. — Premium Grab & Go" },
+    footer: {
+      tagline: "Sushi, Squared. — Premium Grab & Go",
+      reserve: "Reserve",
+      newsletter: "Newsletter",
+    },
+    reservePage: {
+      eyebrow: "Reservation",
+      title: "No queue. No wait.",
+      lead: "KAKU's reservation system lets you set your pickup store, time and set in advance. Even at the lunch peak, your box is already waiting.",
+      ctaPrimary: "Reserve Online (Coming Soon)",
+      ctaPrimaryNote: "The reservation system is currently in development.",
+      ctaSecondary: "Get Opening Updates",
+      stepsTitle: "How it works",
+      steps: [
+        { k: "01", t: "Pick store & time", d: "Choose your nearest KAKU site and a pickup time." },
+        { k: "02", t: "Build your box", d: "Select your set and flavours, pay in advance." },
+        { k: "03", t: "Just collect", d: "Skip the line at the reservation lane." },
+      ],
+      benefitsTitle: "Why reserve",
+      benefits: [
+        "Zero wait, even at peak hours.",
+        "Lock in limited and seasonal flavours.",
+        "Perfect for office bulk orders and gifts.",
+      ],
+      backHome: "Back to Home",
+    },
   },
 
   zh: {
@@ -246,7 +373,9 @@ export const dictionaries: Record<Locale, Dict> = {
       menu: "菜单",
       why: "为何选择 KAKU",
       locations: "门店",
-      cta: "寻找盒子",
+      reserve: "预约",
+      newsletter: "订阅",
+      cta: "预约盒子",
     },
     hero: {
       eyebrow: "高端即取即走寿司",
@@ -315,6 +444,23 @@ export const dictionaries: Record<Locale, Dict> = {
       nextLabel: "下一站：曼谷",
       next: ["香港", "悉尼 CBD"],
     },
+    reserveCta: {
+      eyebrow: "Reserve",
+      title: "提前，预约你的盒子。",
+      lead: "无论是办公室午餐还是特别伴手礼——用 KAKU 预约系统选好取餐时间，免排队。",
+      cta: "前往预约页",
+      note: "新加坡 & 吉隆坡（试点门店）",
+    },
+    newsletter: {
+      eyebrow: "Newsletter",
+      title: "比所有人更早进门。",
+      lead: "新风味票选、限定 KAKU of the Month、各城市开业资讯——抢先送达。",
+      placeholder: "电子邮箱",
+      button: "订阅",
+      success: "感谢订阅——你已在名单中，我们会保持联系。",
+      invalid: "请输入有效的电子邮箱。",
+      privacy: "可随时退订。绝不发送垃圾邮件。",
+    },
     social: {
       eyebrow: "Join the Box",
       title1: "打开它。",
@@ -324,6 +470,31 @@ export const dictionaries: Record<Locale, Dict> = {
       ctaBuild: "定制你的盒子",
       ctaTop: "返回顶部",
     },
-    footer: { tagline: "Sushi, Squared. — 高端即取即走" },
+    footer: {
+      tagline: "Sushi, Squared. — 高端即取即走",
+      reserve: "预约",
+      newsletter: "订阅",
+    },
+    reservePage: {
+      eyebrow: "Reservation",
+      title: "不排队。不等待。",
+      lead: "KAKU 预约系统让你提前指定取餐门店、时间与套餐。即使在午餐高峰，你的盒子也已备好。",
+      ctaPrimary: "在线预约（即将开放）",
+      ctaPrimaryNote: "预约系统正在开发中。",
+      ctaSecondary: "获取开业通知",
+      stepsTitle: "预约流程",
+      steps: [
+        { k: "01", t: "选择门店与时间", d: "指定最近的 KAKU 门店与取餐时间。" },
+        { k: "02", t: "组合你的盒子", d: "选择套餐与风味，提前付款。" },
+        { k: "03", t: "直接取走", d: "在预约专道，免排队取餐。" },
+      ],
+      benefitsTitle: "预约的好处",
+      benefits: [
+        "高峰时段也零等待。",
+        "锁定限定与季节风味。",
+        "适合办公室批量订购与送礼。",
+      ],
+      backHome: "返回首页",
+    },
   },
 };

@@ -1,8 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import KakuBox from "@/components/KakuBox";
+import Footer from "@/components/Footer";
+import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
 
 export default function Landing() {
@@ -313,20 +316,61 @@ export default function Landing() {
         </Reveal>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-gold/15 bg-navy-deep px-6 py-14 lg:px-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
-          <span className="font-display text-xl font-semibold tracking-[0.45em] text-cream">
-            KAKU
-          </span>
-          <p className="text-xs tracking-[0.1em] text-cream/40">
-            {t.footer.tagline}
+      {/* RESERVE CTA */}
+      <section
+        id="reserve"
+        className="border-y border-gold/15 bg-navy-deep px-6 py-28 lg:px-10 lg:py-36"
+      >
+        <Reveal className="mx-auto max-w-4xl text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
+            {t.reserveCta.eyebrow}
           </p>
-          <p className="text-xs text-cream/30">
-            © {new Date().getFullYear()} KAKU. All rights reserved.
+          <h2 className="mt-6 font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-cream">
+            {t.reserveCta.title}
+          </h2>
+          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-cream/65">
+            {t.reserveCta.lead}
           </p>
-        </div>
-      </footer>
+          <div className="mt-10">
+            <Link
+              href="/reserve"
+              className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-medium tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
+            >
+              {t.reserveCta.cta}
+            </Link>
+          </div>
+          <p className="mt-6 text-xs tracking-[0.14em] text-cream/40">
+            {t.reserveCta.note}
+          </p>
+        </Reveal>
+      </section>
+
+      {/* NEWSLETTER */}
+      <section className="relative px-6 py-28 lg:px-10 lg:py-36">
+        <div
+          id="newsletter"
+          className="pointer-events-none absolute -top-24"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[140px]"
+          aria-hidden
+        />
+        <Reveal className="relative mx-auto max-w-2xl text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
+            {t.newsletter.eyebrow}
+          </p>
+          <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] text-cream">
+            {t.newsletter.title}
+          </h2>
+          <p className="mx-auto mt-6 mb-10 max-w-lg text-lg leading-relaxed text-cream/65">
+            {t.newsletter.lead}
+          </p>
+          <NewsletterForm />
+        </Reveal>
+      </section>
+
+      <Footer />
     </main>
   );
 }
