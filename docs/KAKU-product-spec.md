@@ -187,3 +187,37 @@ lighting, wellness premium, vertical 4:5, no text.
 - **展開**：パイロットはシンガポール／クアラルンプール。次にバンコク・香港・シドニーCBD。
 
 **論点（要決定）**：① GIFT12 の価格 or 箱原価の確定（FC≤28%収束）／② 鮮魚相場・為替を反映した最終原価／③ ヒーロー実写の制作（6-1プロンプト）。
+
+---
+
+## 8. デプロイ設定（予約・FC問い合わせの本番稼働手順）
+
+予約管理（`/reserve`）とFC問い合わせ（`/franchise#inquiry`）は Supabase 上の DB（プロジェクト `kaku-reservations`）に書き込みます。Vercel 側で**環境変数を1度設定するだけ**で本番稼働します。
+
+### 8-1. Vercel に設定する環境変数
+
+Vercel プロジェクトの Settings → Environment Variables で、Production / Preview / Development の3スコープに以下を追加してください。
+
+| Key | Value |
+|-----|-------|
+| `SUPABASE_URL` | `https://zgtnroefwiqvkpcmdlhg.supabase.co` |
+| `SUPABASE_ANON_KEY` | プロジェクトの **anon** キー（Supabase ダッシュボード → Project Settings → API → `anon` `public` を参照） |
+
+> 本リポジトリのコードは `process.env.SUPABASE_URL` / `process.env.SUPABASE_ANON_KEY` をリクエスト時に読み込みます。未設定でもビルドはグリーンのままで、フォーム送信時に `503 service not configured` を返します。
+
+### 8-2. データテーブル（DDL は適用済み）
+
+- `public.reservations` — 予約データ。`id, created_at, store, pickup_at, set_type, flavor_selection(jsonb), guest_name, guest_email, guest_phone, notes, locale, status('pending')`
+- `public.franchise_inquiries` — FC問い合わせ。`id, created_at, full_name, company, email, phone, country, city, budget_band, message, locale`
+
+RLS：両テーブルとも RLS 有効。`anon` ロールに **INSERT のみ** 許可。`SELECT/UPDATE/DELETE` は拒否（運営側は Supabase ダッシュボード／service_role キーで参照）。
+
+### 8-3. 運営側の参照
+
+Supabase ダッシュボード → Table Editor → `reservations` / `franchise_inquiries` で受信を確認できます。CSV エクスポート可。
+通知メール（Resend 等）は後日追加可能（API ルートに2行追加）。
+
+### 8-4. ローカル開発
+
+`.env.example` をコピーして `.env.local` を作成し、上記2つの値を記入してください（`.env.local` は git 管理外）。`npm run dev` で起動。
+
