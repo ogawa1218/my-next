@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import KakuLogo from "@/components/KakuLogo";
+import LedTicker from "@/components/LedTicker";
 import Reveal from "@/components/Reveal";
 import Image from "next/image";
 import HeroCarousel from "@/components/HeroCarousel";
@@ -27,11 +29,17 @@ export default function Landing() {
             <p className="animate-fade text-xs font-medium tracking-[0.3em] text-gold">
               {t.hero.eyebrow}
             </p>
-            <h1 className="mt-8 font-display text-[clamp(3.5rem,9vw,7.5rem)] font-semibold leading-[0.95] text-cream">
-              {t.hero.title1}
-              <br />
-              <span className="text-gradient-gold">{t.hero.title2}</span>
-            </h1>
+            <div className="mt-8 flex items-center gap-5 sm:gap-7 lg:gap-9">
+              <KakuLogo
+                className="h-24 w-24 shrink-0 rounded-xl border-2 sm:h-32 sm:w-32 lg:h-44 lg:w-44"
+                charClassName="text-5xl sm:text-6xl lg:text-8xl"
+              />
+              <h1 className="font-display text-[clamp(3.5rem,9vw,7.5rem)] font-semibold leading-[0.95] text-cream">
+                {t.hero.title1}
+                <br />
+                <span className="text-gradient-gold">{t.hero.title2}</span>
+              </h1>
+            </div>
             <p className="mt-8 max-w-md text-lg leading-relaxed text-cream/70">
               {t.hero.lead}
             </p>
@@ -74,8 +82,8 @@ export default function Landing() {
       </div>
 
       {/* CONCEPT */}
-      <section id="concept" className="px-6 py-28 lg:px-10 lg:py-40">
-        <div className="mx-auto max-w-7xl">
+      <section id="concept" className="py-28 lg:py-40">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
               {t.concept.eyebrow}
@@ -83,11 +91,14 @@ export default function Landing() {
             <h2 className="mt-6 max-w-3xl font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-cream">
               {t.concept.title}
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-cream/65">
-              {t.concept.lead}
-            </p>
           </Reveal>
+        </div>
 
+        <Reveal className="mt-14 lg:mt-16">
+          <LedTicker text={t.concept.lead} />
+        </Reveal>
+
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mt-20 grid gap-px overflow-hidden rounded-2xl border border-gold/15 bg-gold/15 md:grid-cols-2 lg:grid-cols-5">
             {t.concept.pillars.map((p, i) => (
               <Reveal

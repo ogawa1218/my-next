@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useI18n } from "@/i18n/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
+import KakuLogo from "./KakuLogo";
 
 export default function Nav() {
   const { t } = useI18n();
@@ -37,9 +38,16 @@ export default function Nav() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
         <Link
           href="/"
-          className="font-display text-2xl font-semibold tracking-[0.45em] text-cream"
+          aria-label="KAKU — Home"
+          className="flex items-center gap-3"
         >
-          KAKU
+          <KakuLogo
+            className="h-9 w-9 rounded-md border-[1.5px] transition-transform group-hover:rotate-3"
+            charClassName="text-lg"
+          />
+          <span className="font-display text-2xl font-semibold tracking-[0.45em] text-cream">
+            KAKU
+          </span>
         </Link>
 
         <ul className="hidden items-center gap-10 md:flex">
