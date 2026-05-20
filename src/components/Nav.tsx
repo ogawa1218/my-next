@@ -16,7 +16,7 @@ export default function Nav() {
     { href: "/#why", label: t.nav.why },
     { href: "/#locations", label: t.nav.locations },
     { href: "/reserve", label: t.nav.reserve },
-    { href: "/#newsletter", label: t.nav.newsletter },
+    { href: "/franchise", label: t.nav.franchise },
   ];
 
   useEffect(() => {

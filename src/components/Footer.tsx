@@ -26,6 +26,12 @@ export default function Footer() {
           >
             {t.footer.newsletter}
           </Link>
+          <Link
+            href="/franchise"
+            className="transition-colors hover:text-gold"
+          >
+            {t.footer.franchise}
+          </Link>
           <span className="text-cream/40">{t.footer.tagline}</span>
         </nav>
 

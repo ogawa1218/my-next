@@ -231,13 +231,16 @@ export default function Landing() {
           </Reveal>
 
           <div className="grid grid-cols-2 gap-px self-center overflow-hidden rounded-2xl border border-gold/15 bg-gold/15">
-            {t.why.stats.map((s, i) => (
-              <Reveal key={s.l} delay={i * 90} className="bg-navy p-10">
-                <p className="font-display text-5xl font-semibold text-gradient-gold">
-                  {s.n}
+            {t.why.promises.map((p, i) => (
+              <Reveal key={p.k} delay={i * 90} className="bg-navy p-10">
+                <p className="font-display text-xs tracking-[0.3em] text-gold">
+                  {p.k}
                 </p>
-                <p className="mt-3 text-sm leading-snug text-cream/55">
-                  {s.l}
+                <p className="mt-3 font-display text-2xl font-semibold text-cream">
+                  {p.t}
+                </p>
+                <p className="mt-2 text-sm leading-snug text-cream/55">
+                  {p.d}
                 </p>
               </Reveal>
             ))}
