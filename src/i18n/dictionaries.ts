@@ -9,7 +9,7 @@ export const localeNames: Record<Locale, string> = {
 };
 
 type Pillar = { k: string; t: string; d: string };
-type MenuItem = { name: string; note: string; rice: string };
+type MenuItem = { slug: string; name: string; note: string; rice: string };
 type SetItem = {
   name: string;
   detail: string;
@@ -140,12 +140,12 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: "Menu",
       title: "6つの宝石。無限の箱。",
       items: [
-        { name: "Salmon Classic", note: "サーモン・アボカド・ゴマ", rice: "五穀米" },
-        { name: "Spicy Tuna", note: "マグロ・スパイシーマヨ・青ねぎ", rice: "五穀米" },
-        { name: "Teriyaki Chicken", note: "照り焼きチキン・枝豆", rice: "五穀米" },
-        { name: "Miso Mushroom", note: "味噌マッシュルーム・豆腐", rice: "五穀米" },
-        { name: "Vegan Umami Cube", note: "大豆ミートそぼろ・バルサミコ味噌", rice: "五穀米" },
-        { name: "Aburi Shrimp Mango-Lime", note: "炙り海老・マンゴーライムグレーズ", rice: "五穀米" },
+        { slug: "salmon-classic", name: "Salmon Classic", note: "サーモン・アボカド・ゴマ", rice: "五穀米" },
+        { slug: "spicy-tuna", name: "Spicy Tuna", note: "マグロ・スパイシーマヨ・青ねぎ", rice: "五穀米" },
+        { slug: "teriyaki-chicken", name: "Teriyaki Chicken", note: "照り焼きチキン・枝豆", rice: "五穀米" },
+        { slug: "miso-mushroom", name: "Miso Mushroom", note: "味噌マッシュルーム・豆腐", rice: "五穀米" },
+        { slug: "vegan-umami-cube", name: "Vegan Umami Cube", note: "大豆ミートそぼろ・バルサミコ味噌", rice: "五穀米" },
+        { slug: "aburi-shrimp", name: "Aburi Shrimp Mango-Lime", note: "炙り海老・マンゴーライムグレーズ", rice: "五穀米" },
       ],
       sets: [
         { name: "KAKU 6", detail: "6個 ・ 1フレーバー", price: "$7.90" },
@@ -271,12 +271,12 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: "Menu",
       title: "Six jewels. Endless boxes.",
       items: [
-        { name: "Salmon Classic", note: "Salmon · avocado · sesame", rice: "Five-grain" },
-        { name: "Spicy Tuna", note: "Tuna · spicy mayo · scallion", rice: "Five-grain" },
-        { name: "Teriyaki Chicken", note: "Teriyaki chicken · edamame", rice: "Five-grain" },
-        { name: "Miso Mushroom", note: "Miso mushroom · tofu", rice: "Five-grain" },
-        { name: "Vegan Umami Cube", note: "Soy-meat soboro · balsamic miso", rice: "Five-grain" },
-        { name: "Aburi Shrimp Mango-Lime", note: "Aburi shrimp · mango-lime glaze", rice: "Five-grain" },
+        { slug: "salmon-classic", name: "Salmon Classic", note: "Salmon · avocado · sesame", rice: "Five-grain" },
+        { slug: "spicy-tuna", name: "Spicy Tuna", note: "Tuna · spicy mayo · scallion", rice: "Five-grain" },
+        { slug: "teriyaki-chicken", name: "Teriyaki Chicken", note: "Teriyaki chicken · edamame", rice: "Five-grain" },
+        { slug: "miso-mushroom", name: "Miso Mushroom", note: "Miso mushroom · tofu", rice: "Five-grain" },
+        { slug: "vegan-umami-cube", name: "Vegan Umami Cube", note: "Soy-meat soboro · balsamic miso", rice: "Five-grain" },
+        { slug: "aburi-shrimp", name: "Aburi Shrimp Mango-Lime", note: "Aburi shrimp · mango-lime glaze", rice: "Five-grain" },
       ],
       sets: [
         { name: "KAKU 6", detail: "6 pc · 1 flavour", price: "$7.90" },
@@ -402,12 +402,12 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: "Menu",
       title: "六颗宝石。无限的盒子。",
       items: [
-        { name: "Salmon Classic", note: "三文鱼 · 牛油果 · 芝麻", rice: "五谷米" },
-        { name: "Spicy Tuna", note: "金枪鱼 · 香辣蛋黄酱 · 青葱", rice: "五谷米" },
-        { name: "Teriyaki Chicken", note: "照烧鸡肉 · 毛豆", rice: "五谷米" },
-        { name: "Miso Mushroom", note: "味噌蘑菇 · 豆腐", rice: "五谷米" },
-        { name: "Vegan Umami Cube", note: "大豆素肉松 · 黑醋味噌", rice: "五谷米" },
-        { name: "Aburi Shrimp Mango-Lime", note: "炙烤虾 · 芒果青柠酱", rice: "五谷米" },
+        { slug: "salmon-classic", name: "Salmon Classic", note: "三文鱼 · 牛油果 · 芝麻", rice: "五谷米" },
+        { slug: "spicy-tuna", name: "Spicy Tuna", note: "金枪鱼 · 香辣蛋黄酱 · 青葱", rice: "五谷米" },
+        { slug: "teriyaki-chicken", name: "Teriyaki Chicken", note: "照烧鸡肉 · 毛豆", rice: "五谷米" },
+        { slug: "miso-mushroom", name: "Miso Mushroom", note: "味噌蘑菇 · 豆腐", rice: "五谷米" },
+        { slug: "vegan-umami-cube", name: "Vegan Umami Cube", note: "大豆素肉松 · 黑醋味噌", rice: "五谷米" },
+        { slug: "aburi-shrimp", name: "Aburi Shrimp Mango-Lime", note: "炙烤虾 · 芒果青柠酱", rice: "五谷米" },
       ],
       sets: [
         { name: "KAKU 6", detail: "6 件 · 1 种风味", price: "$7.90" },

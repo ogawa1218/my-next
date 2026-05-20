@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
-import HeroProduct from "@/components/HeroProduct";
+import Image from "next/image";
+import HeroCarousel from "@/components/HeroCarousel";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
@@ -51,7 +52,7 @@ export default function Landing() {
           </div>
 
           <div className="animate-rise">
-            <HeroProduct />
+            <HeroCarousel />
           </div>
         </div>
 
@@ -127,23 +128,35 @@ export default function Landing() {
           <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {t.menu.items.map((m, i) => (
               <Reveal
-                key={m.name}
+                key={m.slug}
                 delay={i * 70}
-                className="group relative overflow-hidden rounded-2xl border border-gold/15 bg-navy p-8 transition-all hover:border-gold/50"
+                className="group relative overflow-hidden rounded-2xl border border-gold/15 bg-navy transition-all hover:border-gold/50"
               >
-                <div className="flex items-start justify-between">
-                  <h3 className="font-display text-2xl font-semibold text-cream">
-                    {m.name}
-                  </h3>
-                  <span className="rounded-full border border-gold/30 px-3 py-1 text-[0.65rem] tracking-[0.1em] text-gold/80">
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <Image
+                    src={`/products/${m.slug}.png`}
+                    alt={m.name}
+                    fill
+                    sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 90vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                  <span className="absolute right-3 top-3 rounded-full border border-gold/40 bg-navy-deep/60 px-3 py-1 text-[0.65rem] tracking-[0.1em] text-gold/90 backdrop-blur">
                     {m.rice}
                   </span>
                 </div>
-                <p className="mt-4 text-sm text-cream/55">{m.note}</p>
-                <div
-                  className="mt-8 h-px w-full hairline opacity-50 transition-opacity group-hover:opacity-100"
-                  aria-hidden
-                />
+                <div className="p-7">
+                  <p className="font-display text-xs tracking-[0.3em] text-gold/80">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-2 font-display text-2xl font-semibold text-cream">
+                    {m.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-cream/55">{m.note}</p>
+                  <div
+                    className="mt-6 h-px w-full hairline opacity-50 transition-opacity group-hover:opacity-100"
+                    aria-hidden
+                  />
+                </div>
               </Reveal>
             ))}
           </div>
