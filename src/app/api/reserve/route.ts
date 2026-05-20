@@ -2,8 +2,10 @@ import { NextResponse } from "next/server";
 import { getSupabase } from "@/lib/supabase";
 
 const STORES = new Set([
-  "singapore-cbd",
-  "kuala-lumpur-suria",
+  "harajuku",
+  "tokyo-yaesu",
+  "asakusa",
+  "ueno",
 ]);
 const SET_TYPES = new Set([
   "kaku-6",
