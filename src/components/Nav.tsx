@@ -31,7 +31,7 @@ export default function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-navy-deep/85 backdrop-blur-md border-b border-gold/15 py-4"
+          ? "bg-cream/85 backdrop-blur-md border-b border-gold/15 py-4"
           : "bg-transparent py-7"
       }`}
     >
@@ -41,11 +41,8 @@ export default function Nav() {
           aria-label="KAKU — Home"
           className="flex items-center gap-3"
         >
-          <KakuLogo
-            className="h-9 w-9 rounded-md border-[1.5px] transition-transform group-hover:rotate-3"
-            charClassName="text-lg"
-          />
-          <span className="font-display text-2xl font-semibold tracking-[0.45em] text-cream">
+          <KakuLogo className="h-9 w-9 transition-transform group-hover:rotate-3" />
+          <span className="font-display text-2xl font-semibold tracking-[0.45em] text-navy-deep">
             KAKU
           </span>
         </Link>
@@ -55,7 +52,7 @@ export default function Nav() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="text-xs font-medium tracking-[0.14em] text-cream/70 transition-colors hover:text-gold"
+                className="text-xs font-medium tracking-[0.14em] text-navy-deep/70 transition-colors hover:text-gold"
               >
                 {l.label}
               </Link>
@@ -79,26 +76,26 @@ export default function Nav() {
           className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
         >
           <span
-            className={`h-px w-6 bg-cream transition-transform ${open ? "translate-y-[7px] rotate-45" : ""}`}
+            className={`h-px w-6 bg-navy-deep transition-transform ${open ? "translate-y-[7px] rotate-45" : ""}`}
           />
           <span
-            className={`h-px w-6 bg-cream transition-opacity ${open ? "opacity-0" : ""}`}
+            className={`h-px w-6 bg-navy-deep transition-opacity ${open ? "opacity-0" : ""}`}
           />
           <span
-            className={`h-px w-6 bg-cream transition-transform ${open ? "-translate-y-[7px] -rotate-45" : ""}`}
+            className={`h-px w-6 bg-navy-deep transition-transform ${open ? "-translate-y-[7px] -rotate-45" : ""}`}
           />
         </button>
       </nav>
 
       {open && (
-        <div className="border-t border-gold/15 bg-navy-deep/95 px-6 py-6 md:hidden">
+        <div className="border-t border-gold/15 bg-cream/95 px-6 py-6 md:hidden">
           <ul className="flex flex-col gap-5">
             {links.map((l) => (
               <li key={l.label}>
                 <Link
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-sm tracking-[0.1em] text-cream/80"
+                  className="text-sm tracking-[0.1em] text-navy-deep/80"
                 >
                   {l.label}
                 </Link>

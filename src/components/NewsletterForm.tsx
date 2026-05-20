@@ -22,7 +22,7 @@ export default function NewsletterForm() {
 
   if (status === "done") {
     return (
-      <p className="mx-auto max-w-md rounded-2xl border border-gold/30 bg-gold/10 px-6 py-5 text-center text-sm text-cream/80">
+      <p className="mx-auto max-w-md rounded-2xl border border-gold/30 bg-gold/10 px-6 py-5 text-center text-sm text-navy-deep/80">
         {t.newsletter.success}
       </p>
     );
@@ -46,7 +46,7 @@ export default function NewsletterForm() {
           }}
           placeholder={t.newsletter.placeholder}
           aria-invalid={status === "error"}
-          className="w-full rounded-full border border-gold/25 bg-navy-deep px-6 py-4 text-sm text-cream placeholder:text-cream/35 outline-none transition-colors focus:border-gold/70"
+          className="w-full rounded-full border border-gold/25 bg-cream px-6 py-4 text-sm text-navy-deep placeholder:text-navy-deep/35 outline-none transition-colors focus:border-gold/70"
         />
         <button
           type="submit"
@@ -57,7 +57,7 @@ export default function NewsletterForm() {
       </div>
       <p
         className={`mt-3 text-center text-xs ${
-          status === "error" ? "text-red-300" : "text-cream/40"
+          status === "error" ? "text-red-300" : "text-navy-deep/40"
         }`}
       >
         {status === "error" ? t.newsletter.invalid : t.newsletter.privacy}

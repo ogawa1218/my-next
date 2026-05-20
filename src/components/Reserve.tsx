@@ -195,10 +195,10 @@ export default function Reserve() {
           <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
             {r.eyebrow}
           </p>
-          <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.02] text-cream">
+          <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.02] text-navy-deep">
             {r.title}
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream/70">
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-navy-deep/70">
             {r.lead}
           </p>
         </div>
@@ -222,11 +222,11 @@ export default function Reserve() {
 
               <form
                 onSubmit={onSubmit}
-                className="mt-10 rounded-2xl border border-gold/20 bg-navy-deep p-7 shadow-[0_30px_80px_rgba(0,0,0,0.4)] sm:p-10"
+                className="mt-10 rounded-2xl border border-gold/20 bg-cream p-7 shadow-[0_30px_80px_rgba(6,21,42,0.14)] sm:p-10"
               >
                 {step === 1 && (
                   <fieldset className="space-y-7">
-                    <legend className="font-display text-2xl text-cream">
+                    <legend className="font-display text-2xl text-navy-deep">
                       {r.pickup.title}
                     </legend>
 
@@ -236,7 +236,7 @@ export default function Reserve() {
                         onChange={(e) =>
                           setForm({ ...form, store: e.target.value })
                         }
-                        className="w-full rounded-xl border border-gold/25 bg-navy px-4 py-3 text-cream outline-none focus:border-gold/70"
+                        className="w-full rounded-xl border border-gold/25 bg-cream-dim px-4 py-3 text-navy-deep outline-none focus:border-gold/70"
                       >
                         {t.stores.map((s) => (
                           <option key={s.id} value={s.id}>
@@ -257,7 +257,7 @@ export default function Reserve() {
                         onChange={(e) =>
                           setForm({ ...form, pickupAt: e.target.value })
                         }
-                        className="w-full rounded-xl border border-gold/25 bg-navy px-4 py-3 text-cream outline-none focus:border-gold/70"
+                        className="w-full rounded-xl border border-gold/25 bg-cream-dim px-4 py-3 text-navy-deep outline-none focus:border-gold/70"
                       />
                     </Field>
                   </fieldset>
@@ -265,7 +265,7 @@ export default function Reserve() {
 
                 {step === 2 && (
                   <fieldset className="space-y-7">
-                    <legend className="font-display text-2xl text-cream">
+                    <legend className="font-display text-2xl text-navy-deep">
                       {r.selection.title}
                     </legend>
 
@@ -281,13 +281,13 @@ export default function Reserve() {
                               className={`rounded-xl border p-4 text-left transition-colors ${
                                 selected
                                   ? "border-gold bg-gold/15"
-                                  : "border-gold/20 bg-navy hover:border-gold/50"
+                                  : "border-gold/20 bg-cream-dim hover:border-gold/50"
                               }`}
                             >
-                              <p className="font-display text-lg text-cream">
+                              <p className="font-display text-lg text-navy-deep">
                                 {s.name}
                               </p>
-                              <p className="mt-1 text-xs text-cream/55">
+                              <p className="mt-1 text-xs text-navy-deep/55">
                                 {s.detail}
                               </p>
                               <p className="mt-3 font-display text-xl text-gold">
@@ -303,7 +303,7 @@ export default function Reserve() {
                       label={r.selection.flavorsLabel}
                       helper={r.selection.flavorsHelper}
                     >
-                      <div className="rounded-xl border border-gold/20 bg-navy">
+                      <div className="rounded-xl border border-gold/20 bg-cream-dim">
                         {t.menu.items.map((m, i) => {
                           const qty = form.flavors[m.slug] ?? 0;
                           const remaining = setSize - totalFlavors;
@@ -315,10 +315,10 @@ export default function Reserve() {
                               }`}
                             >
                               <div className="min-w-0">
-                                <p className="truncate text-sm text-cream">
+                                <p className="truncate text-sm text-navy-deep">
                                   {m.name}
                                 </p>
-                                <p className="truncate text-xs text-cream/45">
+                                <p className="truncate text-xs text-navy-deep/45">
                                   {m.note}
                                 </p>
                               </div>
@@ -328,11 +328,11 @@ export default function Reserve() {
                                   aria-label="−"
                                   onClick={() => bumpFlavor(m.slug, -1)}
                                   disabled={qty === 0}
-                                  className="h-8 w-8 rounded-full border border-gold/30 text-cream disabled:opacity-30"
+                                  className="h-8 w-8 rounded-full border border-gold/30 text-navy-deep disabled:opacity-30"
                                 >
                                   −
                                 </button>
-                                <span className="w-6 text-center font-display text-cream">
+                                <span className="w-6 text-center font-display text-navy-deep">
                                   {qty}
                                 </span>
                                 <button
@@ -340,7 +340,7 @@ export default function Reserve() {
                                   aria-label="+"
                                   onClick={() => bumpFlavor(m.slug, +1)}
                                   disabled={remaining <= 0}
-                                  className="h-8 w-8 rounded-full border border-gold/30 text-cream disabled:opacity-30"
+                                  className="h-8 w-8 rounded-full border border-gold/30 text-navy-deep disabled:opacity-30"
                                 >
                                   +
                                 </button>
@@ -353,7 +353,7 @@ export default function Reserve() {
                         className={`mt-3 text-right text-xs tracking-[0.1em] ${
                           totalFlavors === setSize
                             ? "text-gold"
-                            : "text-cream/50"
+                            : "text-navy-deep/50"
                         }`}
                       >
                         {r.selection.countLabel} {totalFlavors} / {setSize}
@@ -364,7 +364,7 @@ export default function Reserve() {
 
                 {step === 3 && (
                   <fieldset className="space-y-6">
-                    <legend className="font-display text-2xl text-cream">
+                    <legend className="font-display text-2xl text-navy-deep">
                       {r.details.title}
                     </legend>
 
@@ -402,7 +402,7 @@ export default function Reserve() {
                         onChange={(e) =>
                           setForm({ ...form, notes: e.target.value })
                         }
-                        className="w-full rounded-xl border border-gold/25 bg-navy px-4 py-3 text-cream outline-none focus:border-gold/70"
+                        className="w-full rounded-xl border border-gold/25 bg-cream-dim px-4 py-3 text-navy-deep outline-none focus:border-gold/70"
                       />
                     </Field>
 
@@ -427,7 +427,7 @@ export default function Reserve() {
                     type="button"
                     onClick={goBack}
                     disabled={step === 1 || submitting}
-                    className="rounded-full px-6 py-3 text-sm tracking-[0.08em] text-cream/70 transition-colors hover:text-gold disabled:opacity-30"
+                    className="rounded-full px-6 py-3 text-sm tracking-[0.08em] text-navy-deep/70 transition-colors hover:text-gold disabled:opacity-30"
                   >
                     {r.buttons.back}
                   </button>
@@ -480,12 +480,12 @@ function Stepper({
             className={`flex h-7 w-7 items-center justify-center rounded-full border font-display text-xs ${
               step >= it.n
                 ? "border-gold bg-gold text-navy-deep"
-                : "border-gold/30 text-cream/50"
+                : "border-gold/30 text-navy-deep/50"
             }`}
           >
             {it.n}
           </span>
-          <span className={step >= it.n ? "text-cream" : "text-cream/40"}>
+          <span className={step >= it.n ? "text-navy-deep" : "text-navy-deep/40"}>
             {it.label}
           </span>
           {i < items.length - 1 && (
@@ -508,11 +508,11 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="block text-xs font-medium uppercase tracking-[0.2em] text-cream/70">
+      <span className="block text-xs font-medium uppercase tracking-[0.2em] text-navy-deep/70">
         {label}
       </span>
       <div className="mt-2">{children}</div>
-      {helper && <span className="mt-2 block text-xs text-cream/45">{helper}</span>}
+      {helper && <span className="mt-2 block text-xs text-navy-deep/45">{helper}</span>}
     </label>
   );
 }
@@ -534,7 +534,7 @@ function TextInput({
       value={value}
       autoComplete={autoComplete}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full rounded-xl border border-gold/25 bg-navy px-4 py-3 text-cream outline-none focus:border-gold/70"
+      className="w-full rounded-xl border border-gold/25 bg-cream-dim px-4 py-3 text-navy-deep outline-none focus:border-gold/70"
     />
   );
 }
@@ -570,18 +570,18 @@ function SummaryPanel({
     ? new Date(state.pickupAt).toLocaleString()
     : "—";
   return (
-    <div className="mt-4 rounded-xl border border-gold/25 bg-navy p-5 text-sm">
-      <p className="font-display text-lg text-cream">{t.summary.title}</p>
-      <dl className="mt-4 grid grid-cols-[7rem_1fr] gap-y-2 text-cream/70">
-        <dt className="text-cream/45">{t.summary.store}</dt>
+    <div className="mt-4 rounded-xl border border-gold/25 bg-cream-dim p-5 text-sm">
+      <p className="font-display text-lg text-navy-deep">{t.summary.title}</p>
+      <dl className="mt-4 grid grid-cols-[7rem_1fr] gap-y-2 text-navy-deep/70">
+        <dt className="text-navy-deep/45">{t.summary.store}</dt>
         <dd>{storeLabel(state.store)}</dd>
-        <dt className="text-cream/45">{t.summary.pickupAt}</dt>
+        <dt className="text-navy-deep/45">{t.summary.pickupAt}</dt>
         <dd>{pickup}</dd>
-        <dt className="text-cream/45">{t.summary.set}</dt>
+        <dt className="text-navy-deep/45">{t.summary.set}</dt>
         <dd>{setLabel(state.setType)}</dd>
-        <dt className="text-cream/45">{t.summary.flavors}</dt>
+        <dt className="text-navy-deep/45">{t.summary.flavors}</dt>
         <dd>{flavors || "—"}</dd>
-        <dt className="text-cream/45">{t.summary.guest}</dt>
+        <dt className="text-navy-deep/45">{t.summary.guest}</dt>
         <dd>
           {state.name} ({state.email})
         </dd>
@@ -612,17 +612,17 @@ function SuccessPanel({
 }) {
   return (
     <Reveal>
-      <div className="rounded-2xl border border-gold/30 bg-navy-deep p-8 text-center shadow-[0_30px_80px_rgba(0,0,0,0.4)] sm:p-12">
+      <div className="rounded-2xl border border-gold/30 bg-cream p-8 text-center shadow-[0_30px_80px_rgba(6,21,42,0.14)] sm:p-12">
         <p className="font-display text-xs tracking-[0.3em] text-gold">
           ✓ CONFIRMED
         </p>
-        <h2 className="mt-4 font-display text-3xl font-semibold text-cream sm:text-4xl">
+        <h2 className="mt-4 font-display text-3xl font-semibold text-navy-deep sm:text-4xl">
           {t.success.title}
         </h2>
-        <p className="mt-4 text-cream/70">{t.success.lead}</p>
+        <p className="mt-4 text-navy-deep/70">{t.success.lead}</p>
 
-        <div className="mt-8 rounded-xl border border-gold/30 bg-navy p-6">
-          <p className="text-xs tracking-[0.2em] text-cream/50">
+        <div className="mt-8 rounded-xl border border-gold/30 bg-cream-dim p-6">
+          <p className="text-xs tracking-[0.2em] text-navy-deep/50">
             {t.success.idLabel}
           </p>
           <p className="mt-2 break-all font-display text-xl text-gold">{id}</p>
@@ -648,7 +648,7 @@ function SuccessPanel({
           </button>
           <Link
             href="/"
-            className="rounded-full border border-gold/40 px-8 py-3 text-sm tracking-[0.08em] text-cream/80 transition-colors hover:text-gold"
+            className="rounded-full border border-gold/40 px-8 py-3 text-sm tracking-[0.08em] text-navy-deep/80 transition-colors hover:text-gold"
           >
             {t.buttons.backHome}
           </Link>

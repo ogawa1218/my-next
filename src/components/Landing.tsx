@@ -30,17 +30,14 @@ export default function Landing() {
               {t.hero.eyebrow}
             </p>
             <div className="mt-8 flex items-center gap-5 sm:gap-7 lg:gap-9">
-              <KakuLogo
-                className="h-24 w-24 shrink-0 rounded-xl border-2 sm:h-32 sm:w-32 lg:h-44 lg:w-44"
-                charClassName="text-5xl sm:text-6xl lg:text-8xl"
-              />
-              <h1 className="font-display text-[clamp(3.5rem,9vw,7.5rem)] font-semibold leading-[0.95] text-cream">
+              <KakuLogo className="h-24 w-24 shrink-0 sm:h-32 sm:w-32 lg:h-44 lg:w-44" />
+              <h1 className="font-display text-[clamp(3.5rem,9vw,7.5rem)] font-semibold leading-[0.95] text-navy-deep">
                 {t.hero.title1}
                 <br />
                 <span className="text-gradient-gold">{t.hero.title2}</span>
               </h1>
             </div>
-            <p className="mt-8 max-w-md text-lg leading-relaxed text-cream/70">
+            <p className="mt-8 max-w-md text-lg leading-relaxed text-navy-deep/70">
               {t.hero.lead}
             </p>
             <div className="mt-12 flex flex-wrap items-center gap-5">
@@ -52,7 +49,7 @@ export default function Landing() {
               </a>
               <a
                 href="#concept"
-                className="text-sm font-medium tracking-[0.08em] text-cream/70 underline-offset-8 transition-colors hover:text-gold hover:underline"
+                className="text-sm font-medium tracking-[0.08em] text-navy-deep/70 underline-offset-8 transition-colors hover:text-gold hover:underline"
               >
                 {t.hero.ctaConcept}
               </a>
@@ -65,7 +62,7 @@ export default function Landing() {
         </div>
 
         <div
-          className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 text-[0.65rem] uppercase tracking-[0.35em] text-cream/40 lg:block"
+          className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 text-[0.65rem] uppercase tracking-[0.35em] text-navy-deep/40 lg:block"
           aria-hidden
         >
           Scroll
@@ -73,8 +70,8 @@ export default function Landing() {
       </section>
 
       {/* MARQUEE */}
-      <div className="border-y border-gold/15 bg-navy-deep py-6">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 text-xs tracking-[0.3em] text-cream/40">
+      <div className="border-y border-gold/15 bg-cream py-6">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 text-xs tracking-[0.3em] text-navy-deep/40">
           {t.marquee.map((w, i) => (
             <span key={i}>{w}</span>
           ))}
@@ -88,7 +85,7 @@ export default function Landing() {
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
               {t.concept.eyebrow}
             </p>
-            <h2 className="mt-6 max-w-3xl font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-cream">
+            <h2 className="mt-6 max-w-3xl font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-navy-deep">
               {t.concept.title}
             </h2>
           </Reveal>
@@ -104,15 +101,15 @@ export default function Landing() {
               <Reveal
                 key={p.k}
                 delay={i * 80}
-                className="group bg-navy p-8 transition-colors hover:bg-navy-deep"
+                className="group bg-cream-dim p-8 transition-colors hover:bg-cream"
               >
                 <span className="font-display text-3xl text-gold/40 transition-colors group-hover:text-gold">
                   {p.k}
                 </span>
-                <h3 className="mt-6 font-display text-2xl font-semibold text-cream">
+                <h3 className="mt-6 font-display text-2xl font-semibold text-navy-deep">
                   {p.t}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/55">
+                <p className="mt-3 text-sm leading-relaxed text-navy-deep/55">
                   {p.d}
                 </p>
               </Reveal>
@@ -124,14 +121,14 @@ export default function Landing() {
       {/* MENU */}
       <section
         id="menu"
-        className="border-y border-gold/15 bg-navy-deep px-6 py-28 lg:px-10 lg:py-40"
+        className="border-y border-gold/15 bg-cream px-6 py-28 lg:px-10 lg:py-40"
       >
         <div className="mx-auto max-w-7xl">
           <Reveal className="text-center">
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
               {t.menu.eyebrow}
             </p>
-            <h2 className="mx-auto mt-6 max-w-2xl font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-cream">
+            <h2 className="mx-auto mt-6 max-w-2xl font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-navy-deep">
               {t.menu.title}
             </h2>
           </Reveal>
@@ -141,7 +138,7 @@ export default function Landing() {
               <Reveal
                 key={m.slug}
                 delay={i * 70}
-                className="group relative overflow-hidden rounded-2xl border border-gold/15 bg-navy transition-all hover:border-gold/50"
+                className="group relative overflow-hidden rounded-2xl border border-gold/15 bg-cream-dim transition-all hover:border-gold/50"
               >
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <Image
@@ -151,7 +148,7 @@ export default function Landing() {
                     sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 90vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   />
-                  <span className="absolute right-3 top-3 rounded-full border border-gold/40 bg-navy-deep/60 px-3 py-1 text-[0.65rem] tracking-[0.1em] text-gold/90 backdrop-blur">
+                  <span className="absolute right-3 top-3 rounded-full border border-gold/40 bg-cream/60 px-3 py-1 text-[0.65rem] tracking-[0.1em] text-gold/90 backdrop-blur">
                     {m.rice}
                   </span>
                 </div>
@@ -159,10 +156,10 @@ export default function Landing() {
                   <p className="font-display text-xs tracking-[0.3em] text-gold/80">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-2 font-display text-2xl font-semibold text-cream">
+                  <h3 className="mt-2 font-display text-2xl font-semibold text-navy-deep">
                     {m.name}
                   </h3>
-                  <p className="mt-2 text-sm text-cream/55">{m.note}</p>
+                  <p className="mt-2 text-sm text-navy-deep/55">{m.note}</p>
                   <div
                     className="mt-6 h-px w-full hairline opacity-50 transition-opacity group-hover:opacity-100"
                     aria-hidden
@@ -180,7 +177,7 @@ export default function Landing() {
                 className={`rounded-2xl p-8 text-center transition-transform hover:-translate-y-1 ${
                   s.featured
                     ? "bg-gold text-navy-deep"
-                    : "border border-gold/15 bg-navy text-cream"
+                    : "border border-gold/15 bg-cream-dim text-navy-deep"
                 }`}
               >
                 {s.featured && (
@@ -195,7 +192,7 @@ export default function Landing() {
                 </h3>
                 <p
                   className={`mt-2 text-xs tracking-[0.08em] ${
-                    s.featured ? "text-navy-deep/70" : "text-cream/45"
+                    s.featured ? "text-navy-deep/70" : "text-navy-deep/45"
                   }`}
                 >
                   {s.detail}
@@ -207,7 +204,7 @@ export default function Landing() {
             ))}
           </div>
 
-          <Reveal className="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm text-cream/45">
+          <Reveal className="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm text-navy-deep/45">
             {t.menu.sides.map((s, i) => (
               <span key={s} className="flex items-center gap-x-10">
                 {i > 0 && <span className="text-gold/40">·</span>}
@@ -225,15 +222,15 @@ export default function Landing() {
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
               {t.why.eyebrow}
             </p>
-            <h2 className="mt-6 font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-cream">
+            <h2 className="mt-6 font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-navy-deep">
               {t.why.title}
             </h2>
-            <p className="mt-8 text-lg leading-relaxed text-cream/65">
+            <p className="mt-8 text-lg leading-relaxed text-navy-deep/65">
               {t.why.lead}
             </p>
             <ul className="mt-10 space-y-4">
               {t.why.bullets.map((b) => (
-                <li key={b} className="flex gap-4 text-cream/70">
+                <li key={b} className="flex gap-4 text-navy-deep/70">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gold" />
                   <span>{b}</span>
                 </li>
@@ -243,14 +240,14 @@ export default function Landing() {
 
           <div className="grid grid-cols-2 gap-px self-center overflow-hidden rounded-2xl border border-gold/15 bg-gold/15">
             {t.why.promises.map((p, i) => (
-              <Reveal key={p.k} delay={i * 90} className="bg-navy p-10">
+              <Reveal key={p.k} delay={i * 90} className="bg-cream-dim p-10">
                 <p className="font-display text-xs tracking-[0.3em] text-gold">
                   {p.k}
                 </p>
-                <p className="mt-3 font-display text-2xl font-semibold text-cream">
+                <p className="mt-3 font-display text-2xl font-semibold text-navy-deep">
                   {p.t}
                 </p>
-                <p className="mt-2 text-sm leading-snug text-cream/55">
+                <p className="mt-2 text-sm leading-snug text-navy-deep/55">
                   {p.d}
                 </p>
               </Reveal>
@@ -262,14 +259,14 @@ export default function Landing() {
       {/* LOCATIONS */}
       <section
         id="locations"
-        className="border-y border-gold/15 bg-navy-deep px-6 py-28 lg:px-10 lg:py-40"
+        className="border-y border-gold/15 bg-cream px-6 py-28 lg:px-10 lg:py-40"
       >
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
               {t.locations.eyebrow}
             </p>
-            <h2 className="mt-6 max-w-2xl font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-cream">
+            <h2 className="mt-6 max-w-2xl font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-navy-deep">
               {t.locations.title}
             </h2>
           </Reveal>
@@ -279,21 +276,21 @@ export default function Landing() {
               <Reveal
                 key={c.city}
                 delay={i * 100}
-                className="group relative overflow-hidden rounded-3xl border border-gold/20 bg-navy p-10 lg:p-14"
+                className="group relative overflow-hidden rounded-3xl border border-gold/20 bg-cream-dim p-10 lg:p-14"
               >
                 <span className="text-xs tracking-[0.14em] text-gold/70">
                   {c.tag}
                 </span>
-                <h3 className="mt-4 font-display text-4xl font-semibold text-cream lg:text-5xl">
+                <h3 className="mt-4 font-display text-4xl font-semibold text-navy-deep lg:text-5xl">
                   {c.city}
                 </h3>
-                <p className="mt-6 max-w-sm text-cream/60">{c.d}</p>
+                <p className="mt-6 max-w-sm text-navy-deep/60">{c.d}</p>
                 <div className="mt-10 h-px w-full hairline" aria-hidden />
               </Reveal>
             ))}
           </div>
 
-          <Reveal className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-cream/45">
+          <Reveal className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-navy-deep/45">
             <span>{t.locations.nextLabel}</span>
             {t.locations.next.map((n) => (
               <span key={n} className="flex items-center gap-x-6">
@@ -315,11 +312,11 @@ export default function Landing() {
           <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
             {t.social.eyebrow}
           </p>
-          <h2 className="mt-6 font-display text-[clamp(2.75rem,6vw,5.5rem)] font-semibold leading-[1.02] text-cream">
+          <h2 className="mt-6 font-display text-[clamp(2.75rem,6vw,5.5rem)] font-semibold leading-[1.02] text-navy-deep">
             {t.social.title1}{" "}
             <span className="text-gradient-gold">{t.social.title2}</span>
           </h2>
-          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-cream/65">
+          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-navy-deep/65">
             {t.social.leadPre}{" "}
             <span className="text-gold">#KAKUChallenge</span>
             {t.social.leadPost}
@@ -344,16 +341,16 @@ export default function Landing() {
       {/* RESERVE CTA */}
       <section
         id="reserve"
-        className="border-y border-gold/15 bg-navy-deep px-6 py-28 lg:px-10 lg:py-36"
+        className="border-y border-gold/15 bg-cream px-6 py-28 lg:px-10 lg:py-36"
       >
         <Reveal className="mx-auto max-w-4xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
             {t.reserveCta.eyebrow}
           </p>
-          <h2 className="mt-6 font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-cream">
+          <h2 className="mt-6 font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-navy-deep">
             {t.reserveCta.title}
           </h2>
-          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-cream/65">
+          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-navy-deep/65">
             {t.reserveCta.lead}
           </p>
           <div className="mt-10">
@@ -364,7 +361,7 @@ export default function Landing() {
               {t.reserveCta.cta}
             </Link>
           </div>
-          <p className="mt-6 text-xs tracking-[0.14em] text-cream/40">
+          <p className="mt-6 text-xs tracking-[0.14em] text-navy-deep/40">
             {t.reserveCta.note}
           </p>
         </Reveal>
@@ -385,10 +382,10 @@ export default function Landing() {
           <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
             {t.newsletter.eyebrow}
           </p>
-          <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] text-cream">
+          <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1.05] text-navy-deep">
             {t.newsletter.title}
           </h2>
-          <p className="mx-auto mt-6 mb-10 max-w-lg text-lg leading-relaxed text-cream/65">
+          <p className="mx-auto mt-6 mb-10 max-w-lg text-lg leading-relaxed text-navy-deep/65">
             {t.newsletter.lead}
           </p>
           <NewsletterForm />

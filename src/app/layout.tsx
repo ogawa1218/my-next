@@ -68,7 +68,7 @@ export default function RootLayout({
       lang="ja"
       className={`${bodoni.variable} ${hanken.variable} ${notoSansJp.variable} ${notoSerifJp.variable} h-full`}
     >
-      <body className="min-h-full bg-navy text-cream antialiased">
+      <body className="min-h-full bg-cream-dim text-navy-deep antialiased">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

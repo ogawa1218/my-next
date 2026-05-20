@@ -26,10 +26,10 @@ export default function Franchise() {
           <p className="animate-fade text-xs font-medium uppercase tracking-[0.4em] text-gold">
             {f.eyebrow}
           </p>
-          <h1 className="mt-8 font-display text-[clamp(3rem,8vw,6rem)] font-semibold leading-[0.98] text-cream">
+          <h1 className="mt-8 font-display text-[clamp(3rem,8vw,6rem)] font-semibold leading-[0.98] text-navy-deep">
             {f.title}
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-cream/70">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-navy-deep/70">
             {f.lead}
           </p>
           <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
@@ -41,7 +41,7 @@ export default function Franchise() {
             </a>
             <a
               href="#economics"
-              className="text-sm font-medium tracking-[0.08em] text-cream/70 underline-offset-8 transition-colors hover:text-gold hover:underline"
+              className="text-sm font-medium tracking-[0.08em] text-navy-deep/70 underline-offset-8 transition-colors hover:text-gold hover:underline"
             >
               {f.ctaEconomics}
             </a>
@@ -50,24 +50,24 @@ export default function Franchise() {
       </section>
 
       {/* OPPORTUNITY */}
-      <section className="border-y border-gold/15 bg-navy-deep px-6 py-24 lg:px-10 lg:py-32">
+      <section className="border-y border-gold/15 bg-cream px-6 py-24 lg:px-10 lg:py-32">
         <div className="mx-auto max-w-7xl">
           <Reveal className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
               {f.opportunityTitle}
             </p>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,4.5vw,4rem)] font-semibold leading-[1.05] text-cream">
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,4.5vw,4rem)] font-semibold leading-[1.05] text-navy-deep">
               {f.opportunityLead}
             </h2>
           </Reveal>
 
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-gold/15 bg-gold/15 sm:grid-cols-2 lg:grid-cols-4">
             {f.stats.map((s, i) => (
-              <Reveal key={s.l} delay={i * 80} className="bg-navy p-8 lg:p-10">
+              <Reveal key={s.l} delay={i * 80} className="bg-cream-dim p-8 lg:p-10">
                 <p className="font-display text-4xl font-semibold text-gradient-gold lg:text-5xl">
                   {s.n}
                 </p>
-                <p className="mt-3 text-sm leading-snug text-cream/55">
+                <p className="mt-3 text-sm leading-snug text-navy-deep/55">
                   {s.l}
                 </p>
               </Reveal>
@@ -83,14 +83,14 @@ export default function Franchise() {
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
               {f.economicsTitle}
             </p>
-            <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.05] text-cream">
+            <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.05] text-navy-deep">
               {f.economicsLead}
             </h2>
           </Reveal>
           <Reveal>
             <ul className="space-y-5">
               {f.economics.map((b) => (
-                <li key={b} className="flex gap-4 text-lg text-cream/75">
+                <li key={b} className="flex gap-4 text-lg text-navy-deep/75">
                   <span className="mt-3 h-1.5 w-1.5 flex-none rounded-full bg-gold" />
                   <span>{b}</span>
                 </li>
@@ -101,27 +101,27 @@ export default function Franchise() {
       </section>
 
       {/* SYSTEM */}
-      <section className="border-y border-gold/15 bg-navy-deep px-6 py-24 lg:px-10 lg:py-32">
+      <section className="border-y border-gold/15 bg-cream px-6 py-24 lg:px-10 lg:py-32">
         <div className="mx-auto max-w-7xl">
           <Reveal className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
               {f.systemTitle}
             </p>
-            <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.05] text-cream">
+            <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.05] text-navy-deep">
               {f.systemLead}
             </h2>
           </Reveal>
 
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-gold/15 bg-gold/15 md:grid-cols-2 lg:grid-cols-3">
             {f.system.map((s, i) => (
-              <Reveal key={s.k} delay={i * 70} className="bg-navy p-8">
+              <Reveal key={s.k} delay={i * 70} className="bg-cream-dim p-8">
                 <span className="font-display text-2xl text-gold/40">
                   {s.k}
                 </span>
-                <h3 className="mt-4 font-display text-xl font-semibold text-cream">
+                <h3 className="mt-4 font-display text-xl font-semibold text-navy-deep">
                   {s.t}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-cream/55">
+                <p className="mt-2 text-sm leading-relaxed text-navy-deep/55">
                   {s.d}
                 </p>
               </Reveal>
@@ -139,7 +139,7 @@ export default function Franchise() {
             </p>
             <ul className="mt-8 space-y-4">
               {f.target.map((b) => (
-                <li key={b} className="flex gap-4 text-cream/75">
+                <li key={b} className="flex gap-4 text-navy-deep/75">
                   <span className="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-gold" />
                   <span>{b}</span>
                 </li>
@@ -157,8 +157,8 @@ export default function Franchise() {
                     {s.k}
                   </span>
                   <div>
-                    <p className="font-display text-lg text-cream">{s.t}</p>
-                    <p className="mt-1 text-sm text-cream/55">{s.d}</p>
+                    <p className="font-display text-lg text-navy-deep">{s.t}</p>
+                    <p className="mt-1 text-sm text-navy-deep/55">{s.d}</p>
                   </div>
                 </li>
               ))}
@@ -237,14 +237,14 @@ function InquirySection() {
   return (
     <section
       id="inquiry"
-      className="border-y border-gold/15 bg-navy-deep px-6 py-24 lg:px-10 lg:py-32"
+      className="border-y border-gold/15 bg-cream px-6 py-24 lg:px-10 lg:py-32"
     >
       <div className="mx-auto max-w-2xl">
         <Reveal className="text-center">
           <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
             {f.inquiryTitle}
           </p>
-          <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.05] text-cream">
+          <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.05] text-navy-deep">
             {f.inquiryLead}
           </h2>
         </Reveal>
@@ -254,13 +254,13 @@ function InquirySection() {
             <p className="font-display text-xs tracking-[0.3em] text-gold">
               ✓ SENT
             </p>
-            <p className="mt-4 text-cream/80">{form.success}</p>
+            <p className="mt-4 text-navy-deep/80">{form.success}</p>
           </Reveal>
         ) : (
           <Reveal>
             <form
               onSubmit={onSubmit}
-              className="mt-10 grid gap-5 rounded-2xl border border-gold/20 bg-navy p-7 sm:grid-cols-2 sm:p-10"
+              className="mt-10 grid gap-5 rounded-2xl border border-gold/20 bg-cream-dim p-7 sm:grid-cols-2 sm:p-10"
             >
               <Row label={form.name} required>
                 <Input
@@ -309,7 +309,7 @@ function InquirySection() {
                 <select
                   value={state.budget_band}
                   onChange={(e) => update("budget_band", e.target.value)}
-                  className="w-full rounded-xl border border-gold/25 bg-navy-deep px-4 py-3 text-cream outline-none focus:border-gold/70"
+                  className="w-full rounded-xl border border-gold/25 bg-cream px-4 py-3 text-navy-deep outline-none focus:border-gold/70"
                 >
                   <option value="">—</option>
                   {form.budgets.map((b) => (
@@ -327,7 +327,7 @@ function InquirySection() {
                   rows={4}
                   value={state.message}
                   onChange={(e) => update("message", e.target.value)}
-                  className="w-full rounded-xl border border-gold/25 bg-navy-deep px-4 py-3 text-cream outline-none focus:border-gold/70"
+                  className="w-full rounded-xl border border-gold/25 bg-cream px-4 py-3 text-navy-deep outline-none focus:border-gold/70"
                 />
               </Row>
 
@@ -369,7 +369,7 @@ function Row({
 }) {
   return (
     <label className={`block ${full ? "sm:col-span-2" : ""}`}>
-      <span className="block text-xs font-medium uppercase tracking-[0.2em] text-cream/70">
+      <span className="block text-xs font-medium uppercase tracking-[0.2em] text-navy-deep/70">
         {label}
         {required && <span className="ml-1 text-gold">*</span>}
       </span>
@@ -395,7 +395,7 @@ function Input({
       value={value}
       autoComplete={autoComplete}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full rounded-xl border border-gold/25 bg-navy-deep px-4 py-3 text-cream outline-none focus:border-gold/70"
+      className="w-full rounded-xl border border-gold/25 bg-cream px-4 py-3 text-navy-deep outline-none focus:border-gold/70"
     />
   );
 }

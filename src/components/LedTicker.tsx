@@ -3,7 +3,7 @@ type Props = { text: string };
 export default function LedTicker({ text }: Props) {
   return (
     <div
-      className="relative overflow-hidden border-y border-gold/25 bg-navy-deep/80 py-6 lg:py-8"
+      className="relative overflow-hidden border-y border-gold/25 bg-navy-deep py-6 lg:py-8"
       role="marquee"
       aria-label={text}
     >

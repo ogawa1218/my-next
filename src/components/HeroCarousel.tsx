@@ -45,7 +45,7 @@ export default function HeroCarousel() {
       />
 
       <div
-        className="relative overflow-hidden rounded-[1.75rem] border border-gold/30 bg-navy-deep shadow-[0_40px_90px_rgba(0,0,0,0.6)]"
+        className="relative overflow-hidden rounded-[1.75rem] border border-gold/30 bg-cream shadow-[0_40px_90px_rgba(6,21,42,0.18)]"
         aria-roledescription="carousel"
         aria-live="polite"
       >
@@ -67,7 +67,7 @@ export default function HeroCarousel() {
           ))}
 
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-navy-deep via-navy-deep/60 to-transparent"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-cream via-cream/60 to-transparent"
             aria-hidden
           />
 
@@ -77,13 +77,13 @@ export default function HeroCarousel() {
             </p>
             <h3
               key={`name-${active}`}
-              className="mt-2 animate-fade font-display text-2xl font-semibold leading-tight text-cream sm:text-3xl"
+              className="mt-2 animate-fade font-display text-2xl font-semibold leading-tight text-navy-deep sm:text-3xl"
             >
               {current.name}
             </h3>
             <p
               key={`note-${active}`}
-              className="mt-1 animate-fade text-sm text-cream/70"
+              className="mt-1 animate-fade text-sm text-navy-deep/70"
             >
               {current.note}
             </p>
@@ -105,7 +105,7 @@ export default function HeroCarousel() {
             aria-label={`${m.name} を表示`}
             aria-current={i === active}
             className={`h-1.5 rounded-full transition-all ${
-              i === active ? "w-8 bg-gold" : "w-3 bg-cream/25 hover:bg-cream/45"
+              i === active ? "w-8 bg-gold" : "w-3 bg-navy-deep/20 hover:bg-navy-deep/40"
             }`}
           />
         ))}
