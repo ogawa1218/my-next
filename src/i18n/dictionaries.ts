@@ -250,7 +250,7 @@ export const dictionaries: Record<Locale, Dict> = {
         { id: "kaku-gift-12", name: "KAKU GIFT 12", detail: "12個 ・ 4フレーバー ・ プレミアムBOX", price: "¥2,580" },
       ],
       featuredLabel: "人気No.1",
-      sides: ["味噌汁カップ — ¥380", "枝豆カップ — ¥420", "抹茶ラテ — ¥680"],
+      sides: [],
     },
     why: {
       eyebrow: "Why KAKU",
@@ -502,7 +502,7 @@ export const dictionaries: Record<Locale, Dict> = {
         { id: "kaku-gift-12", name: "KAKU GIFT 12", detail: "12 pc · 4 flavours · premium box", price: "¥2,580" },
       ],
       featuredLabel: "Most loved",
-      sides: ["Miso Soup Cup — ¥380", "Edamame Cup — ¥420", "Matcha Latte — ¥680"],
+      sides: [],
     },
     why: {
       eyebrow: "Why KAKU",
@@ -754,7 +754,7 @@ export const dictionaries: Record<Locale, Dict> = {
         { id: "kaku-gift-12", name: "KAKU GIFT 12", detail: "12 件 · 4 种风味 · 高端礼盒", price: "¥2,580" },
       ],
       featuredLabel: "人气第一",
-      sides: ["味噌汤杯 — ¥380", "毛豆杯 — ¥420", "抹茶拿铁 — ¥680"],
+      sides: [],
     },
     why: {
       eyebrow: "Why KAKU",

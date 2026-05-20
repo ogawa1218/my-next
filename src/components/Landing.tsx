@@ -204,14 +204,16 @@ export default function Landing() {
             ))}
           </div>
 
-          <Reveal className="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm text-navy-deep/45">
-            {t.menu.sides.map((s, i) => (
-              <span key={s} className="flex items-center gap-x-10">
-                {i > 0 && <span className="text-gold/40">·</span>}
-                {s}
-              </span>
-            ))}
-          </Reveal>
+          {t.menu.sides.length > 0 && (
+            <Reveal className="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm text-navy-deep/45">
+              {t.menu.sides.map((s, i) => (
+                <span key={s} className="flex items-center gap-x-10">
+                  {i > 0 && <span className="text-gold/40">·</span>}
+                  {s}
+                </span>
+              ))}
+            </Reveal>
+          )}
         </div>
       </section>
 
