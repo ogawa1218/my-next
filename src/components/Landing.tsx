@@ -271,6 +271,35 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* STAFF SCENE */}
+      <section className="bg-cream px-6 py-24 lg:px-10 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <Reveal>
+            <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
+              Behind the Showcase
+            </p>
+            <h2 className="mt-6 font-display text-[clamp(2.4rem,5vw,4.6rem)] font-semibold leading-[1.05] text-navy-deep">
+              Every cube is finished
+              <span className="block text-gradient-gold">like a small jewel.</span>
+            </h2>
+            <p className="mt-7 max-w-xl text-base leading-8 text-navy-deep/65 md:text-lg">
+              The KAKU counter is designed for precision: showcase display, final garnish,
+              premium box packing and fast pickup. Staff movement becomes part of the brand theatre.
+            </p>
+          </Reveal>
+
+          <Reveal className="overflow-hidden rounded-[2rem] border border-gold/25 bg-navy-deep p-2 shadow-[0_30px_90px_rgba(11,31,58,0.18)]">
+            <Image
+              src="/story/kaku-store-staff.png"
+              alt="KAKU staff arranging cube sushi and serving customers behind the showcase"
+              width={1792}
+              height={1024}
+              className="h-auto w-full rounded-[1.5rem] object-cover"
+            />
+          </Reveal>
+        </div>
+      </section>
+
       {/* WHY */}
       <section id="why" className="px-6 py-28 lg:px-10 lg:py-40">
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:gap-24">
@@ -392,6 +421,35 @@ export default function Landing() {
             </a>
           </div>
         </Reveal>
+      </section>
+
+      {/* STORY MANGA */}
+      <section className="border-y border-gold/15 bg-cream px-6 py-24 lg:px-10 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
+              KAKU Story Manga
+            </p>
+            <h2 className="mt-6 font-display text-[clamp(2.4rem,5vw,4.4rem)] font-semibold leading-[1.05] text-navy-deep">
+              A lunch break becomes
+              <span className="block text-gradient-gold">the next energy.</span>
+            </h2>
+            <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-navy-deep/65 md:text-lg">
+              A visual story for the landing page: busy city life, the KAKU showcase,
+              handcrafted cube sushi, and the small luxury of opening the box.
+            </p>
+          </Reveal>
+
+          <Reveal className="mt-12 overflow-hidden rounded-[2rem] border border-gold/25 bg-navy-deep p-2 shadow-[0_30px_90px_rgba(11,31,58,0.16)]">
+            <Image
+              src="/story/kaku-story-manga.png"
+              alt="Six panel manga telling the KAKU brand story"
+              width={1792}
+              height={1024}
+              className="h-auto w-full rounded-[1.5rem]"
+            />
+          </Reveal>
+        </div>
       </section>
 
       {/* RESERVE CTA */}
