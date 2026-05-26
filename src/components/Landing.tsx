@@ -130,7 +130,7 @@ export default function Landing() {
           <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
             {t.concept.eyebrow}
           </p>
-          <h2 className="mt-6 whitespace-nowrap font-display text-[clamp(1.4rem,4.2vw,3.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-navy-deep">
+          <h2 className="mt-6 font-display text-[clamp(1.85rem,4.2vw,3.5rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-navy-deep sm:whitespace-nowrap">
             <RevealText text={t.concept.title} />
           </h2>
         </div>

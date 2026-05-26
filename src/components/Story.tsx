@@ -116,8 +116,8 @@ function PanelPlaceholder({ k, title }: { k: string; title: string }) {
         </span>
       </div>
 
-      <span className="absolute right-5 top-5 font-display text-[0.55rem] tracking-[0.4em] text-gold/40">
-        KAKU
+      <span className="absolute right-5 top-5 rounded-full border border-gold/30 px-2 py-0.5 font-display text-[0.55rem] tracking-[0.35em] text-gold/80">
+        Coming 2026
       </span>
 
       <p className="absolute inset-x-5 bottom-5 font-display text-2xl font-semibold leading-tight text-cream/90">
