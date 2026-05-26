@@ -76,17 +76,17 @@ export default function Landing() {
               {t.hero.lead}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
-              <a
-                href="#menu"
+              <Link
+                href="/reserve"
                 className="rounded-full bg-gold px-9 py-4 text-sm font-semibold tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
               >
-                {t.hero.ctaMenu}
-              </a>
+                {t.nav.cta}
+              </Link>
               <a
-                href="#concept"
+                href="#menu"
                 className="text-sm font-medium tracking-[0.08em] text-navy-deep/70 underline-offset-8 transition-colors hover:text-gold hover:underline"
               >
-                {t.hero.ctaConcept}
+                {t.hero.ctaMenu}
               </a>
             </div>
           </div>
