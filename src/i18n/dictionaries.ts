@@ -126,7 +126,8 @@ export type Dict = {
       title: string;
       storeLabel: string;
       storeHelper: string;
-      pickupAtLabel: string;
+      pickupDateLabel: string;
+      pickupSlotLabel: string;
       pickupHelper: string;
     };
     selection: {
@@ -373,8 +374,9 @@ export const dictionaries: Record<Locale, Dict> = {
         title: "受け取り情報",
         storeLabel: "店舗",
         storeHelper: "パイロット拠点を選択",
-        pickupAtLabel: "受け取り日時",
-        pickupHelper: "現在より先の日時を指定してください。",
+        pickupDateLabel: "受け取り日",
+        pickupSlotLabel: "受け取り時刻",
+        pickupHelper: "日本時間（JST）／前日までにご予約ください。",
       },
       selection: {
         title: "セットとフレーバー",
@@ -654,8 +656,9 @@ export const dictionaries: Record<Locale, Dict> = {
         title: "Pickup details",
         storeLabel: "Store",
         storeHelper: "Choose a pilot location",
-        pickupAtLabel: "Pickup date & time",
-        pickupHelper: "Please choose a time in the future.",
+        pickupDateLabel: "Pickup date",
+        pickupSlotLabel: "Pickup time",
+        pickupHelper: "All times in JST. Please book at least a day ahead.",
       },
       selection: {
         title: "Set & flavours",
@@ -935,8 +938,9 @@ export const dictionaries: Record<Locale, Dict> = {
         title: "取餐信息",
         storeLabel: "门店",
         storeHelper: "选择试点门店",
-        pickupAtLabel: "取餐日期与时间",
-        pickupHelper: "请选择未来的时间。",
+        pickupDateLabel: "取餐日期",
+        pickupSlotLabel: "取餐时间",
+        pickupHelper: "时间为日本时间（JST），请至少提前一天预约。",
       },
       selection: {
         title: "套餐与风味",
