@@ -42,6 +42,9 @@ export type Dict = {
     lead: string;
     ctaMenu: string;
     ctaConcept: string;
+    pilotBadge: string;
+    teamEyebrow: string;
+    teamCopy: string;
   };
   marquee: string[];
   concept: { eyebrow: string; title: string; lead: string; pillars: Pillar[] };
@@ -218,6 +221,9 @@ export const dictionaries: Record<Locale, Dict> = {
       lead: "押し寿司を、ジュエリーの精度で。30mm角のキューブに五穀米と6つのフレーバー。健康とラグジュアリーを、次の活力へ。",
       ctaMenu: "メニューを見る",
       ctaConcept: "コンセプト",
+      pilotBadge: "Pilot · 2026",
+      teamEyebrow: "Our Team",
+      teamCopy: "和の職人 × デザイン主導のサービス。2026年、4店舗で迎えます。",
     },
     marquee: ["押し寿司", "·", "五穀米", "·", "健康", "·", "ショーケース", "·", "次の活力へ"],
     concept: {
@@ -470,6 +476,9 @@ export const dictionaries: Record<Locale, Dict> = {
       lead: "Pressed sushi, cut with the precision of jewellery. A 30mm cube of five-grain rice and six flavours — health and luxury, for your next surge.",
       ctaMenu: "Explore the Menu",
       ctaConcept: "The Concept",
+      pilotBadge: "Pilot · 2026",
+      teamEyebrow: "Our Team",
+      teamCopy: "Sushi craftsmen × design-led service. We open the doors at all four stores in 2026.",
     },
     marquee: ["Pressed Sushi", "·", "Five-Grain", "·", "Health", "·", "Showcase", "·", "Your Next Surge"],
     concept: {
@@ -722,6 +731,9 @@ export const dictionaries: Record<Locale, Dict> = {
       lead: "押寿司，以珠宝般的精度切割。30mm 立方，五谷米与六款风味——健康与奢华，为你的下一份活力。",
       ctaMenu: "查看菜单",
       ctaConcept: "了解理念",
+      pilotBadge: "试点 · 2026",
+      teamEyebrow: "Our Team",
+      teamCopy: "日式职人 × 设计为先的服务。2026 年，4 家门店与你相见。",
     },
     marquee: ["押寿司", "·", "五谷米", "·", "健康", "·", "展示柜", "·", "下一份活力"],
     concept: {

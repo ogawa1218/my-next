@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import KakuLogo from "@/components/KakuLogo";
 import LedTicker from "@/components/LedTicker";
 import Reveal from "@/components/Reveal";
 import Image from "next/image";
-import HeroCarousel from "@/components/HeroCarousel";
+import StoreShowcase from "@/components/StoreShowcase";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
@@ -24,26 +23,57 @@ export default function Landing() {
           className="pointer-events-none absolute -right-40 top-1/4 h-[520px] w-[520px] rounded-full bg-gold/10 blur-[120px]"
           aria-hidden
         />
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-2">
-          <div>
-            <p className="animate-fade text-xs font-medium tracking-[0.3em] text-gold">
-              {t.hero.eyebrow}
-            </p>
-            <div className="mt-8 flex items-center gap-5 sm:gap-7 lg:gap-9">
-              <KakuLogo className="h-24 w-24 shrink-0 sm:h-32 sm:w-32 lg:h-44 lg:w-44" />
-              <h1 className="font-display text-[clamp(3.5rem,9vw,7.5rem)] font-semibold leading-[0.95] text-navy-deep">
-                {t.hero.title1}
-                <br />
-                <span className="text-gradient-gold">{t.hero.title2}</span>
-              </h1>
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+          <div className="animate-rise">
+            {/* Enlarged hero image with Concept overlay + KAKU title */}
+            <div className="relative overflow-hidden rounded-3xl border border-gold/20 shadow-[0_30px_90px_rgba(6,21,42,0.18)]">
+              <Image
+                src="/kaku-hero.png"
+                alt="KAKU pressed sushi cubes on a serving tray"
+                width={1200}
+                height={680}
+                priority
+                sizes="(min-width: 1024px) 55vw, 92vw"
+                className="h-auto w-full object-cover"
+              />
+
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/40 via-transparent to-navy-deep/60"
+                aria-hidden
+              />
+
+              {/* Horizontal Concept eyebrow over the top of the image */}
+              <div className="absolute inset-x-0 top-0 flex flex-wrap items-center gap-x-4 gap-y-1 px-6 pt-5 sm:px-8 sm:pt-6">
+                <span className="text-[0.65rem] font-semibold uppercase tracking-[0.4em] text-gold">
+                  Concept
+                </span>
+                <span className="text-gold/40" aria-hidden>
+                  ·
+                </span>
+                <span className="text-[0.65rem] uppercase tracking-[0.3em] text-cream/85">
+                  {t.hero.eyebrow}
+                </span>
+              </div>
+
+              {/* KAKU + Sushi, Squared title overlay */}
+              <div className="absolute inset-x-0 bottom-0 px-6 pb-6 sm:px-8 sm:pb-8">
+                <p className="font-display text-5xl font-semibold tracking-[0.18em] text-cream sm:text-6xl lg:text-7xl">
+                  KAKU
+                </p>
+                <p className="mt-2 font-display text-lg tracking-[0.08em] text-gold-soft sm:text-xl lg:text-2xl">
+                  {t.hero.title1} {t.hero.title2}
+                </p>
+              </div>
             </div>
-            <p className="mt-8 max-w-md text-lg leading-relaxed text-navy-deep/70">
+
+            {/* Lead + CTAs below the image */}
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-navy-deep/75">
               {t.hero.lead}
             </p>
-            <div className="mt-12 flex flex-wrap items-center gap-5">
+            <div className="mt-8 flex flex-wrap items-center gap-5">
               <a
                 href="#menu"
-                className="rounded-full bg-gold px-9 py-4 text-sm font-medium tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
+                className="rounded-full bg-gold px-9 py-4 text-sm font-semibold tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
               >
                 {t.hero.ctaMenu}
               </a>
@@ -57,7 +87,7 @@ export default function Landing() {
           </div>
 
           <div className="animate-rise">
-            <HeroCarousel />
+            <StoreShowcase />
           </div>
         </div>
 
