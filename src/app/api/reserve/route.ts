@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabase } from "@/lib/supabase";
+import { checkRateLimit, clientKeyFromRequest } from "@/lib/rate-limit";
 
 const STORES = new Set([
   "harajuku",
@@ -35,6 +36,17 @@ function asNonEmptyString(v: unknown, max = 500): string | null {
 }
 
 export async function POST(req: Request) {
+  const rl = checkRateLimit(`reserve:${clientKeyFromRequest(req)}`, {
+    windowMs: 60_000,
+    max: 5,
+  });
+  if (!rl.ok) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again shortly." },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfterSec) } },
+    );
+  }
+
   const supabase = getSupabase();
   if (!supabase) {
     return NextResponse.json(

@@ -8,6 +8,7 @@ import Image from "next/image";
 import RevealText from "@/components/RevealText";
 import Story from "@/components/Story";
 import Roadmap from "@/components/Roadmap";
+import MobileReserveCTA from "@/components/MobileReserveCTA";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
@@ -77,7 +78,9 @@ export default function Landing() {
               <p className="text-[0.65rem] uppercase tracking-[0.35em] text-gold sm:text-xs">
                 {t.hero.pilotBadge}
                 <span className="mx-2 text-gold/40">·</span>
-                <span className="text-cream/80">原宿 · 東京駅 · 浅草 · 上野</span>
+                <span className="text-cream/80">
+                  原宿 (Q1) · 八重洲 (Q2) · 浅草 (Q3) · 上野 (Q4)
+                </span>
               </p>
             </div>
           </div>
@@ -496,6 +499,8 @@ export default function Landing() {
       </section>
 
       <Footer />
+
+      <MobileReserveCTA />
     </main>
   );
 }
