@@ -6,6 +6,7 @@ import LedTicker from "@/components/LedTicker";
 import Reveal from "@/components/Reveal";
 import Image from "next/image";
 import RevealText from "@/components/RevealText";
+import ShimmerText from "@/components/ShimmerText";
 import Story from "@/components/Story";
 import Roadmap from "@/components/Roadmap";
 import MobileReserveCTA from "@/components/MobileReserveCTA";
@@ -67,9 +68,7 @@ export default function Landing({ mangaReady = false }: LandingProps) {
               <div>
                 <p className="font-display text-2xl font-semibold tracking-[0.06em] sm:text-3xl lg:text-4xl">
                   <span className="text-cream">{t.hero.title1}</span>{" "}
-                  <span className="text-gradient-gold-shimmer">
-                    {t.hero.title2}
-                  </span>
+                  <ShimmerText>{t.hero.title2}</ShimmerText>
                 </p>
                 {t.hero.titleCompanion && (
                   <p className="mt-1 font-display text-sm tracking-[0.3em] text-gold-soft sm:text-base">
