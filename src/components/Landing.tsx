@@ -6,6 +6,7 @@ import LedTicker from "@/components/LedTicker";
 import Reveal from "@/components/Reveal";
 import Image from "next/image";
 import Story from "@/components/Story";
+import Roadmap from "@/components/Roadmap";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
@@ -427,6 +428,9 @@ export default function Landing() {
           </div>
         </Reveal>
       </section>
+
+      {/* ROADMAP */}
+      <Roadmap />
 
       {/* RESERVE CTA */}
       <section

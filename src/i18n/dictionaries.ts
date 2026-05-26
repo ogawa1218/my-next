@@ -78,6 +78,12 @@ export type Dict = {
     nextLabel: string;
     next: string[];
   };
+  roadmap: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    milestones: Step[];
+  };
   reserveCta: {
     eyebrow: string;
     title: string;
@@ -308,6 +314,17 @@ export const dictionaries: Record<Locale, Dict> = {
       ],
       nextLabel: "次の展開：関西・名古屋・福岡",
       next: ["関西・名古屋・福岡 → 2027〜", "海外都市 → 2028〜"],
+    },
+    roadmap: {
+      eyebrow: "Roadmap",
+      title: "2026年、4店舗を順に開きます。",
+      lead: "信頼を積み上げながら、東京を一店ずつ。",
+      milestones: [
+        { k: "Q1 · 春", t: "原宿 旗艦店", d: "Z世代と訪日観光客が交差する KAKU の旗艦。竹下通り至近、ショーケース体験を最初に披露します。" },
+        { k: "Q2 · 夏", t: "東京駅 八重洲口", d: "原宿の運用知見を持って、日本最大級のラッシュ動線へ。Grab & Go の中心地に2号店。" },
+        { k: "Q3 · 秋", t: "浅草", d: "雷門・仲見世徒歩圏。インバウンド需要と手土産文化の二本立てを取りに行く。" },
+        { k: "Q4 · 冬", t: "上野", d: "駅・公園・アメ横を併せ持つ多目的エリアで、ビジネス・観光・地元客の混在動線を実証。" },
+      ],
     },
     reserveCta: {
       eyebrow: "Reserve",
@@ -579,6 +596,17 @@ export const dictionaries: Record<Locale, Dict> = {
       nextLabel: "Next: Kansai · Nagoya · Fukuoka",
       next: ["Kansai · Nagoya · Fukuoka → 2027+", "Overseas cities → 2028+"],
     },
+    roadmap: {
+      eyebrow: "Roadmap",
+      title: "Four stores, opening one quarter at a time in 2026.",
+      lead: "We earn trust before we scale — one Tokyo store at a time.",
+      milestones: [
+        { k: "Q1 · Spring", t: "Harajuku — Flagship", d: "Where Gen Z and global tourists cross. The first KAKU showcase, steps from Takeshita Street." },
+        { k: "Q2 · Summer", t: "Tokyo Station — Yaesu", d: "Carry forward what we learn at Harajuku into the busiest commuter artery in Japan." },
+        { k: "Q3 · Autumn", t: "Asakusa", d: "Kaminari-mon and Nakamise on foot. Inbound demand and the gifting market in one site." },
+        { k: "Q4 · Winter", t: "Ueno", d: "Station, park and Ameyoko. Business, tourism and local traffic — the mixed-flow stress test." },
+      ],
+    },
     reserveCta: {
       eyebrow: "Reserve",
       title: "Reserve your box, ahead of time.",
@@ -848,6 +876,17 @@ export const dictionaries: Record<Locale, Dict> = {
       ],
       nextLabel: "下一站：关西·名古屋·福冈",
       next: ["关西·名古屋·福冈 → 2027+", "海外城市 → 2028+"],
+    },
+    roadmap: {
+      eyebrow: "Roadmap",
+      title: "2026 年，4 家门店逐季开业。",
+      lead: "先稳一家，再开下一家——东京，一店一店来。",
+      milestones: [
+        { k: "Q1 · 春", t: "原宿 旗舰店", d: "Z 世代与全球游客交汇之地，KAKU 旗舰店紧邻竹下通，首发展示柜体验。" },
+        { k: "Q2 · 夏", t: "东京站 八重洲口", d: "把原宿的经验带到全日本最繁忙的通勤动线——即取即走的核心位。" },
+        { k: "Q3 · 秋", t: "浅草", d: "雷门、仲见世近在咫尺。入境客流与伴手礼文化一并兼得。" },
+        { k: "Q4 · 冬", t: "上野", d: "车站、公园、阿美横丁集于一处。商务、观光、本地客的混合动线压力测试。" },
+      ],
     },
     reserveCta: {
       eyebrow: "Reserve",
