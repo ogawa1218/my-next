@@ -8,12 +8,13 @@
   --color-cream: #f5efe3;
   --color-cream-dim: #ece3d2;
 
-  --font-display: var(--font-cormorant), var(--font-noto-serif-jp), serif;
-  --font-sans: var(--font-inter), var(--font-noto-sans-jp), sans-serif;
+  --font-display: var(--font-bodoni), var(--font-noto-serif-jp), serif;
+  --font-sans: var(--font-hanken), var(--font-noto-sans-jp), sans-serif;
 
   --animate-rise: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-fade: fade 1.2s ease both;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-led-scroll: ledScroll 38s linear infinite;
 }
 
 @keyframes rise {
@@ -46,9 +47,24 @@
   }
 }
 
+@keyframes ledScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.led-text {
+  text-shadow:
+    0 0 14px rgba(216, 189, 118, 0.45),
+    0 0 4px rgba(200, 162, 75, 0.7);
+}
+
 :root {
-  --background: #0b1f3a;
-  --foreground: #f5efe3;
+  --background: #f5efe3;
+  --foreground: #06152a;
 }
 
 html {
@@ -60,6 +76,40 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  font-feature-settings: "kern", "liga", "calt";
+  position: relative;
+}
+
+/* Soft warm vignette so the ivory page has depth toward the edges */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    120% 90% at 50% 0%,
+    transparent 55%,
+    rgba(132, 100, 32, 0.12) 100%
+  );
+}
+
+/* Fine paper grain */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.18;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");
+}
+
+/* Tighten the high-contrast display face; explicit tracking-* utilities still win */
+:where(.font-display) {
+  font-optical-sizing: auto;
+  letter-spacing: -0.012em;
 }
 
 ::selection {
@@ -94,7 +144,8 @@ body {
 
   .animate-rise,
   .animate-fade,
-  .animate-float {
+  .animate-float,
+  .animate-led-scroll {
     animation: none;
   }
 }

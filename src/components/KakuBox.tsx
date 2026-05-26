@@ -4,13 +4,14 @@ type CubeTone = {
   right: string;
 };
 
+// Bright, high-contrast tones for showcase appeal — greens/ivory kept fresh, not brown.
 const tones: CubeTone[] = [
-  { top: "#F4A07A", left: "#D87A52", right: "#E08C63" }, // Salmon Classic
-  { top: "#E5604F", left: "#B83F33", right: "#CC4F40" }, // Spicy Tuna
-  { top: "#D8A24B", left: "#A9762E", right: "#C08C3C" }, // Teriyaki Chicken
-  { top: "#C8B68C", left: "#8E7C53", right: "#A89668" }, // Miso Mushroom
-  { top: "#E8D7A8", left: "#BFA86A", right: "#D2BD82" }, // Inari Bomb
-  { top: "#F2B36B", left: "#C98A3F", right: "#DD9D52" }, // Tropical Shrimp
+  { top: "#F7936F", left: "#DE6B43", right: "#EA7E55" }, // 01 Salmon Classic — coral
+  { top: "#EA5346", left: "#BE3329", right: "#D24336" }, // 02 Spicy Tuna — vivid red
+  { top: "#9DBE5A", left: "#6E8E38", right: "#84A646" }, // 03 Teriyaki Chicken — edamame green
+  { top: "#E7E0C2", left: "#B9BE92", right: "#CFD0A6" }, // 04 Miso Mushroom — tofu ivory + green
+  { top: "#E0723C", left: "#B0501F", right: "#C8612D" }, // 05 Vegan Umami Cube — roasted paprika
+  { top: "#F4C457", left: "#CF9C36", right: "#E3B147" }, // 06 Aburi Shrimp Mango-Lime — mango
 ];
 
 function Cube({ x, y, tone }: { x: number; y: number; tone: CubeTone }) {

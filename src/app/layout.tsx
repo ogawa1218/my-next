@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
 import {
-  Cormorant_Garamond,
-  Inter,
+  Bodoni_Moda,
+  Hanken_Grotesk,
   Noto_Sans_JP,
   Noto_Serif_JP,
 } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const bodoni = Bodoni_Moda({
+  variable: "--font-bodoni",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -64,10 +66,10 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${cormorant.variable} ${inter.variable} ${notoSansJp.variable} ${notoSerifJp.variable} h-full`}
+      className={`${bodoni.variable} ${hanken.variable} ${notoSansJp.variable} ${notoSerifJp.variable} h-full`}
     >
-      <body className="min-h-full bg-navy text-cream antialiased">
-        {children}
+      <body className="min-h-full bg-cream-dim text-navy-deep antialiased">
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

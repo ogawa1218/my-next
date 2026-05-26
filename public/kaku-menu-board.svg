@@ -1,0 +1,54 @@
+<svg width="1440" height="960" viewBox="0 0 1440 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="960" fill="#F5EFE3"/>
+  <rect x="44" y="44" width="1352" height="872" rx="24" fill="#0B1F3A"/>
+  <rect x="78" y="78" width="1284" height="804" rx="12" stroke="#C8A24B" stroke-width="3"/>
+  <line x1="162" y1="164" x2="1278" y2="164" stroke="#C8A24B" stroke-width="2"/>
+  <text x="720" y="118" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="54" letter-spacing="18" fill="#C8A24B">KAKU CORE 6</text>
+  <text x="720" y="204" text-anchor="middle" font-family="'Yu Gothic', Arial, sans-serif" font-size="22" letter-spacing="6" fill="#F5EFE3">押し寿司 × 健康 × ラグジュアリー</text>
+
+  <g font-family="'Yu Gothic', Arial, sans-serif">
+    <rect x="118" y="262" width="388" height="148" rx="10" fill="#F5EFE3" stroke="#C8A24B" stroke-width="1.5"/>
+    <text x="150" y="312" font-size="25" font-weight="700" fill="#0B1F3A">サーモンアボカド</text>
+    <text x="150" y="348" font-size="17" fill="#253044">サーモン × アボカド × ごま</text>
+    <text x="150" y="382" font-size="14" letter-spacing="4" fill="#C8A24B">SALMON AVOCADO / BEAUTY</text>
+
+    <rect x="526" y="262" width="388" height="148" rx="10" fill="#F5EFE3" stroke="#C8A24B" stroke-width="1.5"/>
+    <text x="558" y="312" font-size="25" font-weight="700" fill="#0B1F3A">まぐろユッケ</text>
+    <text x="558" y="348" font-size="17" fill="#253044">まぐろ × ユッケソース × ねぎ</text>
+    <text x="558" y="382" font-size="14" letter-spacing="4" fill="#C8A24B">TUNA YUKKE / UMAMI</text>
+
+    <rect x="934" y="262" width="388" height="148" rx="10" fill="#F5EFE3" stroke="#C8A24B" stroke-width="1.5"/>
+    <text x="966" y="312" font-size="25" font-weight="700" fill="#0B1F3A">炙りえびマンゴー</text>
+    <text x="966" y="348" font-size="17" fill="#253044">炙りえび × マンゴー × ミント</text>
+    <text x="966" y="382" font-size="14" letter-spacing="4" fill="#C8A24B">ABURI SHRIMP / FRESH</text>
+
+    <rect x="118" y="442" width="388" height="148" rx="10" fill="#F5EFE3" stroke="#C8A24B" stroke-width="1.5"/>
+    <text x="150" y="492" font-size="25" font-weight="700" fill="#0B1F3A">照り焼きチキン</text>
+    <text x="150" y="528" font-size="17" fill="#253044">照り焼きチキン × 枝豆</text>
+    <text x="150" y="562" font-size="14" letter-spacing="4" fill="#C8A24B">TERIYAKI CHICKEN / PROTEIN</text>
+
+    <rect x="526" y="442" width="388" height="148" rx="10" fill="#F5EFE3" stroke="#C8A24B" stroke-width="1.5"/>
+    <text x="558" y="492" font-size="25" font-weight="700" fill="#0B1F3A">マッシュルームペッパー</text>
+    <text x="558" y="528" font-size="17" fill="#253044">マッシュルーム × ブラックペッパー</text>
+    <text x="558" y="562" font-size="14" letter-spacing="4" fill="#C8A24B">MUSHROOM PEPPER / PLANT</text>
+
+    <rect x="934" y="442" width="388" height="148" rx="10" fill="#F5EFE3" stroke="#C8A24B" stroke-width="1.5"/>
+    <text x="966" y="492" font-size="25" font-weight="700" fill="#0B1F3A">ソイブルゴギ</text>
+    <text x="966" y="528" font-size="17" fill="#253044">大豆ハンバーグ × バルサミコ酢</text>
+    <text x="966" y="562" font-size="14" letter-spacing="4" fill="#C8A24B">SOY BULGOGI / SOY MEAT</text>
+  </g>
+
+  <rect x="118" y="656" width="1204" height="122" rx="12" fill="#C8A24B"/>
+  <g font-family="'Yu Gothic', Arial, sans-serif" fill="#0B1F3A">
+    <text x="190" y="704" font-size="22" font-weight="700">単品</text>
+    <text x="190" y="750" font-family="'Yu Gothic', Arial, sans-serif" font-size="36" font-weight="700">200円</text>
+    <text x="454" y="704" font-size="22" font-weight="700">KAKU 6</text>
+    <text x="454" y="750" font-family="'Yu Gothic', Arial, sans-serif" font-size="36" font-weight="700">1,100円</text>
+    <text x="720" y="704" font-size="22" font-weight="700">KAKU 12</text>
+    <text x="720" y="750" font-family="'Yu Gothic', Arial, sans-serif" font-size="36" font-weight="700">2,200円</text>
+    <text x="992" y="704" font-size="22" font-weight="700">Family 18</text>
+    <text x="992" y="750" font-family="'Yu Gothic', Arial, sans-serif" font-size="36" font-weight="700">3,300円</text>
+  </g>
+
+  <text x="720" y="842" text-anchor="middle" font-family="'Yu Gothic', Arial, sans-serif" font-size="17" letter-spacing="5" fill="#F5EFE3">NO FRYER / FIVE-GRAIN RICE / TARGET FOOD COST 25.0%</text>
+</svg>

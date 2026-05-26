@@ -25,7 +25,7 @@ export default function LanguageSwitcher({
           className={`rounded-full px-3 py-1 text-[0.7rem] font-medium tracking-[0.08em] transition-colors ${
             locale === l
               ? "bg-gold text-navy-deep"
-              : "text-cream/60 hover:text-gold"
+              : "text-navy-deep/60 hover:text-gold"
           }`}
         >
           {localeNames[l]}
