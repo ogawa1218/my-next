@@ -5,12 +5,12 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { useI18n } from "@/i18n/LanguageProvider";
 
-// When the manga is delivered, drop the rendered panels into
-// public/manga/01.jpg ... 06.jpg. Then flip the constant below to true
-// and the placeholders are replaced everywhere automatically.
-const MANGA_READY = false;
+// Drop the rendered panels into public/manga/01.jpg ... 06.jpg. The home
+// page detects the first file via fs at request time and passes mangaReady
+// down — placeholders are replaced everywhere without a code edit.
+type StoryProps = { mangaReady?: boolean };
 
-export default function Story() {
+export default function Story({ mangaReady = false }: StoryProps) {
   const { t } = useI18n();
   const s = t.story;
 
@@ -35,7 +35,12 @@ export default function Story() {
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {s.panels.map((p, i) => (
             <Reveal key={p.k} delay={i * 70}>
-              <Panel k={p.k} title={p.t} description={p.d} />
+              <Panel
+                k={p.k}
+                title={p.t}
+                description={p.d}
+                mangaReady={mangaReady}
+              />
             </Reveal>
           ))}
         </div>
@@ -60,15 +65,17 @@ function Panel({
   k,
   title,
   description,
+  mangaReady,
 }: {
   k: string;
   title: string;
   description: string;
+  mangaReady: boolean;
 }) {
   return (
     <article className="group relative overflow-hidden rounded-2xl border border-gold/25 bg-navy-deep shadow-[0_24px_60px_rgba(6,21,42,0.12)]">
       <div className="relative aspect-[4/3] overflow-hidden bg-navy-deep">
-        {MANGA_READY ? (
+        {mangaReady ? (
           <Image
             src={`/manga/${k}.jpg`}
             alt={title}

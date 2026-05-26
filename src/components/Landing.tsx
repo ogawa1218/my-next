@@ -13,7 +13,9 @@ import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
 
-export default function Landing() {
+type LandingProps = { mangaReady?: boolean };
+
+export default function Landing({ mangaReady = false }: LandingProps) {
   const { t } = useI18n();
 
   return (
@@ -357,7 +359,7 @@ export default function Landing() {
       </section>
 
       {/* STORY (MANGA) */}
-      <Story />
+      <Story mangaReady={mangaReady} />
 
       {/* LOCATIONS */}
       <section
