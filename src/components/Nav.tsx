@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useI18n } from "@/i18n/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
-import KakuLogo from "./KakuLogo";
 
 export default function Nav() {
   const { t } = useI18n();
@@ -39,12 +39,16 @@ export default function Nav() {
         <Link
           href="/"
           aria-label="KAKU — Home"
-          className="flex items-center gap-3"
+          className="block w-32 md:w-40"
         >
-          <KakuLogo className="h-9 w-9 transition-transform group-hover:rotate-3" />
-          <span className="font-display text-2xl font-semibold tracking-[0.45em] text-navy-deep">
-            KAKU
-          </span>
+          <Image
+            src="/kaku-logo-transparent.png"
+            alt="KAKU Sushi, Squared."
+            width={1015}
+            height={276}
+            priority
+            className="h-auto w-full"
+          />
         </Link>
 
         <ul className="hidden items-center gap-10 md:flex">
@@ -64,7 +68,7 @@ export default function Nav() {
           <LanguageSwitcher />
           <Link
             href="/reserve"
-            className="rounded-full border border-gold/60 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-gold transition-all hover:bg-gold hover:text-navy-deep"
+            className="rounded-full border border-gold bg-gold px-6 py-2.5 text-xs font-semibold tracking-[0.12em] text-navy-deep transition-all hover:-translate-y-0.5 hover:bg-cream"
           >
             {t.nav.cta}
           </Link>

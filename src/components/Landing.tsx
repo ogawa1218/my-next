@@ -217,6 +217,60 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* VISUAL SYSTEM */}
+      <section className="bg-navy-deep px-6 py-24 text-cream lg:px-10 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <Reveal>
+            <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
+              Menu Board / Store Image
+            </p>
+            <h2 className="mt-6 font-display text-[clamp(2.4rem,5vw,4.6rem)] font-semibold leading-[1.05]">
+              From showcase
+              <span className="block text-gradient-gold">to premium pickup.</span>
+            </h2>
+            <p className="mt-7 max-w-xl text-base leading-8 text-cream/70 md:text-lg">
+              A luxury visual system for the cake showcase, core six menu and price architecture.
+              The product, menu board and pickup flow work together as one conversion experience.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                href="/reserve"
+                className="rounded-full bg-gold px-8 py-4 text-sm font-semibold tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
+              >
+                Reserve Pickup
+              </Link>
+              <Link
+                href="/franchise#inquiry"
+                className="rounded-full border border-gold/45 px-8 py-4 text-sm font-semibold tracking-[0.08em] text-gold transition-colors hover:bg-gold/10"
+              >
+                Franchise Inquiry
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal className="grid gap-5">
+            <div className="overflow-hidden rounded-[2rem] border border-gold/25 bg-cream p-2 shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
+              <Image
+                src="/kaku-menu-board.svg"
+                alt="KAKU core six menu board with Japanese pricing"
+                width={1600}
+                height={1000}
+                className="h-auto w-full rounded-[1.5rem]"
+              />
+            </div>
+            <div className="overflow-hidden rounded-[2rem] border border-gold/25 bg-cream p-2 shadow-[0_30px_90px_rgba(0,0,0,0.22)]">
+              <Image
+                src="/kaku-store.svg"
+                alt="KAKU cake showcase store concept"
+                width={1600}
+                height={900}
+                className="h-auto w-full rounded-[1.5rem]"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* WHY */}
       <section id="why" className="px-6 py-28 lg:px-10 lg:py-40">
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:gap-24">
