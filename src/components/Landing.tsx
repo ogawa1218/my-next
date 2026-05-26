@@ -5,7 +5,7 @@ import Nav from "@/components/Nav";
 import LedTicker from "@/components/LedTicker";
 import Reveal from "@/components/Reveal";
 import Image from "next/image";
-import StoreShowcase from "@/components/StoreShowcase";
+import Story from "@/components/Story";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
@@ -18,59 +18,64 @@ export default function Landing() {
       <Nav />
 
       {/* HERO */}
-      <section className="relative flex min-h-screen items-center px-6 pt-32 pb-24 lg:px-10">
+      <section className="relative flex min-h-screen flex-col justify-center px-4 pt-28 pb-24 sm:px-6 lg:px-10">
         <div
           className="pointer-events-none absolute -right-40 top-1/4 h-[520px] w-[520px] rounded-full bg-gold/10 blur-[120px]"
           aria-hidden
         />
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-          <div className="animate-rise">
-            {/* Enlarged hero image with Concept overlay + KAKU title */}
-            <div className="relative overflow-hidden rounded-3xl border border-gold/20 shadow-[0_30px_90px_rgba(6,21,42,0.18)]">
-              <Image
-                src="/kaku-hero.png"
-                alt="KAKU pressed sushi cubes on a serving tray"
-                width={1200}
-                height={680}
-                priority
-                sizes="(min-width: 1024px) 55vw, 92vw"
-                className="h-auto w-full object-cover"
-              />
 
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/40 via-transparent to-navy-deep/60"
-                aria-hidden
-              />
+        <div className="relative mx-auto w-full max-w-[1600px] animate-rise">
+          {/* Full-width hero image with Concept overlay */}
+          <div className="relative overflow-hidden rounded-3xl border border-gold/20 shadow-[0_40px_120px_rgba(6,21,42,0.22)]">
+            <Image
+              src="/kaku-hero.png"
+              alt="KAKU pressed sushi cubes — premium showcase counter"
+              width={1448}
+              height={1086}
+              priority
+              sizes="(min-width: 1600px) 1600px, 96vw"
+              className="h-auto w-full object-cover"
+            />
 
-              {/* Horizontal Concept eyebrow over the top of the image */}
-              <div className="absolute inset-x-0 top-0 flex flex-wrap items-center gap-x-4 gap-y-1 px-6 pt-5 sm:px-8 sm:pt-6">
-                <span className="text-[0.65rem] font-semibold uppercase tracking-[0.4em] text-gold">
-                  Concept
-                </span>
-                <span className="text-gold/40" aria-hidden>
-                  ·
-                </span>
-                <span className="text-[0.65rem] uppercase tracking-[0.3em] text-cream/85">
-                  {t.hero.eyebrow}
-                </span>
-              </div>
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-navy-deep/55 to-transparent"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy-deep/70 via-navy-deep/20 to-transparent"
+              aria-hidden
+            />
 
-              {/* KAKU + Sushi, Squared title overlay */}
-              <div className="absolute inset-x-0 bottom-0 px-6 pb-6 sm:px-8 sm:pb-8">
-                <p className="font-display text-5xl font-semibold tracking-[0.18em] text-cream sm:text-6xl lg:text-7xl">
-                  KAKU
-                </p>
-                <p className="mt-2 font-display text-lg tracking-[0.08em] text-gold-soft sm:text-xl lg:text-2xl">
-                  {t.hero.title1} {t.hero.title2}
-                </p>
-              </div>
+            {/* Horizontal Concept eyebrow across the top of the image */}
+            <div className="absolute inset-x-0 top-0 flex flex-wrap items-center gap-x-5 gap-y-1 px-6 pt-6 sm:px-10 sm:pt-8">
+              <span className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.4em] text-gold sm:text-xs">
+                Concept
+              </span>
+              <span className="text-gold/40" aria-hidden>·</span>
+              <span className="text-[0.7rem] uppercase tracking-[0.3em] text-cream/90 sm:text-xs">
+                {t.hero.eyebrow}
+              </span>
             </div>
 
-            {/* Lead + CTAs below the image */}
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-navy-deep/75">
+            {/* Pilot store list at the bottom of the image */}
+            <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 px-6 pb-6 sm:px-10 sm:pb-8">
+              <p className="font-display text-2xl font-semibold tracking-[0.06em] text-cream sm:text-3xl lg:text-4xl">
+                {t.hero.title1} {t.hero.title2}
+              </p>
+              <p className="text-[0.65rem] uppercase tracking-[0.35em] text-gold sm:text-xs">
+                {t.hero.pilotBadge}
+                <span className="mx-2 text-gold/40">·</span>
+                <span className="text-cream/80">原宿 · 東京駅 · 浅草 · 上野</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Lead + CTAs below the image */}
+          <div className="mx-auto mt-10 max-w-3xl text-center">
+            <p className="text-lg leading-relaxed text-navy-deep/75 sm:text-xl">
               {t.hero.lead}
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-5">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
               <a
                 href="#menu"
                 className="rounded-full bg-gold px-9 py-4 text-sm font-semibold tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
@@ -85,14 +90,10 @@ export default function Landing() {
               </a>
             </div>
           </div>
-
-          <div className="animate-rise">
-            <StoreShowcase />
-          </div>
         </div>
 
         <div
-          className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 text-[0.65rem] uppercase tracking-[0.35em] text-navy-deep/40 lg:block"
+          className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-[0.65rem] uppercase tracking-[0.35em] text-navy-deep/40 lg:block"
           aria-hidden
         >
           Scroll
@@ -341,6 +342,9 @@ export default function Landing() {
           </div>
         </div>
       </section>
+
+      {/* STORY (MANGA) */}
+      <Story />
 
       {/* LOCATIONS */}
       <section

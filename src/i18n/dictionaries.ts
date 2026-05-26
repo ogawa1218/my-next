@@ -47,6 +47,14 @@ export type Dict = {
     teamCopy: string;
   };
   marquee: string[];
+  story: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    panels: Step[];
+    cta: string;
+    ctaNote: string;
+  };
   concept: { eyebrow: string; title: string; lead: string; pillars: Pillar[] };
   menu: {
     eyebrow: string;
@@ -226,6 +234,21 @@ export const dictionaries: Record<Locale, Dict> = {
       teamCopy: "和の職人 × デザイン主導のサービス。2026年、4店舗で迎えます。",
     },
     marquee: ["押し寿司", "·", "五穀米", "·", "健康", "·", "ショーケース", "·", "次の活力へ"],
+    story: {
+      eyebrow: "Story",
+      title: "KAKUの一日。",
+      lead: "丸の内で働く葵の昼休み、12:25。新幹線改札の地下で出会う、6つのキューブ。",
+      panels: [
+        { k: "01", t: "12:25 通知", d: "デスクに通知。今日は予約しておこう。" },
+        { k: "02", t: "東京駅 八重洲口", d: "ジュエリーのように並ぶ KAKU のショーケース。" },
+        { k: "03", t: "30mm の宝石", d: "六つのフレーバー、選びぬかれた一個。" },
+        { k: "04", t: "並ばずに、ピックアップ", d: "QR を見せるだけ、行列も待ち時間もなし。" },
+        { k: "05", t: "次の活力", d: "押し寿司のキューブ、午後をすこやかに。" },
+        { k: "06", t: "あなたの箱を、先に。", d: "原宿・東京駅・浅草・上野 — 4店舗で。" },
+      ],
+      cta: "予約ページへ",
+      ctaNote: "Manga 完全版 — 近日公開",
+    },
     concept: {
       eyebrow: "Concept",
       title: "寿司を、押し寿司に。棚を、ショーケースに。",
@@ -481,6 +504,21 @@ export const dictionaries: Record<Locale, Dict> = {
       teamCopy: "Sushi craftsmen × design-led service. We open the doors at all four stores in 2026.",
     },
     marquee: ["Pressed Sushi", "·", "Five-Grain", "·", "Health", "·", "Showcase", "·", "Your Next Surge"],
+    story: {
+      eyebrow: "Story",
+      title: "A KAKU day.",
+      lead: "12:25 PM in Marunouchi. Aoi finds six cubes in the arcade beneath Tokyo Station.",
+      panels: [
+        { k: "01", t: "12:25 · Ping", d: "A quiet notification at the desk. Time to reserve." },
+        { k: "02", t: "Tokyo Station — Yaesu", d: "KAKU's showcase glows like a jewellery counter." },
+        { k: "03", t: "30mm Jewels", d: "Six flavours. One chosen cube." },
+        { k: "04", t: "Skip the Queue", d: "A QR is enough. No line, no wait." },
+        { k: "05", t: "Your Next Surge", d: "Pressed sushi for a steadier afternoon." },
+        { k: "06", t: "Reserve your box.", d: "Harajuku · Tokyo Station · Asakusa · Ueno — all four." },
+      ],
+      cta: "Go to Reservations",
+      ctaNote: "Full manga — coming soon",
+    },
     concept: {
       eyebrow: "Concept",
       title: "We turned sushi into pressed cubes — and the fridge into a showcase.",
@@ -736,6 +774,21 @@ export const dictionaries: Record<Locale, Dict> = {
       teamCopy: "日式职人 × 设计为先的服务。2026 年，4 家门店与你相见。",
     },
     marquee: ["押寿司", "·", "五谷米", "·", "健康", "·", "展示柜", "·", "下一份活力"],
+    story: {
+      eyebrow: "Story",
+      title: "KAKU 的一天。",
+      lead: "丸之内的午休 12:25。葵在东京站地下街，遇见六颗立方。",
+      panels: [
+        { k: "01", t: "12:25 · 通知", d: "桌前轻响一声，今天先预约吧。" },
+        { k: "02", t: "东京站 八重洲口", d: "KAKU 的展示柜，像珠宝橱窗般闪亮。" },
+        { k: "03", t: "30mm 的宝石", d: "六款风味，一颗中意的立方。" },
+        { k: "04", t: "免排队取餐", d: "出示 QR，无需等待。" },
+        { k: "05", t: "你的下一份活力", d: "押寿司，让午后更稳。" },
+        { k: "06", t: "提前预约你的盒子。", d: "原宿·东京站·浅草·上野 — 四店为你而开。" },
+      ],
+      cta: "前往预约页",
+      ctaNote: "完整漫画 — 即将上线",
+    },
     concept: {
       eyebrow: "Concept",
       title: "把寿司压成立方，把冰柜变成展示柜。",
