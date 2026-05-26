@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import LedTicker from "@/components/LedTicker";
 import Reveal from "@/components/Reveal";
 import Image from "next/image";
+import RevealText from "@/components/RevealText";
 import Story from "@/components/Story";
 import Roadmap from "@/components/Roadmap";
 import Footer from "@/components/Footer";
@@ -61,8 +62,11 @@ export default function Landing() {
             {/* Pilot store list at the bottom of the image */}
             <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-x-6 gap-y-2 px-6 pb-6 sm:px-10 sm:pb-8">
               <div>
-                <p className="font-display text-2xl font-semibold tracking-[0.06em] text-cream sm:text-3xl lg:text-4xl">
-                  {t.hero.title1} {t.hero.title2}
+                <p className="font-display text-2xl font-semibold tracking-[0.06em] sm:text-3xl lg:text-4xl">
+                  <span className="text-cream">{t.hero.title1}</span>{" "}
+                  <span className="text-gradient-gold-shimmer">
+                    {t.hero.title2}
+                  </span>
                 </p>
                 {t.hero.titleCompanion && (
                   <p className="mt-1 font-display text-sm tracking-[0.3em] text-gold-soft sm:text-base">
@@ -119,15 +123,13 @@ export default function Landing() {
 
       {/* CONCEPT */}
       <section id="concept" className="py-28 lg:py-40">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
-              {t.concept.eyebrow}
-            </p>
-            <h2 className="mt-6 max-w-3xl font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-navy-deep">
-              {t.concept.title}
-            </h2>
-          </Reveal>
+        <div className="mx-auto max-w-7xl overflow-hidden px-6 lg:px-10">
+          <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
+            {t.concept.eyebrow}
+          </p>
+          <h2 className="mt-6 whitespace-nowrap font-display text-[clamp(1.4rem,4.2vw,3.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-navy-deep">
+            <RevealText text={t.concept.title} />
+          </h2>
         </div>
 
         <Reveal className="mt-14 lg:mt-16">
