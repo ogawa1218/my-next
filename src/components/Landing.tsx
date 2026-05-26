@@ -59,10 +59,17 @@ export default function Landing() {
             </div>
 
             {/* Pilot store list at the bottom of the image */}
-            <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 px-6 pb-6 sm:px-10 sm:pb-8">
-              <p className="font-display text-2xl font-semibold tracking-[0.06em] text-cream sm:text-3xl lg:text-4xl">
-                {t.hero.title1} {t.hero.title2}
-              </p>
+            <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-x-6 gap-y-2 px-6 pb-6 sm:px-10 sm:pb-8">
+              <div>
+                <p className="font-display text-2xl font-semibold tracking-[0.06em] text-cream sm:text-3xl lg:text-4xl">
+                  {t.hero.title1} {t.hero.title2}
+                </p>
+                {t.hero.titleCompanion && (
+                  <p className="mt-1 font-display text-sm tracking-[0.3em] text-gold-soft sm:text-base">
+                    {t.hero.titleCompanion}
+                  </p>
+                )}
+              </div>
               <p className="text-[0.65rem] uppercase tracking-[0.35em] text-gold sm:text-xs">
                 {t.hero.pilotBadge}
                 <span className="mx-2 text-gold/40">·</span>

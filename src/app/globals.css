@@ -14,7 +14,7 @@
   --animate-rise: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-fade: fade 1.2s ease both;
   --animate-float: float 6s ease-in-out infinite;
-  --animate-led-scroll: ledScroll 38s linear infinite;
+  --animate-led-scroll: ledScroll 48s linear infinite;
 }
 
 @keyframes rise {

@@ -39,6 +39,7 @@ export type Dict = {
     eyebrow: string;
     title1: string;
     title2: string;
+    titleCompanion: string;
     lead: string;
     ctaMenu: string;
     ctaConcept: string;
@@ -233,6 +234,7 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: "押し寿司 × 健康 × ラグジュアリー",
       title1: "Sushi,",
       title2: "Squared.",
+      titleCompanion: "押し寿司、立方体に。",
       lead: "押し寿司を、ジュエリーの精度で。30mm角のキューブに五穀米と6つのフレーバー。健康とラグジュアリーを、次の活力へ。",
       ctaMenu: "メニューを見る",
       ctaConcept: "コンセプト",
@@ -515,6 +517,7 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: "Pressed Sushi × Health × Luxury",
       title1: "Sushi,",
       title2: "Squared.",
+      titleCompanion: "",
       lead: "Pressed sushi, cut with the precision of jewellery. A 30mm cube of five-grain rice and six flavours — health and luxury, for your next surge.",
       ctaMenu: "Explore the Menu",
       ctaConcept: "The Concept",
@@ -797,6 +800,7 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: "押寿司 × 健康 × 奢华",
       title1: "Sushi,",
       title2: "Squared.",
+      titleCompanion: "",
       lead: "押寿司，以珠宝般的精度切割。30mm 立方，五谷米与六款风味——健康与奢华，为你的下一份活力。",
       ctaMenu: "查看菜单",
       ctaConcept: "了解理念",
