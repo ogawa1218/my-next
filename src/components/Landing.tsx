@@ -7,16 +7,14 @@ import Reveal from "@/components/Reveal";
 import Image from "next/image";
 import RevealText from "@/components/RevealText";
 import ShimmerText from "@/components/ShimmerText";
-import Story from "@/components/Story";
+import PromiseCard from "@/components/PromiseCard";
 import Roadmap from "@/components/Roadmap";
 import MobileReserveCTA from "@/components/MobileReserveCTA";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
 
-type LandingProps = { mangaReady?: boolean };
-
-export default function Landing({ mangaReady = false }: LandingProps) {
+export default function Landing() {
   const { t } = useI18n();
 
   return (
@@ -293,25 +291,44 @@ export default function Landing({ mangaReady = false }: LandingProps) {
             </div>
           </Reveal>
 
-          <Reveal className="grid gap-5">
-            <div className="overflow-hidden rounded-[2rem] border border-gold/25 bg-cream p-2 shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
-              <Image
-                src="/kaku-menu-board.svg"
-                alt="KAKU core six menu board with Japanese pricing"
-                width={1600}
-                height={1000}
-                className="h-auto w-full rounded-[1.5rem]"
-              />
-            </div>
-            <div className="overflow-hidden rounded-[2rem] border border-gold/25 bg-cream p-2 shadow-[0_30px_90px_rgba(0,0,0,0.22)]">
-              <Image
-                src="/kaku-store.svg"
-                alt="KAKU cake showcase store concept"
-                width={1600}
-                height={900}
-                className="h-auto w-full rounded-[1.5rem]"
-              />
-            </div>
+          <Reveal className="overflow-hidden rounded-[2rem] border border-gold/25 bg-navy-deep p-2 shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
+            <Image
+              src="/kaku-hero.png"
+              alt="KAKU premium showcase counter with pressed sushi cubes and gift boxes"
+              width={1448}
+              height={1086}
+              sizes="(min-width: 1024px) 45vw, 92vw"
+              className="h-auto w-full rounded-[1.5rem] object-cover"
+            />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* STAFF SCENE */}
+      <section className="bg-cream px-6 py-24 lg:px-10 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <Reveal>
+            <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
+              Behind the Showcase
+            </p>
+            <h2 className="mt-6 font-display text-[clamp(2.4rem,5vw,4.6rem)] font-semibold leading-[1.05] text-navy-deep">
+              Every cube is finished
+              <span className="block text-gradient-gold">like a small jewel.</span>
+            </h2>
+            <p className="mt-7 max-w-xl text-base leading-8 text-navy-deep/65 md:text-lg">
+              The KAKU counter is designed for precision: showcase display, final garnish,
+              premium box packing and fast pickup. Staff movement becomes part of the brand theatre.
+            </p>
+          </Reveal>
+
+          <Reveal className="overflow-hidden rounded-[2rem] border border-gold/25 bg-navy-deep p-2 shadow-[0_30px_90px_rgba(11,31,58,0.18)]">
+            <Image
+              src="/story/kaku-store-staff.png"
+              alt="KAKU staff arranging cube sushi and serving customers behind the showcase"
+              width={1792}
+              height={1024}
+              className="h-auto w-full rounded-[1.5rem] object-cover"
+            />
           </Reveal>
         </div>
       </section>
@@ -340,25 +357,17 @@ export default function Landing({ mangaReady = false }: LandingProps) {
           </Reveal>
 
           <div className="grid grid-cols-2 gap-px self-center overflow-hidden rounded-2xl border border-gold/15 bg-gold/15">
-            {t.why.promises.map((p, i) => (
-              <Reveal key={p.k} delay={i * 90} className="bg-cream-dim p-10">
-                <p className="font-display text-xs tracking-[0.3em] text-gold">
-                  {p.k}
-                </p>
-                <p className="mt-3 font-display text-2xl font-semibold text-navy-deep">
-                  {p.t}
-                </p>
-                <p className="mt-2 text-sm leading-snug text-navy-deep/55">
-                  {p.d}
-                </p>
-              </Reveal>
+            {t.why.promises.map((p) => (
+              <PromiseCard
+                key={p.k}
+                k={p.k}
+                title={p.t}
+                description={p.d}
+              />
             ))}
           </div>
         </div>
       </section>
-
-      {/* STORY (MANGA) */}
-      <Story mangaReady={mangaReady} />
 
       {/* LOCATIONS */}
       <section
@@ -444,6 +453,35 @@ export default function Landing({ mangaReady = false }: LandingProps) {
 
       {/* ROADMAP */}
       <Roadmap />
+
+      {/* STORY MANGA */}
+      <section className="border-y border-gold/15 bg-cream px-6 py-24 lg:px-10 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
+              KAKU Story Manga
+            </p>
+            <h2 className="mt-6 font-display text-[clamp(2.4rem,5vw,4.4rem)] font-semibold leading-[1.05] text-navy-deep">
+              A lunch break becomes
+              <span className="block text-gradient-gold">the next energy.</span>
+            </h2>
+            <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-navy-deep/65 md:text-lg">
+              A visual story for the landing page: busy city life, the KAKU showcase,
+              handcrafted cube sushi, and the small luxury of opening the box.
+            </p>
+          </Reveal>
+
+          <Reveal className="mt-12 overflow-hidden rounded-[2rem] border border-gold/25 bg-navy-deep p-2 shadow-[0_30px_90px_rgba(11,31,58,0.16)]">
+            <Image
+              src="/story/kaku-story-manga.png"
+              alt="Six panel manga telling the KAKU brand story"
+              width={1792}
+              height={1024}
+              className="h-auto w-full rounded-[1.5rem]"
+            />
+          </Reveal>
+        </div>
+      </section>
 
       {/* RESERVE CTA */}
       <section
