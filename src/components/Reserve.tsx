@@ -16,10 +16,17 @@ const SET_CAPACITY: Record<string, number> = {
   "kaku-gift-12": 12,
 };
 
+// 30-minute pickup slots: lunch (11:00–14:00) + early-evening gifting (17:00–20:00). JST.
+const PICKUP_SLOTS = [
+  "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
+  "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00",
+];
+
 type Step = 1 | 2 | 3;
 type FormState = {
   store: string;
-  pickupAt: string;
+  pickupDate: string; // YYYY-MM-DD (JST)
+  pickupSlot: string; // HH:MM (JST)
   setType: string;
   flavors: Record<string, number>;
   name: string;
@@ -28,10 +35,23 @@ type FormState = {
   notes: string;
 };
 
-function minDateTimeLocal(): string {
-  const d = new Date(Date.now() + 60 * 60 * 1000);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+// Returns YYYY-MM-DD in Asia/Tokyo for today + offsetDays.
+function tokyoDate(offsetDays: number): string {
+  const now = new Date(Date.now() + offsetDays * 24 * 60 * 60 * 1000);
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
+  const get = (k: string) =>
+    parts.find((p) => p.type === k)?.value ?? "";
+  return `${get("year")}-${get("month")}-${get("day")}`;
+}
+
+// Build an absolute UTC ISO string from a JST wall-clock date + slot.
+function jstToIsoUtc(date: string, slot: string): string {
+  return new Date(`${date}T${slot}:00+09:00`).toISOString();
 }
 
 export default function Reserve() {
@@ -45,11 +65,12 @@ export default function Reserve() {
     id: string;
     state: FormState;
   } | null>(null);
-  const [minPickup] = useState(minDateTimeLocal());
+  const [minDate] = useState(() => tokyoDate(1));
 
   const [form, setForm] = useState<FormState>(() => ({
     store: t.stores[0]?.id ?? "",
-    pickupAt: "",
+    pickupDate: "",
+    pickupSlot: "",
     setType: t.menu.sets[2]?.id ?? t.menu.sets[0]?.id ?? "",
     flavors: {},
     name: "",
@@ -95,9 +116,11 @@ export default function Reserve() {
   function validateStep(s: Step): string | null {
     if (s === 1) {
       if (!form.store) return r.errors.required;
-      if (!form.pickupAt) return r.errors.required;
-      if (Number.isNaN(Date.parse(form.pickupAt))) return r.errors.futureTime;
-      if (Date.parse(form.pickupAt) <= Date.now()) return r.errors.futureTime;
+      if (!form.pickupDate || !form.pickupSlot) return r.errors.required;
+      const iso = jstToIsoUtc(form.pickupDate, form.pickupSlot);
+      const pickupMs = Date.parse(iso);
+      if (Number.isNaN(pickupMs)) return r.errors.futureTime;
+      if (pickupMs <= Date.now()) return r.errors.futureTime;
     }
     if (s === 2) {
       if (!form.setType) return r.errors.required;
@@ -144,7 +167,7 @@ export default function Reserve() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           store: form.store,
-          pickup_at: new Date(form.pickupAt).toISOString(),
+          pickup_at: jstToIsoUtc(form.pickupDate, form.pickupSlot),
           set_type: form.setType,
           flavor_selection: flavorPicks,
           guest_name: form.name.trim(),
@@ -172,7 +195,8 @@ export default function Reserve() {
     setStep(1);
     setForm({
       store: t.stores[0]?.id ?? "",
-      pickupAt: "",
+      pickupDate: "",
+      pickupSlot: "",
       setType: t.menu.sets[2]?.id ?? t.menu.sets[0]?.id ?? "",
       flavors: {},
       name: "",
@@ -246,20 +270,40 @@ export default function Reserve() {
                       </select>
                     </Field>
 
-                    <Field
-                      label={r.pickup.pickupAtLabel}
-                      helper={r.pickup.pickupHelper}
-                    >
-                      <input
-                        type="datetime-local"
-                        min={minPickup}
-                        value={form.pickupAt}
-                        onChange={(e) =>
-                          setForm({ ...form, pickupAt: e.target.value })
-                        }
-                        className="w-full rounded-xl border border-gold/25 bg-cream-dim px-4 py-3 text-navy-deep outline-none focus:border-gold/70"
-                      />
-                    </Field>
+                    <div className="grid gap-5 sm:grid-cols-2">
+                      <Field label={r.pickup.pickupDateLabel}>
+                        <input
+                          type="date"
+                          min={minDate}
+                          value={form.pickupDate}
+                          onChange={(e) =>
+                            setForm({ ...form, pickupDate: e.target.value })
+                          }
+                          className="w-full rounded-xl border border-gold/25 bg-cream-dim px-4 py-3 text-navy-deep outline-none focus:border-gold/70"
+                        />
+                      </Field>
+
+                      <Field label={r.pickup.pickupSlotLabel}>
+                        <select
+                          value={form.pickupSlot}
+                          onChange={(e) =>
+                            setForm({ ...form, pickupSlot: e.target.value })
+                          }
+                          className="w-full rounded-xl border border-gold/25 bg-cream-dim px-4 py-3 text-navy-deep outline-none focus:border-gold/70"
+                        >
+                          <option value="">—</option>
+                          {PICKUP_SLOTS.map((slot) => (
+                            <option key={slot} value={slot}>
+                              {slot} JST
+                            </option>
+                          ))}
+                        </select>
+                      </Field>
+                    </div>
+
+                    <p className="text-xs text-navy-deep/45">
+                      {r.pickup.pickupHelper}
+                    </p>
                   </fieldset>
                 )}
 
@@ -566,9 +610,10 @@ function SummaryPanel({
   const flavors = Object.entries(state.flavors)
     .map(([slug, qty]) => `${flavorLabel(slug)} × ${qty}`)
     .join(" / ");
-  const pickup = state.pickupAt
-    ? new Date(state.pickupAt).toLocaleString()
-    : "—";
+  const pickup =
+    state.pickupDate && state.pickupSlot
+      ? `${state.pickupDate} ${state.pickupSlot} JST`
+      : "—";
   return (
     <div className="mt-4 rounded-xl border border-gold/25 bg-cream-dim p-5 text-sm">
       <p className="font-display text-lg text-navy-deep">{t.summary.title}</p>

@@ -39,11 +39,23 @@ export type Dict = {
     eyebrow: string;
     title1: string;
     title2: string;
+    titleCompanion: string;
     lead: string;
     ctaMenu: string;
     ctaConcept: string;
+    pilotBadge: string;
+    teamEyebrow: string;
+    teamCopy: string;
   };
   marquee: string[];
+  story: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    panels: Step[];
+    cta: string;
+    ctaNote: string;
+  };
   concept: { eyebrow: string; title: string; lead: string; pillars: Pillar[] };
   menu: {
     eyebrow: string;
@@ -66,6 +78,12 @@ export type Dict = {
     cities: City[];
     nextLabel: string;
     next: string[];
+  };
+  roadmap: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    milestones: Step[];
   };
   reserveCta: {
     eyebrow: string;
@@ -109,7 +127,8 @@ export type Dict = {
       title: string;
       storeLabel: string;
       storeHelper: string;
-      pickupAtLabel: string;
+      pickupDateLabel: string;
+      pickupSlotLabel: string;
       pickupHelper: string;
     };
     selection: {
@@ -215,14 +234,33 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: "押し寿司 × 健康 × ラグジュアリー",
       title1: "Sushi,",
       title2: "Squared.",
+      titleCompanion: "押し寿司、立方体に。",
       lead: "押し寿司を、ジュエリーの精度で。30mm角のキューブに五穀米と6つのフレーバー。健康とラグジュアリーを、次の活力へ。",
       ctaMenu: "メニューを見る",
       ctaConcept: "コンセプト",
+      pilotBadge: "Pilot · 2026",
+      teamEyebrow: "Our Team",
+      teamCopy: "和の職人 × デザイン主導のサービス。2026年、4店舗で迎えます。",
     },
     marquee: ["押し寿司", "·", "五穀米", "·", "健康", "·", "ショーケース", "·", "次の活力へ"],
+    story: {
+      eyebrow: "Story",
+      title: "KAKUの一日。",
+      lead: "丸の内で働く葵の昼休み、12:25。新幹線改札の地下で出会う、6つのキューブ。",
+      panels: [
+        { k: "01", t: "12:25 通知", d: "デスクに通知。今日は予約しておこう。" },
+        { k: "02", t: "東京駅 八重洲口", d: "ジュエリーのように並ぶ KAKU のショーケース。" },
+        { k: "03", t: "30mm の宝石", d: "六つのフレーバー、選びぬかれた一個。" },
+        { k: "04", t: "並ばずに、ピックアップ", d: "QR を見せるだけ、行列も待ち時間もなし。" },
+        { k: "05", t: "次の活力", d: "押し寿司のキューブ、午後をすこやかに。" },
+        { k: "06", t: "あなたの箱を、先に。", d: "原宿・東京駅・浅草・上野 — 4店舗で。" },
+      ],
+      cta: "予約ページへ",
+      ctaNote: "Manga 完全版 — 近日公開",
+    },
     concept: {
       eyebrow: "Concept",
-      title: "寿司を、押し寿司に。棚を、ショーケースに。",
+      title: "ひとくちで、次の活力へ。",
       lead: "世界はスーパーの冷蔵棚からロールを売る。KAKU が売るのは「次の活力」。五穀米の押し寿司を30mm角のキューブに仕上げ、ショーケースに一個ずつ。20〜30代の働く女性のための、健康とラグジュアリー。",
       pillars: [
         { k: "01", t: "ザ・キューブ", d: "精緻な30mm角。誰も食べたことのない形、そして忘れられない形。" },
@@ -254,18 +292,18 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     why: {
       eyebrow: "Why KAKU",
-      title: "健康と精度を、ひとつのキューブに。",
-      lead: "余計な装飾を捨て、必要なものだけを残しました。五穀米統一、30mm精密成形、8時間以内の鮮度設計。あなたの「次の活力」のための寿司。",
+      title: "「整っている」を、ひと粒に。",
+      lead: "急がない一口を、いちばん忙しいあなたへ。30mmの押し寿司に、五穀米の軽さと、その日だけの仕立てを閉じ込めました。ご褒美でも贅沢でもない、自分との約束。",
       bullets: [
-        "全SKU五穀米。雑穀の食感と栄養を、軽やかに。",
-        "30mm角の精密成形。手のひらに収まる、ジュエリーのような寿司。",
-        "製造後8時間以内の鮮度管理。ピーク前に出して、ピーク後に下げる。",
+        "白米を選ばないという、軽やかな贅沢。",
+        "片手で完結する所作。打ち合わせの合間でも、姿勢を崩さない。",
+        "握ったその日に、ショーケースから手のひらへ。一日きりの仕立て。",
       ],
       promises: [
-        { k: "01", t: "五穀米100%", d: "全SKU共通。白米なし。" },
-        { k: "02", t: "30mm精密成形", d: "シャリ30g、総量38〜42g。" },
-        { k: "03", t: "8h冷蔵販売", d: "製造時刻シール／タイム廃棄管理。" },
-        { k: "04", t: "Veg/Vegan常設", d: "豆腐味噌、大豆ミート 2SKU。" },
+        { k: "01", t: "五穀米100%", d: "白米を見ない、新しい主食の選び方。" },
+        { k: "02", t: "30mm精密成形", d: "片手の所作で完結する、最小単位の美。" },
+        { k: "03", t: "握りたて、その日のみ", d: "毎朝の仕立て、ショーケース直送。" },
+        { k: "04", t: "Veg/Vegan常設", d: "豆腐味噌・大豆ミート、いつでも選べる。" },
       ],
     },
     locations: {
@@ -279,6 +317,17 @@ export const dictionaries: Record<Locale, Dict> = {
       ],
       nextLabel: "次の展開：関西・名古屋・福岡",
       next: ["関西・名古屋・福岡 → 2027〜", "海外都市 → 2028〜"],
+    },
+    roadmap: {
+      eyebrow: "Roadmap",
+      title: "2026年、4店舗を順に開きます。",
+      lead: "信頼を積み上げながら、東京を一店ずつ。",
+      milestones: [
+        { k: "Q1 · 2026年3月", t: "原宿 旗艦店", d: "Z世代と訪日観光客が交差する KAKU の旗艦。竹下通り至近、ショーケース体験を最初に披露します。" },
+        { k: "Q2 · 2026年6月", t: "東京駅 八重洲口", d: "原宿の運用知見を持って、日本最大級のラッシュ動線へ。Grab & Go の中心地に2号店。" },
+        { k: "Q3 · 2026年9月", t: "浅草", d: "雷門・仲見世徒歩圏。インバウンド需要と手土産文化の二本立てを取りに行く。" },
+        { k: "Q4 · 2026年12月", t: "上野", d: "駅・公園・アメ横を併せ持つ多目的エリアで、ビジネス・観光・地元客の混在動線を実証。" },
+      ],
     },
     reserveCta: {
       eyebrow: "Reserve",
@@ -327,8 +376,9 @@ export const dictionaries: Record<Locale, Dict> = {
         title: "受け取り情報",
         storeLabel: "店舗",
         storeHelper: "パイロット拠点を選択",
-        pickupAtLabel: "受け取り日時",
-        pickupHelper: "現在より先の日時を指定してください。",
+        pickupDateLabel: "受け取り日",
+        pickupSlotLabel: "受け取り時刻",
+        pickupHelper: "日本時間（JST）／前日までにご予約ください。",
       },
       selection: {
         title: "セットとフレーバー",
@@ -467,14 +517,33 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: "Pressed Sushi × Health × Luxury",
       title1: "Sushi,",
       title2: "Squared.",
+      titleCompanion: "",
       lead: "Pressed sushi, cut with the precision of jewellery. A 30mm cube of five-grain rice and six flavours — health and luxury, for your next surge.",
       ctaMenu: "Explore the Menu",
       ctaConcept: "The Concept",
+      pilotBadge: "Pilot · 2026",
+      teamEyebrow: "Our Team",
+      teamCopy: "Sushi craftsmen × design-led service. We open the doors at all four stores in 2026.",
     },
     marquee: ["Pressed Sushi", "·", "Five-Grain", "·", "Health", "·", "Showcase", "·", "Your Next Surge"],
+    story: {
+      eyebrow: "Story",
+      title: "A KAKU day.",
+      lead: "12:25 PM in Marunouchi. Aoi finds six cubes in the arcade beneath Tokyo Station.",
+      panels: [
+        { k: "01", t: "12:25 · Ping", d: "A quiet notification at the desk. Time to reserve." },
+        { k: "02", t: "Tokyo Station — Yaesu", d: "KAKU's showcase glows like a jewellery counter." },
+        { k: "03", t: "30mm Jewels", d: "Six flavours. One chosen cube." },
+        { k: "04", t: "Skip the Queue", d: "A QR is enough. No line, no wait." },
+        { k: "05", t: "Your Next Surge", d: "Pressed sushi for a steadier afternoon." },
+        { k: "06", t: "Reserve your box.", d: "Harajuku · Tokyo Station · Asakusa · Ueno — all four." },
+      ],
+      cta: "Go to Reservations",
+      ctaNote: "Full manga — coming soon",
+    },
     concept: {
       eyebrow: "Concept",
-      title: "We turned sushi into pressed cubes — and the fridge into a showcase.",
+      title: "One bite. Your next surge.",
       lead: "The world sells rolls from supermarket fridges. KAKU sells your next surge of energy — five-grain pressed sushi in a 30mm cube, displayed one by one in a showcase. Health and luxury, for the working woman in her twenties and thirties.",
       pillars: [
         { k: "01", t: "The Cube", d: "A precise 30mm cube. Geometry you have never eaten — and never forget." },
@@ -506,18 +575,18 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     why: {
       eyebrow: "Why KAKU",
-      title: "Health and precision, in a single cube.",
-      lead: "We took out the noise and kept only what matters: one five-grain rice, one 30mm form, one eight-hour window. Sushi made for your next surge.",
+      title: "A composed bite, for the busiest you.",
+      lead: "An unhurried bite for the most demanding day. A 30mm pressed cube of five-grain lightness, finished only today. Not a treat, not a splurge — a promise you keep to yourself.",
       bullets: [
-        "One five-grain rice across every SKU — texture and nutrition, lightly.",
-        "A precise 30mm cube. Jewellery-grade sushi, palm-sized.",
-        "Eight-hour chilled freshness. We bring it out before the rush, take it down after.",
+        "Five-grain rice across every SKU — a quieter kind of luxury.",
+        "Palm-sized precision. The whole gesture fits between two meetings.",
+        "Made the same morning, straight from the showcase to your hand.",
       ],
       promises: [
-        { k: "01", t: "100% Five-Grain", d: "Across every SKU. No white rice." },
-        { k: "02", t: "30mm Precision", d: "30g of rice, 38–42g total." },
-        { k: "03", t: "8h Cold Sales", d: "Time-stickered, time-discarded." },
-        { k: "04", t: "Veg & Vegan", d: "Two plant-based SKUs, always." },
+        { k: "01", t: "100% Five-Grain", d: "Across every SKU. No white rice in sight." },
+        { k: "02", t: "30mm Precision", d: "The smallest unit of beauty, one-handed." },
+        { k: "03", t: "Made today only", d: "Crafted each morning. Direct from the showcase." },
+        { k: "04", t: "Veg & Vegan", d: "Tofu-miso and soy-meat, always on the line-up." },
       ],
     },
     locations: {
@@ -531,6 +600,17 @@ export const dictionaries: Record<Locale, Dict> = {
       ],
       nextLabel: "Next: Kansai · Nagoya · Fukuoka",
       next: ["Kansai · Nagoya · Fukuoka → 2027+", "Overseas cities → 2028+"],
+    },
+    roadmap: {
+      eyebrow: "Roadmap",
+      title: "Four stores, opening one quarter at a time in 2026.",
+      lead: "We earn trust before we scale — one Tokyo store at a time.",
+      milestones: [
+        { k: "Q1 · March 2026", t: "Harajuku — Flagship", d: "Where Gen Z and global tourists cross. The first KAKU showcase, steps from Takeshita Street." },
+        { k: "Q2 · June 2026", t: "Tokyo Station — Yaesu", d: "Carry forward what we learn at Harajuku into the busiest commuter artery in Japan." },
+        { k: "Q3 · September 2026", t: "Asakusa", d: "Kaminari-mon and Nakamise on foot. Inbound demand and the gifting market in one site." },
+        { k: "Q4 · December 2026", t: "Ueno", d: "Station, park and Ameyoko. Business, tourism and local traffic — the mixed-flow stress test." },
+      ],
     },
     reserveCta: {
       eyebrow: "Reserve",
@@ -579,8 +659,9 @@ export const dictionaries: Record<Locale, Dict> = {
         title: "Pickup details",
         storeLabel: "Store",
         storeHelper: "Choose a pilot location",
-        pickupAtLabel: "Pickup date & time",
-        pickupHelper: "Please choose a time in the future.",
+        pickupDateLabel: "Pickup date",
+        pickupSlotLabel: "Pickup time",
+        pickupHelper: "All times in JST. Please book at least a day ahead.",
       },
       selection: {
         title: "Set & flavours",
@@ -719,14 +800,33 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: "押寿司 × 健康 × 奢华",
       title1: "Sushi,",
       title2: "Squared.",
+      titleCompanion: "",
       lead: "押寿司，以珠宝般的精度切割。30mm 立方，五谷米与六款风味——健康与奢华，为你的下一份活力。",
       ctaMenu: "查看菜单",
       ctaConcept: "了解理念",
+      pilotBadge: "试点 · 2026",
+      teamEyebrow: "Our Team",
+      teamCopy: "日式职人 × 设计为先的服务。2026 年，4 家门店与你相见。",
     },
     marquee: ["押寿司", "·", "五谷米", "·", "健康", "·", "展示柜", "·", "下一份活力"],
+    story: {
+      eyebrow: "Story",
+      title: "KAKU 的一天。",
+      lead: "丸之内的午休 12:25。葵在东京站地下街，遇见六颗立方。",
+      panels: [
+        { k: "01", t: "12:25 · 通知", d: "桌前轻响一声，今天先预约吧。" },
+        { k: "02", t: "东京站 八重洲口", d: "KAKU 的展示柜，像珠宝橱窗般闪亮。" },
+        { k: "03", t: "30mm 的宝石", d: "六款风味，一颗中意的立方。" },
+        { k: "04", t: "免排队取餐", d: "出示 QR，无需等待。" },
+        { k: "05", t: "你的下一份活力", d: "押寿司，让午后更稳。" },
+        { k: "06", t: "提前预约你的盒子。", d: "原宿·东京站·浅草·上野 — 四店为你而开。" },
+      ],
+      cta: "前往预约页",
+      ctaNote: "完整漫画 — 即将上线",
+    },
     concept: {
       eyebrow: "Concept",
-      title: "把寿司压成立方，把冰柜变成展示柜。",
+      title: "一口之间，下一份活力。",
       lead: "世界从超市冰柜里售卖寿司卷。KAKU 售卖的是你的下一份活力——五谷米押寿司，制成 30mm 立方，于展示柜中逐颗陈列。健康与奢华，为二三十岁的职场女性而生。",
       pillars: [
         { k: "01", t: "立方体", d: "精准的 30mm 立方。前所未尝、过目不忘的几何。" },
@@ -758,18 +858,18 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     why: {
       eyebrow: "Why KAKU",
-      title: "健康与精度，凝于一颗立方。",
-      lead: "我们去掉冗余，只留下重要的：五谷米、30mm 立方、八小时新鲜窗口——为你的下一份活力。",
+      title: "「从容」，凝于一颗立方。",
+      lead: "把不慌不忙的一口，留给最忙碌的你。30mm 押寿司，五谷米的轻盈，只在今天仕立。不是奖励，不是奢侈——是你给自己的约定。",
       bullets: [
-        "全 SKU 五谷米。杂粮的口感与营养，轻盈呈现。",
-        "30mm 精准立方。掌心大小的珠宝级寿司。",
-        "出品后 8 小时鲜度管理。高峰前出，高峰后撤。",
+        "不选白米的，是一种安静的奢侈。",
+        "单手就能完成的所作。两个会议之间，姿态不乱。",
+        "当日仕立，自展示柜直送你手中。一日限定。",
       ],
       promises: [
-        { k: "01", t: "100% 五谷米", d: "全 SKU 统一。无白米。" },
-        { k: "02", t: "30mm 精准", d: "米饭 30g，总重 38–42g。" },
-        { k: "03", t: "八小时冷售", d: "时间贴标 / 时间废弃。" },
-        { k: "04", t: "Veg & Vegan", d: "始终设两款植物性 SKU。" },
+        { k: "01", t: "100% 五谷米", d: "全 SKU 统一。不见白米。" },
+        { k: "02", t: "30mm 精准", d: "单手所作完结的，最小美单元。" },
+        { k: "03", t: "今日仕立、当日限定", d: "每晨现做，自展示柜直送。" },
+        { k: "04", t: "Veg & Vegan", d: "豆腐味噌・大豆素肉，常设。" },
       ],
     },
     locations: {
@@ -783,6 +883,17 @@ export const dictionaries: Record<Locale, Dict> = {
       ],
       nextLabel: "下一站：关西·名古屋·福冈",
       next: ["关西·名古屋·福冈 → 2027+", "海外城市 → 2028+"],
+    },
+    roadmap: {
+      eyebrow: "Roadmap",
+      title: "2026 年，4 家门店逐季开业。",
+      lead: "先稳一家，再开下一家——东京，一店一店来。",
+      milestones: [
+        { k: "Q1 · 2026年3月", t: "原宿 旗舰店", d: "Z 世代与全球游客交汇之地，KAKU 旗舰店紧邻竹下通，首发展示柜体验。" },
+        { k: "Q2 · 2026年6月", t: "东京站 八重洲口", d: "把原宿的经验带到全日本最繁忙的通勤动线——即取即走的核心位。" },
+        { k: "Q3 · 2026年9月", t: "浅草", d: "雷门、仲见世近在咫尺。入境客流与伴手礼文化一并兼得。" },
+        { k: "Q4 · 2026年12月", t: "上野", d: "车站、公园、阿美横丁集于一处。商务、观光、本地客的混合动线压力测试。" },
+      ],
     },
     reserveCta: {
       eyebrow: "Reserve",
@@ -831,8 +942,9 @@ export const dictionaries: Record<Locale, Dict> = {
         title: "取餐信息",
         storeLabel: "门店",
         storeHelper: "选择试点门店",
-        pickupAtLabel: "取餐日期与时间",
-        pickupHelper: "请选择未来的时间。",
+        pickupDateLabel: "取餐日期",
+        pickupSlotLabel: "取餐时间",
+        pickupHelper: "时间为日本时间（JST），请至少提前一天预约。",
       },
       selection: {
         title: "套餐与风味",

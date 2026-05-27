@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabase } from "@/lib/supabase";
+import { checkRateLimit, clientKeyFromRequest } from "@/lib/rate-limit";
 
 const LOCALES = new Set(["ja", "en", "zh"]);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -12,6 +13,17 @@ function trimOrNull(v: unknown, max: number): string | null {
 }
 
 export async function POST(req: Request) {
+  const rl = checkRateLimit(`inquiry:${clientKeyFromRequest(req)}`, {
+    windowMs: 60_000,
+    max: 3,
+  });
+  if (!rl.ok) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again shortly." },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfterSec) } },
+    );
+  }
+
   const supabase = getSupabase();
   if (!supabase) {
     return NextResponse.json(

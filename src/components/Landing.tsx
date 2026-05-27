@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import KakuLogo from "@/components/KakuLogo";
 import LedTicker from "@/components/LedTicker";
 import Reveal from "@/components/Reveal";
 import Image from "next/image";
-import HeroCarousel from "@/components/HeroCarousel";
+import RevealText from "@/components/RevealText";
+import ShimmerText from "@/components/ShimmerText";
+import PromiseCard from "@/components/PromiseCard";
+import Roadmap from "@/components/Roadmap";
+import MobileReserveCTA from "@/components/MobileReserveCTA";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
@@ -19,50 +22,92 @@ export default function Landing() {
       <Nav />
 
       {/* HERO */}
-      <section className="relative flex min-h-screen items-center px-6 pt-32 pb-24 lg:px-10">
+      <section className="relative flex min-h-screen flex-col justify-center px-4 pt-28 pb-24 sm:px-6 lg:px-10">
         <div
           className="pointer-events-none absolute -right-40 top-1/4 h-[520px] w-[520px] rounded-full bg-gold/10 blur-[120px]"
           aria-hidden
         />
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-2">
-          <div>
-            <p className="animate-fade text-xs font-medium tracking-[0.3em] text-gold">
-              {t.hero.eyebrow}
-            </p>
-            <div className="mt-8 flex items-center gap-5 sm:gap-7 lg:gap-9">
-              <KakuLogo className="h-24 w-24 shrink-0 sm:h-32 sm:w-32 lg:h-44 lg:w-44" />
-              <h1 className="font-display text-[clamp(3.5rem,9vw,7.5rem)] font-semibold leading-[0.95] text-navy-deep">
-                {t.hero.title1}
-                <br />
-                <span className="text-gradient-gold">{t.hero.title2}</span>
-              </h1>
+
+        <div className="relative mx-auto w-full max-w-[1600px] animate-rise">
+          {/* Full-width hero image with Concept overlay */}
+          <div className="relative overflow-hidden rounded-3xl border border-gold/20 shadow-[0_40px_120px_rgba(6,21,42,0.22)]">
+            <Image
+              src="/kaku-hero.png"
+              alt="KAKU pressed sushi cubes — premium showcase counter"
+              width={1448}
+              height={1086}
+              priority
+              sizes="(min-width: 1600px) 1600px, 96vw"
+              className="h-auto w-full object-cover"
+            />
+
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-navy-deep/55 to-transparent"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy-deep/70 via-navy-deep/20 to-transparent"
+              aria-hidden
+            />
+
+            {/* Horizontal Concept eyebrow across the top of the image */}
+            <div className="absolute inset-x-0 top-0 flex flex-wrap items-center gap-x-5 gap-y-1 px-6 pt-6 sm:px-10 sm:pt-8">
+              <span className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.4em] text-gold sm:text-xs">
+                Concept
+              </span>
+              <span className="text-gold/40" aria-hidden>·</span>
+              <span className="text-[0.7rem] uppercase tracking-[0.3em] text-cream/90 sm:text-xs">
+                {t.hero.eyebrow}
+              </span>
             </div>
-            <p className="mt-8 max-w-md text-lg leading-relaxed text-navy-deep/70">
-              {t.hero.lead}
-            </p>
-            <div className="mt-12 flex flex-wrap items-center gap-5">
-              <a
-                href="#menu"
-                className="rounded-full bg-gold px-9 py-4 text-sm font-medium tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
-              >
-                {t.hero.ctaMenu}
-              </a>
-              <a
-                href="#concept"
-                className="text-sm font-medium tracking-[0.08em] text-navy-deep/70 underline-offset-8 transition-colors hover:text-gold hover:underline"
-              >
-                {t.hero.ctaConcept}
-              </a>
+
+            {/* Pilot store list at the bottom of the image */}
+            <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-x-6 gap-y-2 px-6 pb-6 sm:px-10 sm:pb-8">
+              <div>
+                <p className="font-display text-2xl font-semibold tracking-[0.06em] sm:text-3xl lg:text-4xl">
+                  <span className="text-cream">{t.hero.title1}</span>{" "}
+                  <ShimmerText>{t.hero.title2}</ShimmerText>
+                </p>
+                {t.hero.titleCompanion && (
+                  <p className="mt-1 font-display text-sm tracking-[0.3em] text-gold-soft sm:text-base">
+                    {t.hero.titleCompanion}
+                  </p>
+                )}
+              </div>
+              <p className="text-[0.65rem] uppercase tracking-[0.35em] text-gold sm:text-xs">
+                {t.hero.pilotBadge}
+                <span className="mx-2 text-gold/40">·</span>
+                <span className="text-cream/80">
+                  原宿 (Q1) · 八重洲 (Q2) · 浅草 (Q3) · 上野 (Q4)
+                </span>
+              </p>
             </div>
           </div>
 
-          <div className="animate-rise">
-            <HeroCarousel />
+          {/* Lead + CTAs below the image */}
+          <div className="mx-auto mt-10 max-w-3xl text-center">
+            <p className="text-lg leading-relaxed text-navy-deep/75 sm:text-xl">
+              {t.hero.lead}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
+              <Link
+                href="/reserve"
+                className="rounded-full bg-gold px-9 py-4 text-sm font-semibold tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
+              >
+                {t.nav.cta}
+              </Link>
+              <a
+                href="#menu"
+                className="text-sm font-medium tracking-[0.08em] text-navy-deep/70 underline-offset-8 transition-colors hover:text-gold hover:underline"
+              >
+                {t.hero.ctaMenu}
+              </a>
+            </div>
           </div>
         </div>
 
         <div
-          className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 text-[0.65rem] uppercase tracking-[0.35em] text-navy-deep/40 lg:block"
+          className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-[0.65rem] uppercase tracking-[0.35em] text-navy-deep/40 lg:block"
           aria-hidden
         >
           Scroll
@@ -80,15 +125,13 @@ export default function Landing() {
 
       {/* CONCEPT */}
       <section id="concept" className="py-28 lg:py-40">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
-              {t.concept.eyebrow}
-            </p>
-            <h2 className="mt-6 max-w-3xl font-display text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-navy-deep">
-              {t.concept.title}
-            </h2>
-          </Reveal>
+        <div className="mx-auto max-w-7xl overflow-hidden px-6 lg:px-10">
+          <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
+            {t.concept.eyebrow}
+          </p>
+          <h2 className="mt-6 font-display text-[clamp(1.85rem,4.2vw,3.5rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-navy-deep sm:whitespace-nowrap">
+            <RevealText text={t.concept.title} />
+          </h2>
         </div>
 
         <Reveal className="mt-14 lg:mt-16">
@@ -248,25 +291,15 @@ export default function Landing() {
             </div>
           </Reveal>
 
-          <Reveal className="grid gap-5">
-            <div className="overflow-hidden rounded-[2rem] border border-gold/25 bg-cream p-2 shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
-              <Image
-                src="/kaku-menu-board.svg"
-                alt="KAKU core six menu board with Japanese pricing"
-                width={1600}
-                height={1000}
-                className="h-auto w-full rounded-[1.5rem]"
-              />
-            </div>
-            <div className="overflow-hidden rounded-[2rem] border border-gold/25 bg-cream p-2 shadow-[0_30px_90px_rgba(0,0,0,0.22)]">
-              <Image
-                src="/kaku-store.svg"
-                alt="KAKU cake showcase store concept"
-                width={1600}
-                height={900}
-                className="h-auto w-full rounded-[1.5rem]"
-              />
-            </div>
+          <Reveal className="overflow-hidden rounded-[2rem] border border-gold/25 bg-navy-deep p-2 shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
+            <Image
+              src="/kaku-hero.png"
+              alt="KAKU premium showcase counter with pressed sushi cubes and gift boxes"
+              width={1448}
+              height={1086}
+              sizes="(min-width: 1024px) 45vw, 92vw"
+              className="h-auto w-full rounded-[1.5rem] object-cover"
+            />
           </Reveal>
         </div>
       </section>
@@ -324,18 +357,13 @@ export default function Landing() {
           </Reveal>
 
           <div className="grid grid-cols-2 gap-px self-center overflow-hidden rounded-2xl border border-gold/15 bg-gold/15">
-            {t.why.promises.map((p, i) => (
-              <Reveal key={p.k} delay={i * 90} className="bg-cream-dim p-10">
-                <p className="font-display text-xs tracking-[0.3em] text-gold">
-                  {p.k}
-                </p>
-                <p className="mt-3 font-display text-2xl font-semibold text-navy-deep">
-                  {p.t}
-                </p>
-                <p className="mt-2 text-sm leading-snug text-navy-deep/55">
-                  {p.d}
-                </p>
-              </Reveal>
+            {t.why.promises.map((p) => (
+              <PromiseCard
+                key={p.k}
+                k={p.k}
+                title={p.t}
+                description={p.d}
+              />
             ))}
           </div>
         </div>
@@ -423,6 +451,9 @@ export default function Landing() {
         </Reveal>
       </section>
 
+      {/* ROADMAP */}
+      <Roadmap />
+
       {/* STORY MANGA */}
       <section className="border-y border-gold/15 bg-cream px-6 py-24 lg:px-10 lg:py-32">
         <div className="mx-auto max-w-7xl">
@@ -507,6 +538,8 @@ export default function Landing() {
       </section>
 
       <Footer />
+
+      <MobileReserveCTA />
     </main>
   );
 }
