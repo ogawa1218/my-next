@@ -260,7 +260,7 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     concept: {
       eyebrow: "Concept",
-      title: "寿司を、押し寿司に。棚を、ショーケースに。",
+      title: "ひとくちで、次の活力へ。",
       lead: "世界はスーパーの冷蔵棚からロールを売る。KAKU が売るのは「次の活力」。五穀米の押し寿司を30mm角のキューブに仕上げ、ショーケースに一個ずつ。20〜30代の働く女性のための、健康とラグジュアリー。",
       pillars: [
         { k: "01", t: "ザ・キューブ", d: "精緻な30mm角。誰も食べたことのない形、そして忘れられない形。" },
@@ -543,7 +543,7 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     concept: {
       eyebrow: "Concept",
-      title: "We turned sushi into pressed cubes — and the fridge into a showcase.",
+      title: "One bite. Your next surge.",
       lead: "The world sells rolls from supermarket fridges. KAKU sells your next surge of energy — five-grain pressed sushi in a 30mm cube, displayed one by one in a showcase. Health and luxury, for the working woman in her twenties and thirties.",
       pillars: [
         { k: "01", t: "The Cube", d: "A precise 30mm cube. Geometry you have never eaten — and never forget." },
@@ -826,7 +826,7 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     concept: {
       eyebrow: "Concept",
-      title: "把寿司压成立方，把冰柜变成展示柜。",
+      title: "一口之间，下一份活力。",
       lead: "世界从超市冰柜里售卖寿司卷。KAKU 售卖的是你的下一份活力——五谷米押寿司，制成 30mm 立方，于展示柜中逐颗陈列。健康与奢华，为二三十岁的职场女性而生。",
       pillars: [
         { k: "01", t: "立方体", d: "精准的 30mm 立方。前所未尝、过目不忘的几何。" },
