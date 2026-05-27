@@ -139,23 +139,14 @@ export default function Landing() {
         </Reveal>
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mt-20 grid gap-px overflow-hidden rounded-2xl border border-gold/15 bg-gold/15 md:grid-cols-2 lg:grid-cols-5">
-            {t.concept.pillars.map((p, i) => (
-              <Reveal
+          <div className="mt-20 grid gap-px overflow-hidden rounded-2xl border border-gold/15 bg-gold/15 md:grid-cols-2 lg:grid-cols-4">
+            {t.concept.pillars.map((p) => (
+              <PromiseCard
                 key={p.k}
-                delay={i * 80}
-                className="group bg-cream-dim p-8 transition-colors hover:bg-cream"
-              >
-                <span className="font-display text-3xl text-gold/40 transition-colors group-hover:text-gold">
-                  {p.k}
-                </span>
-                <h3 className="mt-6 font-display text-2xl font-semibold text-navy-deep">
-                  {p.t}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-navy-deep/55">
-                  {p.d}
-                </p>
-              </Reveal>
+                k={p.k}
+                title={p.t}
+                description={p.d}
+              />
             ))}
           </div>
         </div>
@@ -257,50 +248,6 @@ export default function Landing() {
               ))}
             </Reveal>
           )}
-        </div>
-      </section>
-
-      {/* VISUAL SYSTEM */}
-      <section className="bg-navy-deep px-6 py-24 text-cream lg:px-10 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
-              Menu Board / Store Image
-            </p>
-            <h2 className="mt-6 font-display text-[clamp(2.4rem,5vw,4.6rem)] font-semibold leading-[1.05]">
-              From showcase
-              <span className="block text-gradient-gold">to premium pickup.</span>
-            </h2>
-            <p className="mt-7 max-w-xl text-base leading-8 text-cream/70 md:text-lg">
-              A luxury visual system for the cake showcase, core six menu and price architecture.
-              The product, menu board and pickup flow work together as one conversion experience.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href="/reserve"
-                className="rounded-full bg-gold px-8 py-4 text-sm font-semibold tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
-              >
-                Reserve Pickup
-              </Link>
-              <Link
-                href="/franchise#inquiry"
-                className="rounded-full border border-gold/45 px-8 py-4 text-sm font-semibold tracking-[0.08em] text-gold transition-colors hover:bg-gold/10"
-              >
-                Franchise Inquiry
-              </Link>
-            </div>
-          </Reveal>
-
-          <Reveal className="overflow-hidden rounded-[2rem] border border-gold/25 bg-navy-deep p-2 shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
-            <Image
-              src="/kaku-hero.png"
-              alt="KAKU premium showcase counter with pressed sushi cubes and gift boxes"
-              width={1448}
-              height={1086}
-              sizes="(min-width: 1024px) 45vw, 92vw"
-              className="h-auto w-full rounded-[1.5rem] object-cover"
-            />
-          </Reveal>
         </div>
       </section>
 
@@ -435,12 +382,6 @@ export default function Landing() {
             {t.social.leadPost}
           </p>
           <div className="mt-12 flex flex-wrap justify-center gap-5">
-            <a
-              href="#menu"
-              className="rounded-full bg-gold px-10 py-4 text-sm font-medium tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
-            >
-              {t.social.ctaBuild}
-            </a>
             <a
               href="#top"
               className="rounded-full border border-gold/40 px-10 py-4 text-sm font-medium tracking-[0.08em] text-gold transition-colors hover:bg-gold/10"
