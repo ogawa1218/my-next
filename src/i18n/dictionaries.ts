@@ -48,14 +48,6 @@ export type Dict = {
     teamCopy: string;
   };
   marquee: string[];
-  story: {
-    eyebrow: string;
-    title: string;
-    lead: string;
-    panels: Step[];
-    cta: string;
-    ctaNote: string;
-  };
   concept: { eyebrow: string; title: string; lead: string; pillars: Pillar[] };
   menu: {
     eyebrow: string;
@@ -243,21 +235,6 @@ export const dictionaries: Record<Locale, Dict> = {
       teamCopy: "和の職人 × デザイン主導のサービス。2026年、4店舗で迎えます。",
     },
     marquee: ["押し寿司", "·", "五穀米", "·", "健康", "·", "ショーケース", "·", "次の活力へ"],
-    story: {
-      eyebrow: "Story",
-      title: "KAKUの一日。",
-      lead: "丸の内で働く葵の昼休み、12:25。新幹線改札の地下で出会う、6つのキューブ。",
-      panels: [
-        { k: "01", t: "12:25 通知", d: "デスクに通知。今日は予約しておこう。" },
-        { k: "02", t: "東京駅 八重洲口", d: "ジュエリーのように並ぶ KAKU のショーケース。" },
-        { k: "03", t: "30mm の宝石", d: "六つのフレーバー、選びぬかれた一個。" },
-        { k: "04", t: "並ばずに、ピックアップ", d: "QR を見せるだけ、行列も待ち時間もなし。" },
-        { k: "05", t: "次の活力", d: "押し寿司のキューブ、午後をすこやかに。" },
-        { k: "06", t: "あなたの箱を、先に。", d: "原宿・東京駅・浅草・上野 — 4店舗で。" },
-      ],
-      cta: "予約ページへ",
-      ctaNote: "Manga 完全版 — 近日公開",
-    },
     concept: {
       eyebrow: "Concept",
       title: "ひとくちで、次の活力へ。",
@@ -267,7 +244,6 @@ export const dictionaries: Record<Locale, Dict> = {
         { k: "02", t: "五穀米シャリ", d: "全SKU共通の五穀米。1個シャリ30g、トッピング込み38〜42gで標準化。" },
         { k: "03", t: "6つの宝石", d: "6つのコアフレーバー。彩り・バランス・色差を設計。" },
         { k: "04", t: "ショーケース", d: "ジュエリーのように一個ずつ陳列。開ける前に、目で食べる。" },
-        { k: "05", t: "8時間", d: "冷蔵で8時間の鮮度ウィンドウ。Grab & Go のリズムのために。" },
       ],
     },
     menu: {
@@ -297,12 +273,12 @@ export const dictionaries: Record<Locale, Dict> = {
       bullets: [
         "白米を選ばないという、軽やかな贅沢。",
         "片手で完結する所作。打ち合わせの合間でも、姿勢を崩さない。",
-        "握ったその日に、ショーケースから手のひらへ。一日きりの仕立て。",
+        "握ったその朝に、ショーケースから手のひらへ。毎朝の仕立て。",
       ],
       promises: [
         { k: "01", t: "五穀米100%", d: "白米を見ない、新しい主食の選び方。" },
         { k: "02", t: "30mm精密成形", d: "片手の所作で完結する、最小単位の美。" },
-        { k: "03", t: "握りたて、その日のみ", d: "毎朝の仕立て、ショーケース直送。" },
+        { k: "03", t: "毎朝、握りたて", d: "その朝に仕立てて、ショーケースから手のひらへ。" },
         { k: "04", t: "Veg/Vegan常設", d: "豆腐味噌・大豆ミート、いつでも選べる。" },
       ],
     },
@@ -338,13 +314,13 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     newsletter: {
       eyebrow: "Newsletter",
-      title: "オープンを、誰より早く。",
-      lead: "新フレーバー投票、限定 KAKU of the Month、各都市のオープン情報をいち早くお届けします。",
+      title: "最初のひとくちを、あなたへ。",
+      lead: "原宿オープン1週間前のお知らせ。限定フレーバーの先行受付。月に一度、整える日々のための短い便り。",
       placeholder: "メールアドレス",
-      button: "登録する",
-      success: "ご登録ありがとうございます。最新情報をお届けします。",
+      button: "受け取る",
+      success: "ありがとうございます。最初の便りをお待ちください。",
       invalid: "有効なメールアドレスを入力してください。",
-      privacy: "登録はいつでも解除できます。スパムは送りません。",
+      privacy: "解除はいつでも。短い便りだけ、月に一度。",
     },
     social: {
       eyebrow: "Join the Box",
@@ -526,21 +502,6 @@ export const dictionaries: Record<Locale, Dict> = {
       teamCopy: "Sushi craftsmen × design-led service. We open the doors at all four stores in 2026.",
     },
     marquee: ["Pressed Sushi", "·", "Five-Grain", "·", "Health", "·", "Showcase", "·", "Your Next Surge"],
-    story: {
-      eyebrow: "Story",
-      title: "A KAKU day.",
-      lead: "12:25 PM in Marunouchi. Aoi finds six cubes in the arcade beneath Tokyo Station.",
-      panels: [
-        { k: "01", t: "12:25 · Ping", d: "A quiet notification at the desk. Time to reserve." },
-        { k: "02", t: "Tokyo Station — Yaesu", d: "KAKU's showcase glows like a jewellery counter." },
-        { k: "03", t: "30mm Jewels", d: "Six flavours. One chosen cube." },
-        { k: "04", t: "Skip the Queue", d: "A QR is enough. No line, no wait." },
-        { k: "05", t: "Your Next Surge", d: "Pressed sushi for a steadier afternoon." },
-        { k: "06", t: "Reserve your box.", d: "Harajuku · Tokyo Station · Asakusa · Ueno — all four." },
-      ],
-      cta: "Go to Reservations",
-      ctaNote: "Full manga — coming soon",
-    },
     concept: {
       eyebrow: "Concept",
       title: "One bite. Your next surge.",
@@ -550,7 +511,6 @@ export const dictionaries: Record<Locale, Dict> = {
         { k: "02", t: "Five-Grain Core", d: "One five-grain rice across every SKU. 30g rice base, 38–42g with topping — standardised." },
         { k: "03", t: "Six Jewels", d: "Six core flavours, engineered for colour, balance and contrast." },
         { k: "04", t: "Showcase", d: "Displayed one by one, like jewellery. You eat with your eyes first." },
-        { k: "05", t: "Eight Hours", d: "Chilled, eight-hour freshness window. Built for the Grab & Go rhythm." },
       ],
     },
     menu: {
@@ -585,7 +545,7 @@ export const dictionaries: Record<Locale, Dict> = {
       promises: [
         { k: "01", t: "100% Five-Grain", d: "Across every SKU. No white rice in sight." },
         { k: "02", t: "30mm Precision", d: "The smallest unit of beauty, one-handed." },
-        { k: "03", t: "Made today only", d: "Crafted each morning. Direct from the showcase." },
+        { k: "03", t: "Made each morning", d: "Crafted that morning. Straight from the showcase to your hand." },
         { k: "04", t: "Veg & Vegan", d: "Tofu-miso and soy-meat, always on the line-up." },
       ],
     },
@@ -621,13 +581,13 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     newsletter: {
       eyebrow: "Newsletter",
-      title: "Be first through the door.",
-      lead: "Flavour votes, the limited KAKU of the Month, and city opening news — delivered before anyone else.",
+      title: "The first bite — yours.",
+      lead: "A week before Harajuku opens. Early access to limited flavours. Once a month, a short letter for the days you compose.",
       placeholder: "Email address",
-      button: "Subscribe",
-      success: "Thank you — you're on the list. We'll be in touch.",
+      button: "Receive",
+      success: "Thank you — your first letter is on its way.",
       invalid: "Please enter a valid email address.",
-      privacy: "Unsubscribe anytime. No spam, ever.",
+      privacy: "Unsubscribe anytime. A short letter, once a month.",
     },
     social: {
       eyebrow: "Join the Box",
@@ -809,21 +769,6 @@ export const dictionaries: Record<Locale, Dict> = {
       teamCopy: "日式职人 × 设计为先的服务。2026 年，4 家门店与你相见。",
     },
     marquee: ["押寿司", "·", "五谷米", "·", "健康", "·", "展示柜", "·", "下一份活力"],
-    story: {
-      eyebrow: "Story",
-      title: "KAKU 的一天。",
-      lead: "丸之内的午休 12:25。葵在东京站地下街，遇见六颗立方。",
-      panels: [
-        { k: "01", t: "12:25 · 通知", d: "桌前轻响一声，今天先预约吧。" },
-        { k: "02", t: "东京站 八重洲口", d: "KAKU 的展示柜，像珠宝橱窗般闪亮。" },
-        { k: "03", t: "30mm 的宝石", d: "六款风味，一颗中意的立方。" },
-        { k: "04", t: "免排队取餐", d: "出示 QR，无需等待。" },
-        { k: "05", t: "你的下一份活力", d: "押寿司，让午后更稳。" },
-        { k: "06", t: "提前预约你的盒子。", d: "原宿·东京站·浅草·上野 — 四店为你而开。" },
-      ],
-      cta: "前往预约页",
-      ctaNote: "完整漫画 — 即将上线",
-    },
     concept: {
       eyebrow: "Concept",
       title: "一口之间，下一份活力。",
@@ -833,7 +778,6 @@ export const dictionaries: Record<Locale, Dict> = {
         { k: "02", t: "五谷米芯", d: "全 SKU 统一五谷米。每件米饭 30g，含配料 38–42g，标准化。" },
         { k: "03", t: "六颗宝石", d: "六款核心风味，皆为色彩、平衡与对比而设计。" },
         { k: "04", t: "展示柜", d: "像珠宝般逐颗陈列。先用眼睛吃。" },
-        { k: "05", t: "八小时", d: "冷藏八小时鲜度窗口。为即取即走的节奏而生。" },
       ],
     },
     menu: {
@@ -863,12 +807,12 @@ export const dictionaries: Record<Locale, Dict> = {
       bullets: [
         "不选白米的，是一种安静的奢侈。",
         "单手就能完成的所作。两个会议之间，姿态不乱。",
-        "当日仕立，自展示柜直送你手中。一日限定。",
+        "每晨现做，自展示柜直送你手中。",
       ],
       promises: [
         { k: "01", t: "100% 五谷米", d: "全 SKU 统一。不见白米。" },
         { k: "02", t: "30mm 精准", d: "单手所作完结的，最小美单元。" },
-        { k: "03", t: "今日仕立、当日限定", d: "每晨现做，自展示柜直送。" },
+        { k: "03", t: "每晨现做", d: "当晨仕立，自展示柜直送你手中。" },
         { k: "04", t: "Veg & Vegan", d: "豆腐味噌・大豆素肉，常设。" },
       ],
     },
@@ -904,13 +848,13 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     newsletter: {
       eyebrow: "Newsletter",
-      title: "比所有人更早进门。",
-      lead: "新风味票选、限定 KAKU of the Month、各城市开业资讯——抢先送达。",
+      title: "第一口，留给你。",
+      lead: "原宿开业前一周通知，限定风味优先预订。每月一次，给从容日子的一封短信。",
       placeholder: "电子邮箱",
-      button: "订阅",
-      success: "感谢订阅——你已在名单中，我们会保持联系。",
+      button: "接收",
+      success: "感谢——首封短信即将送达。",
       invalid: "请输入有效的电子邮箱。",
-      privacy: "可随时退订。绝不发送垃圾邮件。",
+      privacy: "可随时退订。一月一信，仅此而已。",
     },
     social: {
       eyebrow: "Join the Box",

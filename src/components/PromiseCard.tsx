@@ -21,7 +21,7 @@ export default function PromiseCard({ k, title, description }: Props) {
       onClick={() => setOpen((v) => !v)}
       aria-expanded={open}
       aria-label={title}
-      className="group relative overflow-hidden bg-cream-dim p-10 text-left transition-colors hover:bg-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+      className="group relative overflow-hidden bg-cream-dim p-10 text-left transition-all duration-300 hover:-translate-y-1 hover:bg-cream hover:shadow-[0_18px_40px_rgba(6,21,42,0.12)] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
     >
       <p className="font-display text-xs tracking-[0.3em] text-gold">{k}</p>
       <p className="mt-3 font-display text-2xl font-semibold text-navy-deep">

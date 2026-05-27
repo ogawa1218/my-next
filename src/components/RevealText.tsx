@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useMemo } from "react";
+import { useInView, prefersReducedMotion } from "@/hooks/useInView";
 
 type Props = {
   text: string;
@@ -18,33 +19,9 @@ export default function RevealText({
   stepMs = 55,
   durationMs = 520,
 }: Props) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      const id = requestAnimationFrame(() => setVisible(true));
-      return () => cancelAnimationFrame(id);
-    }
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            io.disconnect();
-          }
-        }
-      },
-      { threshold: 0.25 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+  const { ref, inView } = useInView<HTMLSpanElement>({ threshold: 0.25, once: true });
+  const reduce = useMemo(() => prefersReducedMotion(), []);
+  const visible = inView || reduce;
 
   return (
     <span ref={ref} className={className} aria-label={text}>
@@ -59,7 +36,7 @@ export default function RevealText({
             transition: `opacity ${durationMs}ms cubic-bezier(0.16, 1, 0.3, 1) ${i * stepMs}ms, transform ${durationMs}ms cubic-bezier(0.16, 1, 0.3, 1) ${i * stepMs}ms`,
           }}
         >
-          {ch === " " ? " " : ch}
+          {ch === " " ? " " : ch}
         </span>
       ))}
     </span>
