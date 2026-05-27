@@ -267,7 +267,6 @@ export const dictionaries: Record<Locale, Dict> = {
         { k: "02", t: "五穀米シャリ", d: "全SKU共通の五穀米。1個シャリ30g、トッピング込み38〜42gで標準化。" },
         { k: "03", t: "6つの宝石", d: "6つのコアフレーバー。彩り・バランス・色差を設計。" },
         { k: "04", t: "ショーケース", d: "ジュエリーのように一個ずつ陳列。開ける前に、目で食べる。" },
-        { k: "05", t: "8時間", d: "冷蔵で8時間の鮮度ウィンドウ。Grab & Go のリズムのために。" },
       ],
     },
     menu: {
@@ -550,7 +549,6 @@ export const dictionaries: Record<Locale, Dict> = {
         { k: "02", t: "Five-Grain Core", d: "One five-grain rice across every SKU. 30g rice base, 38–42g with topping — standardised." },
         { k: "03", t: "Six Jewels", d: "Six core flavours, engineered for colour, balance and contrast." },
         { k: "04", t: "Showcase", d: "Displayed one by one, like jewellery. You eat with your eyes first." },
-        { k: "05", t: "Eight Hours", d: "Chilled, eight-hour freshness window. Built for the Grab & Go rhythm." },
       ],
     },
     menu: {
@@ -833,7 +831,6 @@ export const dictionaries: Record<Locale, Dict> = {
         { k: "02", t: "五谷米芯", d: "全 SKU 统一五谷米。每件米饭 30g，含配料 38–42g，标准化。" },
         { k: "03", t: "六颗宝石", d: "六款核心风味，皆为色彩、平衡与对比而设计。" },
         { k: "04", t: "展示柜", d: "像珠宝般逐颗陈列。先用眼睛吃。" },
-        { k: "05", t: "八小时", d: "冷藏八小时鲜度窗口。为即取即走的节奏而生。" },
       ],
     },
     menu: {

@@ -139,7 +139,7 @@ export default function Landing() {
         </Reveal>
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mt-20 grid gap-px overflow-hidden rounded-2xl border border-gold/15 bg-gold/15 md:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-20 grid gap-px overflow-hidden rounded-2xl border border-gold/15 bg-gold/15 md:grid-cols-2 lg:grid-cols-4">
             {t.concept.pillars.map((p, i) => (
               <Reveal
                 key={p.k}
