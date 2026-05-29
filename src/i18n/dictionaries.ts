@@ -48,6 +48,20 @@ export type Dict = {
     teamCopy: string;
   };
   marquee: string[];
+  staffScene: {
+    eyebrow: string;
+    title: string;
+    titleAccent: string;
+    lead: string;
+    imageAlt: string;
+  };
+  storyManga: {
+    eyebrow: string;
+    title: string;
+    titleAccent: string;
+    lead: string;
+    imageAlt: string;
+  };
   concept: { eyebrow: string; title: string; lead: string; pillars: Pillar[] };
   menu: {
     eyebrow: string;
@@ -235,6 +249,20 @@ export const dictionaries: Record<Locale, Dict> = {
       teamCopy: "和の職人 × デザイン主導のサービス。2026年、4店舗で迎えます。",
     },
     marquee: ["押し寿司", "·", "五穀米", "·", "健康", "·", "ショーケース", "·", "次の活力へ"],
+    staffScene: {
+      eyebrow: "Behind the Showcase",
+      title: "ひと粒ずつ、",
+      titleAccent: "宝石のように仕立てる。",
+      lead: "KAKU のショーケースは、所作のために設計されています。陳列、仕上げ、紙箱、ピックアップ。原宿・東京駅・浅草・上野の4店舗で、職人の動きそのものがブランドの舞台になります。",
+      imageAlt: "ショーケースの裏で押し寿司を仕立てる KAKU の職人",
+    },
+    storyManga: {
+      eyebrow: "Story",
+      title: "昼休みが、",
+      titleAccent: "次の活力に変わる。",
+      lead: "原宿・東京駅の喧騒、地下街のショーケースが灯る瞬間、職人が握る30mmのキューブ、そして箱を開ける小さなラグジュアリー。KAKU の一日を6コマに。",
+      imageAlt: "KAKU ブランドの一日を描いた6コマ漫画",
+    },
     concept: {
       eyebrow: "Concept",
       title: "ひとくちで、次の活力へ。",
@@ -502,6 +530,20 @@ export const dictionaries: Record<Locale, Dict> = {
       teamCopy: "Sushi craftsmen × design-led service. We open the doors at all four stores in 2026.",
     },
     marquee: ["Pressed Sushi", "·", "Five-Grain", "·", "Health", "·", "Showcase", "·", "Your Next Surge"],
+    staffScene: {
+      eyebrow: "Behind the Showcase",
+      title: "Every cube is finished",
+      titleAccent: "like a small jewel.",
+      lead: "The KAKU counter is built for craft: display, garnish, gift box, fast pickup. Across Harajuku, Tokyo Station Yaesu, Asakusa and Ueno, the staff's gestures are the brand's quietest stage.",
+      imageAlt: "KAKU staff arranging pressed sushi cubes behind the showcase",
+    },
+    storyManga: {
+      eyebrow: "Story",
+      title: "A lunch break becomes",
+      titleAccent: "the next surge.",
+      lead: "The rush of Harajuku and Tokyo Station, the moment the showcase lights up, hand-pressed 30mm cubes, and the small luxury of opening the box. A KAKU day in six panels.",
+      imageAlt: "Six-panel manga depicting a KAKU lunch break",
+    },
     concept: {
       eyebrow: "Concept",
       title: "One bite. Your next surge.",
@@ -769,6 +811,20 @@ export const dictionaries: Record<Locale, Dict> = {
       teamCopy: "日式职人 × 设计为先的服务。2026 年，4 家门店与你相见。",
     },
     marquee: ["押寿司", "·", "五谷米", "·", "健康", "·", "展示柜", "·", "下一份活力"],
+    staffScene: {
+      eyebrow: "Behind the Showcase",
+      title: "每一颗，",
+      titleAccent: "如珠宝般细致仕立。",
+      lead: "KAKU 的展示柜，是为所作而设计的：陈列、调味、礼盒、迅速取餐。原宿、东京站、浅草、上野——四家门店里，职人的动作就是品牌最安静的舞台。",
+      imageAlt: "在展示柜后仕立押寿司的 KAKU 职人",
+    },
+    storyManga: {
+      eyebrow: "Story",
+      title: "一段午休，",
+      titleAccent: "化作下一份活力。",
+      lead: "原宿、东京站的人潮，地下街展示柜亮起的瞬间，职人手作的 30mm 立方，开盒的小确幸——KAKU 的一天，浓缩成六格漫画。",
+      imageAlt: "讲述 KAKU 一天的六格漫画",
+    },
     concept: {
       eyebrow: "Concept",
       title: "一口之间，下一份活力。",
