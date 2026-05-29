@@ -55,7 +55,7 @@ function jstToIsoUtc(date: string, slot: string): string {
 }
 
 export default function Reserve() {
-  const { t, locale } = useI18n();
+  const { t, locale, path } = useI18n();
   const r = t.reservePage;
 
   const [step, setStep] = useState<Step>(1);
@@ -238,6 +238,7 @@ export default function Reserve() {
               setLabel={setLabel}
               flavorLabel={flavorLabel}
               onAnother={resetForm}
+              homePath={path("/")}
               t={r}
             />
           ) : (
@@ -642,10 +643,12 @@ function SuccessPanel({
   setLabel,
   flavorLabel,
   onAnother,
+  homePath,
   t,
 }: {
   id: string;
   state: FormState;
+  homePath: string;
   storeLabel: (id: string) => string;
   setLabel: (id: string) => string;
   flavorLabel: (slug: string) => string;
@@ -692,7 +695,7 @@ function SuccessPanel({
             {t.buttons.another}
           </button>
           <Link
-            href="/"
+            href={homePath}
             className="rounded-full border border-gold/40 px-8 py-3 text-sm tracking-[0.08em] text-navy-deep/80 transition-colors hover:text-gold"
           >
             {t.buttons.backHome}

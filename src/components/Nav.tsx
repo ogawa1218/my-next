@@ -7,17 +7,17 @@ import { useI18n } from "@/i18n/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Nav() {
-  const { t } = useI18n();
+  const { t, path } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: "/#concept", label: t.nav.concept },
-    { href: "/#menu", label: t.nav.menu },
-    { href: "/#why", label: t.nav.why },
-    { href: "/#locations", label: t.nav.locations },
-    { href: "/reserve", label: t.nav.reserve },
-    { href: "/franchise", label: t.nav.franchise },
+    { href: `${path("/")}#concept`, label: t.nav.concept },
+    { href: `${path("/")}#menu`, label: t.nav.menu },
+    { href: `${path("/")}#why`, label: t.nav.why },
+    { href: `${path("/")}#locations`, label: t.nav.locations },
+    { href: path("/reserve"), label: t.nav.reserve },
+    { href: path("/franchise"), label: t.nav.franchise },
   ];
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function Nav() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
         <Link
-          href="/"
+          href={path("/")}
           aria-label="KAKU — Home"
           className="block w-32 md:w-40"
         >
@@ -67,7 +67,7 @@ export default function Nav() {
         <div className="hidden items-center gap-5 md:flex">
           <LanguageSwitcher />
           <Link
-            href="/reserve"
+            href={path("/reserve")}
             className="rounded-full border border-gold bg-gold px-6 py-2.5 text-xs font-semibold tracking-[0.12em] text-navy-deep transition-all hover:-translate-y-0.5 hover:bg-cream"
           >
             {t.nav.cta}

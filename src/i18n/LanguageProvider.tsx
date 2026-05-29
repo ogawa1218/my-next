@@ -3,13 +3,12 @@
 import {
   createContext,
   useContext,
-  useEffect,
-  useSyncExternalStore,
+  useCallback,
   type ReactNode,
 } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import {
   dictionaries,
-  defaultLocale,
   locales,
   type Dict,
   type Locale,
@@ -18,51 +17,57 @@ import {
 type Ctx = {
   locale: Locale;
   setLocale: (l: Locale) => void;
+  path: (p: string) => string;
   t: Dict;
 };
 
 const LanguageContext = createContext<Ctx | null>(null);
 
-const STORAGE_KEY = "kaku-locale";
-const listeners = new Set<() => void>();
-
-function isLocale(v: string | null): v is Locale {
-  return v !== null && (locales as readonly string[]).includes(v);
+// Returns a path with the current locale prefix prepended. External URLs
+// and bare anchors (#foo) pass through unchanged.
+function localePath(locale: Locale, p: string): string {
+  if (p.startsWith("#") || p.startsWith("http")) return p;
+  if (!p.startsWith("/")) return p;
+  return `/${locale}${p === "/" ? "" : p}`;
 }
 
-function readLocale(): Locale {
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  return isLocale(stored) ? stored : defaultLocale;
-}
+export function LanguageProvider({
+  children,
+  initialLocale,
+  dict,
+}: {
+  children: ReactNode;
+  initialLocale: Locale;
+  dict?: Dict;
+}) {
+  const router = useRouter();
+  const pathname = usePathname() || "/";
 
-function subscribe(cb: () => void) {
-  listeners.add(cb);
-  window.addEventListener("storage", cb);
-  return () => {
-    listeners.delete(cb);
-    window.removeEventListener("storage", cb);
-  };
-}
-
-function writeLocale(l: Locale) {
-  window.localStorage.setItem(STORAGE_KEY, l);
-  listeners.forEach((cb) => cb());
-}
-
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const locale = useSyncExternalStore(
-    subscribe,
-    readLocale,
-    () => defaultLocale,
+  const setLocale = useCallback(
+    (next: Locale) => {
+      const stripped = pathname.replace(
+        new RegExp(`^/(${locales.join("|")})(?=/|$)`),
+        "",
+      );
+      const target = `/${next}${stripped || ""}`;
+      router.push(target);
+    },
+    [pathname, router],
   );
 
-  useEffect(() => {
-    document.documentElement.lang = locale;
-  }, [locale]);
+  const pathHelper = useCallback(
+    (p: string) => localePath(initialLocale, p),
+    [initialLocale],
+  );
 
   return (
     <LanguageContext.Provider
-      value={{ locale, setLocale: writeLocale, t: dictionaries[locale] }}
+      value={{
+        locale: initialLocale,
+        setLocale,
+        path: pathHelper,
+        t: dict ?? dictionaries[initialLocale],
+      }}
     >
       {children}
     </LanguageContext.Provider>

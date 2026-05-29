@@ -15,7 +15,7 @@ import NewsletterForm from "@/components/NewsletterForm";
 import { useI18n } from "@/i18n/LanguageProvider";
 
 export default function Landing() {
-  const { t } = useI18n();
+  const { t, path } = useI18n();
 
   return (
     <main id="top" className="relative overflow-hidden">
@@ -64,10 +64,17 @@ export default function Landing() {
             {/* Pilot store list at the bottom of the image */}
             <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-x-6 gap-y-2 px-6 pb-6 sm:px-10 sm:pb-8">
               <div>
-                <p className="font-display text-2xl font-semibold tracking-[0.06em] sm:text-3xl lg:text-4xl">
-                  <span className="text-cream">{t.hero.title1}</span>{" "}
-                  <ShimmerText>{t.hero.title2}</ShimmerText>
-                </p>
+                <h1 className="font-display text-2xl font-semibold tracking-[0.06em] sm:text-3xl lg:text-4xl">
+                  <span className="sr-only">
+                    KAKU — {t.hero.eyebrow} — {t.hero.title1} {t.hero.title2}
+                  </span>
+                  <span aria-hidden className="text-cream">
+                    {t.hero.title1}
+                  </span>{" "}
+                  <ShimmerText className="text-2xl sm:text-3xl lg:text-4xl">
+                    <span aria-hidden>{t.hero.title2}</span>
+                  </ShimmerText>
+                </h1>
                 {t.hero.titleCompanion && (
                   <p className="mt-1 font-display text-sm tracking-[0.3em] text-gold-soft sm:text-base">
                     {t.hero.titleCompanion}
@@ -91,7 +98,7 @@ export default function Landing() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
               <Link
-                href="/reserve"
+                href={path("/reserve")}
                 className="rounded-full bg-gold px-9 py-4 text-sm font-semibold tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
               >
                 {t.nav.cta}
@@ -129,7 +136,7 @@ export default function Landing() {
           <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
             {t.concept.eyebrow}
           </p>
-          <h2 className="mt-6 font-display text-[clamp(1.85rem,4.2vw,3.5rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-navy-deep sm:whitespace-nowrap">
+          <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-navy-deep sm:whitespace-nowrap">
             <RevealText text={t.concept.title} />
           </h2>
         </div>
@@ -256,22 +263,21 @@ export default function Landing() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
-              Behind the Showcase
+              {t.staffScene.eyebrow}
             </p>
             <h2 className="mt-6 font-display text-[clamp(2.4rem,5vw,4.6rem)] font-semibold leading-[1.05] text-navy-deep">
-              Every cube is finished
-              <span className="block text-gradient-gold">like a small jewel.</span>
+              {t.staffScene.title}
+              <span className="block text-gradient-gold">{t.staffScene.titleAccent}</span>
             </h2>
             <p className="mt-7 max-w-xl text-base leading-8 text-navy-deep/65 md:text-lg">
-              The KAKU counter is designed for precision: showcase display, final garnish,
-              premium box packing and fast pickup. Staff movement becomes part of the brand theatre.
+              {t.staffScene.lead}
             </p>
           </Reveal>
 
           <Reveal className="overflow-hidden rounded-[2rem] border border-gold/25 bg-navy-deep p-2 shadow-[0_30px_90px_rgba(11,31,58,0.18)]">
             <Image
               src="/story/kaku-store-staff.png"
-              alt="KAKU staff arranging cube sushi and serving customers behind the showcase"
+              alt={t.staffScene.imageAlt}
               width={1792}
               height={1024}
               className="h-auto w-full rounded-[1.5rem] object-cover"
@@ -400,22 +406,21 @@ export default function Landing() {
         <div className="mx-auto max-w-7xl">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-gold">
-              KAKU Story Manga
+              {t.storyManga.eyebrow}
             </p>
             <h2 className="mt-6 font-display text-[clamp(2.4rem,5vw,4.4rem)] font-semibold leading-[1.05] text-navy-deep">
-              A lunch break becomes
-              <span className="block text-gradient-gold">the next energy.</span>
+              {t.storyManga.title}
+              <span className="block text-gradient-gold">{t.storyManga.titleAccent}</span>
             </h2>
             <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-navy-deep/65 md:text-lg">
-              A visual story for the landing page: busy city life, the KAKU showcase,
-              handcrafted cube sushi, and the small luxury of opening the box.
+              {t.storyManga.lead}
             </p>
           </Reveal>
 
           <Reveal className="mt-12 overflow-hidden rounded-[2rem] border border-gold/25 bg-navy-deep p-2 shadow-[0_30px_90px_rgba(11,31,58,0.16)]">
             <Image
               src="/story/kaku-story-manga.png"
-              alt="Six panel manga telling the KAKU brand story"
+              alt={t.storyManga.imageAlt}
               width={1792}
               height={1024}
               className="h-auto w-full rounded-[1.5rem]"
@@ -441,7 +446,7 @@ export default function Landing() {
           </p>
           <div className="mt-10">
             <Link
-              href="/reserve"
+              href={path("/reserve")}
               className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-medium tracking-[0.08em] text-navy-deep transition-transform hover:scale-[1.03]"
             >
               {t.reserveCta.cta}
