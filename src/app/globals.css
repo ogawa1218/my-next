@@ -14,7 +14,10 @@
   --animate-rise: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-fade: fade 1.2s ease both;
   --animate-float: float 6s ease-in-out infinite;
-  --animate-led-scroll: ledScroll 48s linear infinite;
+  --animate-led-scroll: ledScroll 38s linear infinite;
+  --animate-luxury-sheen: luxurySheen 5.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  --animate-slow-zoom: slowZoom 16s ease-in-out infinite alternate;
+  --animate-gold-breath: goldBreath 4.8s ease-in-out infinite;
 }
 
 @keyframes rise {
@@ -53,6 +56,46 @@
   }
   to {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes luxurySheen {
+  0% {
+    transform: translateX(-140%);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.78;
+  }
+  55% {
+    opacity: 0.38;
+  }
+  100% {
+    transform: translateX(180%);
+    opacity: 0;
+  }
+}
+
+@keyframes slowZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.055);
+  }
+}
+
+@keyframes goldBreath {
+  0%,
+  100% {
+    opacity: 0.62;
+    box-shadow: inset 0 0 0 1px rgba(200, 162, 75, 0.45);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      inset 0 0 0 1px rgba(216, 189, 118, 0.82),
+      0 0 36px rgba(200, 162, 75, 0.13);
   }
 }
 
@@ -109,7 +152,7 @@ body::after {
 /* Tighten the high-contrast display face; explicit tracking-* utilities still win */
 :where(.font-display) {
   font-optical-sizing: auto;
-  letter-spacing: -0.012em;
+  letter-spacing: 0;
 }
 
 ::selection {
@@ -131,6 +174,70 @@ body::after {
   transform: translateY(0);
 }
 
+.ambient-grid {
+  background-image:
+    linear-gradient(rgba(200, 162, 75, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 162, 75, 0.035) 1px, transparent 1px);
+  background-size:
+    120px 120px,
+    120px 120px;
+}
+
+.luxury-panel {
+  position: relative;
+  isolation: isolate;
+}
+
+.luxury-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(245, 239, 227, 0.16) 48%,
+    transparent 58%,
+    transparent 100%
+  );
+  transform: translateX(-130%);
+  animation: luxurySheen 7.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.card-lift {
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0);
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-lift:hover {
+  box-shadow: 0 26px 90px rgba(0, 0, 0, 0.32);
+}
+
+.luxury-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.28) 45%, transparent 58%);
+  transform: translateX(-130%);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-button:hover::after {
+  transform: translateX(130%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -145,7 +252,11 @@ body::after {
   .animate-rise,
   .animate-fade,
   .animate-float,
-  .animate-led-scroll {
+  .animate-led-scroll,
+  .animate-luxury-sheen,
+  .animate-slow-zoom,
+  .animate-gold-breath,
+  .luxury-panel::after {
     animation: none;
   }
 }
@@ -155,45 +266,6 @@ body::after {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-@keyframes goldShimmer {
-  0%,
-  28% {
-    background-position: -160% 0;
-  }
-  62%,
-  100% {
-    background-position: 160% 0;
-  }
-}
-
-.text-gradient-gold-shimmer {
-  background: linear-gradient(
-    100deg,
-    #c8a24b 0%,
-    #c8a24b 28%,
-    #f3dfa6 44%,
-    #fff5cf 50%,
-    #f3dfa6 56%,
-    #c8a24b 72%,
-    #c8a24b 100%
-  );
-  background-size: 220% 100%;
-  background-position: -160% 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: goldShimmer 5.6s cubic-bezier(0.32, 0.72, 0.27, 1) 1s infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .text-gradient-gold-shimmer {
-    animation: none;
-    background: linear-gradient(120deg, #d8bd76 0%, #c8a24b 45%, #f0dca0 100%);
-    background-size: 100% 100%;
-    background-position: 0 0;
-  }
 }
 
 .hairline {
