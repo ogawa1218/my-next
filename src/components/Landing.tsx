@@ -98,6 +98,7 @@ const giftItems = [
     name: "KAKU 6",
     detail: "6個入り / ランチ標準",
     price: "¥1,100",
+    previewImage: "/gift/kaku-6-set.png",
     pieces: [
       giftImages.salmon,
       giftImages.salmon,
@@ -111,6 +112,7 @@ const giftItems = [
     name: "KAKU MIX 6",
     detail: "6個入り / 2フレーバー",
     price: "¥1,280",
+    previewImage: "/gift/kaku-mix-6-set.png",
     pieces: [
       giftImages.salmon,
       giftImages.tuna,
@@ -124,6 +126,7 @@ const giftItems = [
     name: "KAKU BOX 9",
     detail: "9個入り / 3フレーバー",
     price: "¥1,680",
+    previewImage: "/gift/kaku-box-9-set.png",
     pieces: [
       giftImages.salmon,
       giftImages.tuna,
@@ -140,6 +143,7 @@ const giftItems = [
     name: "KAKU GIFT 12",
     detail: "12個入り / ギフト箱",
     price: "¥2,200",
+    previewImage: "/gift/kaku-gift-12-set.png",
     pieces: [
       giftImages.salmon,
       giftImages.tuna,
@@ -182,38 +186,18 @@ function KakuGoldBrand({ compact = false }: { compact?: boolean }) {
   );
 }
 
-function GiftPiece({ src, index, name }: { src: string; index: number; name: string }) {
-  return (
-    <div className="relative aspect-square overflow-hidden border border-gold/35 bg-cream shadow-[0_10px_18px_rgba(6,21,42,0.22)]">
-      <Image
-        src={src}
-        alt={`${name} 押し寿司 ${index + 1}個目`}
-        fill
-        sizes="5rem"
-        loading="eager"
-        quality={60}
-        className="scale-[2.25] object-cover"
-        style={{ objectPosition: "50% 76%" }}
-      />
-      <span className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/40" />
-    </div>
-  );
-}
-
 function GiftSushiPreview({ item }: { item: (typeof giftItems)[number] }) {
-  const isLarge = item.pieces.length === 12;
-
   return (
     <div className="luxury-panel relative h-36 overflow-hidden border border-gold/25 bg-[#efe5d2]">
-      <div className="absolute inset-0 bg-gradient-to-b from-cream via-[#efe5d2] to-[#ddcfb8]" />
-      <div className="absolute inset-x-5 bottom-5 h-9 translate-y-1 border border-gold/30 bg-navy-deep/14 shadow-[0_18px_38px_rgba(6,21,42,0.2)]" />
-      <div
-        className={`relative z-10 mx-auto grid h-full ${isLarge ? "max-w-[15.5rem] grid-cols-4" : "max-w-[12.6rem] grid-cols-3"} content-center gap-1.5 px-4 py-4`}
-      >
-        {item.pieces.map((piece, index) => (
-          <GiftPiece key={`${item.name}-${piece}-${index}`} src={piece} index={index} name={item.name} />
-        ))}
-      </div>
+      <Image
+        src={item.previewImage}
+        alt={`${item.name} ${item.pieces.length}個入り押し寿司セット`}
+        fill
+        sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+        loading="eager"
+        quality={85}
+        className="object-contain"
+      />
       <div className="absolute bottom-2 right-3 z-20 bg-cream/92 px-2 py-1 text-[0.62rem] font-bold tracking-[0.14em] text-gold shadow-sm">
         {item.pieces.length} PCS
       </div>
