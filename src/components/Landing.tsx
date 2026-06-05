@@ -83,11 +83,81 @@ const pricePlans = [
   { name: "Family 18", detail: "18個 / 差し入れ向け", price: "¥3,300" },
 ];
 
+const giftImages = {
+  salmon: "/products/salmon-classic.png",
+  tuna: "/products/spicy-tuna.png",
+  chicken: "/products/teriyaki-chicken.png",
+  mushroom: "/products/miso-mushroom.png",
+  vegan: "/products/vegan-umami-cube.png",
+  shrimp: "/products/aburi-shrimp.png",
+} as const;
+
 const giftItems = [
-  { name: "KAKU 6", detail: "6個入り / ランチ標準", price: "¥1,100", image: "/kaku-logo.png" },
-  { name: "KAKU MIX 6", detail: "6個入り / 2フレーバー", price: "¥1,280", image: "/story/kaku-store-staff.png" },
-  { name: "KAKU BOX 9", detail: "9個入り / 3フレーバー", price: "¥1,680", image: "/p1/six-sku-official-lineup.png" },
-  { name: "KAKU GIFT 12", detail: "12個入り / ギフト箱", price: "¥2,200", image: "/story/kaku-story-manga.png" },
+  {
+    name: "KAKU 6",
+    detail: "6個入り / ランチ標準",
+    price: "¥1,100",
+    gridClass: "grid-cols-3",
+    pieces: [
+      giftImages.salmon,
+      giftImages.salmon,
+      giftImages.salmon,
+      giftImages.salmon,
+      giftImages.salmon,
+      giftImages.salmon,
+    ],
+  },
+  {
+    name: "KAKU MIX 6",
+    detail: "6個入り / 2フレーバー",
+    price: "¥1,280",
+    gridClass: "grid-cols-3",
+    pieces: [
+      giftImages.salmon,
+      giftImages.tuna,
+      giftImages.salmon,
+      giftImages.tuna,
+      giftImages.salmon,
+      giftImages.tuna,
+    ],
+  },
+  {
+    name: "KAKU BOX 9",
+    detail: "9個入り / 3フレーバー",
+    price: "¥1,680",
+    gridClass: "grid-cols-3",
+    pieces: [
+      giftImages.salmon,
+      giftImages.tuna,
+      giftImages.chicken,
+      giftImages.salmon,
+      giftImages.tuna,
+      giftImages.chicken,
+      giftImages.salmon,
+      giftImages.tuna,
+      giftImages.chicken,
+    ],
+  },
+  {
+    name: "KAKU GIFT 12",
+    detail: "12個入り / ギフト箱",
+    price: "¥2,200",
+    gridClass: "grid-cols-4",
+    pieces: [
+      giftImages.salmon,
+      giftImages.tuna,
+      giftImages.shrimp,
+      giftImages.chicken,
+      giftImages.mushroom,
+      giftImages.vegan,
+      giftImages.salmon,
+      giftImages.tuna,
+      giftImages.shrimp,
+      giftImages.chicken,
+      giftImages.mushroom,
+      giftImages.vegan,
+    ],
+  },
 ];
 
 const navItems = [
@@ -98,6 +168,34 @@ const navItems = [
   { label: "Instagram", href: "#instagram" },
   { label: "予約", href: "#reserve" },
 ];
+
+function GiftSushiPreview({ item }: { item: (typeof giftItems)[number] }) {
+  return (
+    <div className="luxury-panel relative h-36 overflow-hidden border border-gold/25 bg-navy-deep">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(200,162,75,0.18),transparent_48%)]" />
+      <div className="absolute inset-x-5 bottom-5 h-10 border border-gold/25 bg-cream/10" />
+      <div className={`relative z-10 mx-auto grid h-full max-w-[15rem] ${item.gridClass} content-center gap-1.5 px-4 py-4`}>
+        {item.pieces.map((piece, index) => (
+          <div
+            key={`${item.name}-${piece}-${index}`}
+            className="relative aspect-square overflow-hidden border border-gold/35 bg-cream shadow-[0_8px_18px_rgba(0,0,0,0.22)]"
+          >
+            <Image
+              src={piece}
+              alt={`${item.name} 押し寿司 ${index + 1}個目`}
+              fill
+              sizes="4rem"
+              className="scale-125 object-cover"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="absolute bottom-2 right-3 z-20 bg-navy-deep/82 px-2 py-1 text-[0.62rem] font-semibold tracking-[0.14em] text-gold">
+        {item.pieces.length} PCS
+      </div>
+    </div>
+  );
+}
 
 export default function Landing() {
   const [open, setOpen] = useState(false);
@@ -484,15 +582,7 @@ export default function Landing() {
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {giftItems.map((item) => (
               <Reveal key={item.name} className="card-lift border border-gold/35 bg-cream-dim p-4 hover:border-gold/70">
-                <div className="luxury-panel relative h-36 overflow-hidden bg-cream">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    sizes="(min-width: 1024px) 20vw, 45vw"
-                    className="object-cover"
-                  />
-                </div>
+                <GiftSushiPreview item={item} />
                 <div className="mt-4 flex items-start justify-between gap-4">
                   <div>
                     <h3 className="font-display text-xl">{item.name}</h3>
