@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genki Sushi Express 店舗レイアウト3パターン（平面図 ＋ 3D 3方向視点 仕様）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            genki: {
+              yellow: '#FFD100',
+              gold: '#FF9900',
+              red: '#E60012',
+              black: '#07070A',
+              card: '#161622',
+              border: '#262638'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #07070A;
+      color: #F3F4F6;
+    }
+    @media print {
+      body { background-color: #ffffff !important; color: #000000 !important; }
+      .no-print { display: none !important; }
+      .glass-card { background: #ffffff !important; border: 1px solid #ccc !important; color: #000000 !important; }
+    }
+    .glass-card {
+      background: rgba(22, 22, 34, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+  <div class="max-w-6xl mx-auto space-y-10">
+    
+    <!-- Top Action Bar -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 glass-card p-6 rounded-2xl border-genki-yellow/40 no-print">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 bg-white rounded-xl p-1 flex items-center justify-center border-2 border-genki-yellow">
+          <img src="file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_sushi_official_face_icon_1784680605690.jpg" class="w-full h-full object-contain">
+        </div>
+        <div>
+          <h1 class="text-2xl font-black text-white">Genki Sushi Express レイアウト全3パターン（手洗いシンク追加版）</h1>
+          <p class="text-xs text-genki-yellow font-mono">看板表記統一: "Genki Sushi Express" • 日本語表記限定 • 3D 3方向視点保存版</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="window.print()" class="px-5 py-2.5 rounded-full bg-genki-yellow text-genki-black font-extrabold text-sm hover:bg-genki-gold transition-all flex items-center gap-2 shadow-lg">
+          <i data-lucide="printer" class="w-4 h-4"></i>
+          <span>印刷 / PDF保存</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Header Banner -->
+    <div class="text-center py-4 border-b border-white/10">
+      <h2 class="text-3xl md:text-4xl font-black text-white">
+        GENKI SUSHI <span class="text-genki-red font-black italic">EXPRESS</span> 店舗設計 3パターン
+      </h2>
+      <p class="text-sm text-gray-400 mt-2">
+        HACCP基準 手洗い専用シンク(1台)設置 ＆ 看板表記「Genki Sushi Express」統一 ＆ 平面図＋3D（正面・左アングル・右アングル）
+      </p>
+    </div>
+
+    <!-- SECTION 1: PATTERN 1 (Snowfox Style) -->
+    <section class="space-y-6">
+      <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-yellow">
+        <div class="flex items-center justify-between mb-2">
+          <span class="px-3 py-1 rounded-full bg-genki-yellow/20 text-genki-yellow text-xs font-bold">パターン 1 (Snowfoxスタイル)</span>
+          <span class="text-xs text-gray-400 font-mono">店舗面積: 45㎡ (幅9m × 奥行5m)</span>
+        </div>
+        <h3 class="text-2xl font-black text-white">即買グラブ＆ゴーモデル［手洗いシンク設置・看板 Genki Sushi Express］</h3>
+        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+          正面に幅4m多段オープンケースを配置した即買テイクアウト型。魚切付エリアに手洗い専用シンク(1台)を配置し、作業衛生を完全担保。
+        </p>
+      </div>
+
+      <!-- 4 Viewports Grid for Pattern 1 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- 1-1: Floorplan -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-yellow">
+            <span>①【平面図】パターン1 (手洗いシンク追加)</span>
+            <a href="p1_plan_handwash.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p1_plan_handwash.jpg" alt="パターン1 平面図" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 1-2: 3D Front -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-yellow">
+            <span>②【3D正面視点】パターン1</span>
+            <a href="p1_3d_front.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p1_3d_front.jpg" alt="パターン1 3D正面" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 1-3: 3D Left -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-yellow">
+            <span>③【3D左アングル視点】パターン1</span>
+            <a href="p1_3d_left.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p1_3d_left.jpg" alt="パターン1 3D左アングル" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 1-4: 3D Right -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-yellow">
+            <span>④【3D右アングル視点】パターン1</span>
+            <a href="p1_3d_right.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p1_3d_right.jpg" alt="パターン1 3D右アングル" class="w-full h-full object-contain">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PATTERN 2 (Sushi Sushi Style) -->
+    <section class="space-y-6 pt-6">
+      <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-red">
+        <div class="flex items-center justify-between mb-2">
+          <span class="px-3 py-1 rounded-full bg-genki-red/20 text-genki-red text-xs font-bold">パターン 2 (Sushi Sushiスタイル)</span>
+          <span class="text-xs text-gray-400 font-mono">店舗面積: 48㎡ (幅9.6m × 奥行5m)</span>
+        </div>
+        <h3 class="text-2xl font-black text-white">対面指名注文モデル［手洗いシンク設置・看板 Genki Sushi Express］</h3>
+        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+          長さ5.5m対面傾斜ガラスケースで手巻き寿司・握りを指名注文。ケース背後の調理ラインに手洗いシンク(1台)を併設。
+        </p>
+      </div>
+
+      <!-- 4 Viewports Grid for Pattern 2 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- 2-1: Floorplan -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-red">
+            <span>①【平面図】パターン2 (手洗いシンク追加)</span>
+            <a href="p2_plan_handwash.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p2_plan_handwash.jpg" alt="パターン2 平面図" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 2-2: 3D Front -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-red">
+            <span>②【3D正面視点】パターン2</span>
+            <a href="p2_3d_front.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p2_3d_front.jpg" alt="パターン2 3D正面" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 2-3: 3D Left -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-red">
+            <span>③【3D左アングル視点】パターン2</span>
+            <a href="p2_3d_left.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p2_3d_left.jpg" alt="パターン2 3D左アングル" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 2-4: 3D Right -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-red">
+            <span>④【3D右アングル視点】パターン2</span>
+            <a href="p2_3d_right.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p2_3d_right.jpg" alt="パターン2 3D右アングル" class="w-full h-full object-contain">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PATTERN 3 (Genki Express Hybrid - Seating 8) -->
+    <section class="space-y-6 pt-6">
+      <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-gold">
+        <div class="flex items-center justify-between mb-2">
+          <span class="px-3 py-1 rounded-full bg-genki-gold/20 text-genki-gold text-xs font-bold">パターン 3 (Genki Expressハイブリッド)</span>
+          <span class="text-xs text-gray-400 font-mono">店舗面積: 45㎡ (幅9m × 奥行5m)</span>
+        </div>
+        <h3 class="text-2xl font-black text-white">Subway対面 ＋ イートイン8席統合モデル［手洗いシンク追加・看板 Genki Sushi Express］</h3>
+        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+          ご提示いただいた添付レイアウト図をベースに、仕込みエリア手前に独立「手洗い専用シンク(1台)」を設置。イートイン8席（L字型仕切り）と中央HACCP受渡し扉を備えた完全仕様。
+        </p>
+      </div>
+
+      <!-- 4 Viewports Grid for Pattern 3 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- 3-1: Floorplan -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-gold">
+            <span>①【平面図】パターン3 (手洗いシンク追加)</span>
+            <a href="p3_plan_handwash.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p3_plan_handwash.jpg" alt="パターン3 平面図" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 3-2: 3D Front -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-gold">
+            <span>②【3D正面視点】パターン3</span>
+            <a href="p3_3d_front.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p3_3d_front.jpg" alt="パターン3 3D正面" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 3-3: 3D Left -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-gold">
+            <span>③【3D左アングル視点】パターン3</span>
+            <a href="p3_3d_left.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p3_3d_left.jpg" alt="パターン3 3D左アングル" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 3-4: 3D Right -->
+        <div class="glass-card p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-genki-gold">
+            <span>④【3D右アングル視点】パターン3</span>
+            <a href="p3_3d_right.jpg" download class="text-gray-400 hover:text-white no-print">DL</a>
+          </div>
+          <div class="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
+            <img src="p3_3d_right.jpg" alt="パターン3 3D右アングル" class="w-full h-full object-contain">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center py-6 text-xs text-gray-500 border-t border-white/10">
+      © 2026 GENKI SUSHI CO., LTD. QSR Store Layout Research.
+    </footer>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
