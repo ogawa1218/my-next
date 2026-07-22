@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ja" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genki Sushi Express | 元気寿司公式 次世代QSRエクスペリエンス</title>
+  <meta name="description" content="元気寿司公式QSRコンセプト『Genki Sushi Express』。Sushi × Subwayの超速オーダーと、圧倒的鮮度の職人ロボティクス。">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            genki: {
+              yellow: '#FFD100',
+              gold: '#FF9900',
+              red: '#E60012',
+              darkred: '#99000C',
+              black: '#07070A',
+              dark: '#101017',
+              card: '#161622',
+              border: '#262638'
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'Plus Jakarta Sans', 'Noto Sans JP', 'sans-serif'],
+            display: ['Outfit', 'Noto Sans JP', 'sans-serif']
+          },
+          animation: {
+            'pulse-fast': 'pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 4s ease-in-out infinite',
+            'spin-slow': 'spin 14s linear infinite',
+            'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-12px) rotate(2deg)' },
+            },
+            glowPulse: {
+              '0%': { boxShadow: '0 0 20px rgba(255, 209, 0, 0.2), 0 0 40px rgba(230, 0, 18, 0.15)' },
+              '100%': { boxShadow: '0 0 35px rgba(255, 209, 0, 0.6), 0 0 70px rgba(230, 0, 18, 0.4)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Three.js & Lucide Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    body {
+      background-color: #07070A;
+      color: #F3F4F6;
+      font-family: 'Noto Sans JP', 'Outfit', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    /* Glassmorphism Styles */
+    .glass-card {
+      background: rgba(22, 22, 34, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .glass-card-hover {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card-hover:hover {
+      background: rgba(30, 30, 46, 0.9);
+      border-color: rgba(255, 209, 0, 0.4);
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 25px 50px -12px rgba(255, 209, 0, 0.25);
+    }
+
+    /* Gradients */
+    .text-gradient-genki {
+      background: linear-gradient(135deg, #FFD100 0%, #FF9900 45%, #E60012 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bg-genki-gradient {
+      background: linear-gradient(135deg, #FFD100 0%, #FF9900 50%, #E60012 100%);
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #07070A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262638;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #FFD100;
+    }
+
+    #hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="selection:bg-genki-yellow selection:text-genki-black">
+
+  <!-- ==================== HEADER / NAV ==================== -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-card border-b border-white/5 py-3 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo (Official Genki Face Mascot Logo + EXPRESS in Bright Red) -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="relative w-12 h-12 rounded-xl overflow-hidden bg-white border-2 border-genki-yellow flex items-center justify-center p-0.5 shadow-lg group-hover:scale-105 transition-transform duration-300">
+          <img src="/genki/face_icon.jpg" 
+               alt="Official Genki Sushi Mascot Face Logo" 
+               class="w-full h-full object-contain rounded-lg"
+               onerror="this.onerror=null; this.src='file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_sushi_official_face_icon_1784680605690.jpg';">
+        </div>
+        <div class="flex flex-col">
+          <span class="font-black text-xl tracking-tight leading-none text-white group-hover:text-genki-yellow transition-colors flex items-center gap-1.5">
+            GENKI SUSHI <span class="text-genki-red font-black italic tracking-wide">EXPRESS</span>
+          </span>
+          <span class="text-[10px] tracking-widest text-genki-yellow font-bold uppercase mt-0.5">元気寿司 オフィシャル QSR CONCEPT</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-gray-300">
+        <a href="#concept" class="hover:text-genki-yellow transition-colors">コンセプト</a>
+        <a href="#builder" class="hover:text-genki-yellow transition-colors">カスタムシミュレーター</a>
+        <a href="#blueprint" class="hover:text-genki-yellow transition-colors">45㎡ 店舗図面 (HACCP)</a>
+        <a href="#menu" class="hover:text-genki-yellow transition-colors">エクスプレス メニュー</a>
+        <a href="#tech" class="hover:text-genki-yellow transition-colors">自動化ロボティクス</a>
+      </nav>
+
+      <!-- Header CTA Buttons -->
+      <div class="flex items-center gap-4">
+        <button onclick="toggleSpeedMode()" id="speed-mode-btn" class="px-3 py-1.5 rounded-full glass-card text-xs font-bold text-genki-yellow hover:border-genki-yellow transition-all flex items-center gap-1.5" title="3Dパーティクルスピード切り替え">
+          <i data-lucide="gauge" class="w-4 h-4"></i>
+          <span id="speed-text">SPEED: NORMAL</span>
+        </button>
+
+        <a href="#order-modal" onclick="openOrderModal()" class="relative group inline-flex items-center justify-center p-0.5 overflow-hidden rounded-full font-bold text-sm text-genki-black">
+          <span class="absolute w-full h-full bg-genki-gradient group-hover:scale-105 transition-transform duration-300"></span>
+          <span class="relative px-6 py-2.5 rounded-full bg-genki-yellow group-hover:bg-opacity-0 transition-all duration-300 flex items-center gap-2">
+            <i data-lucide="zap" class="w-4 h-4 fill-current"></i>
+            <span>45秒事前オーダー</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION (Three.js 3D Floating Particles) ==================== -->
+  <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden">
+    <!-- Three.js Canvas Container -->
+    <canvas id="hero-canvas"></canvas>
+
+    <!-- Glowing Ambient Gradients -->
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-genki-yellow/15 rounded-full blur-[160px] pointer-events-none"></div>
+    <div class="absolute bottom-10 right-10 w-[500px] h-[500px] bg-genki-red/20 rounded-full blur-[180px] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Hero Left Column -->
+      <div class="lg:col-span-7 flex flex-col gap-6 text-left">
+        
+        <!-- Official Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-genki-yellow/50 w-fit text-xs font-bold text-genki-yellow tracking-wider uppercase shadow-xl">
+          <img src="/genki/face_icon.jpg" class="w-5 h-5 rounded-full object-cover bg-white" onerror="this.onerror=null; this.src='file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_sushi_official_face_icon_1784680605690.jpg';">
+          <span>元気寿司 公式 QSR コンセプト • 45㎡ STORE</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08]">
+          寿司のスピードが、<br>
+          <span class="text-gradient-genki">世界を変える。</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-lg md:text-xl text-gray-300 max-w-2xl font-medium leading-relaxed">
+          元気寿司が放つ次世代QSRコンセプト<strong class="text-genki-yellow">「Sushi × Subway」</strong>。<br>
+          目の前で仕立てる圧倒的鮮度、シャリロボット超速成形、わずか<span class="text-genki-yellow font-extrabold text-2xl">45秒</span>のテイクアウト＆イートイン。
+        </p>
+
+        <!-- Live KPI Stats Grid -->
+        <div class="grid grid-cols-3 gap-4 pt-4 pb-2 max-w-xl">
+          <div class="glass-card p-4 rounded-2xl border-l-4 border-l-genki-yellow">
+            <div class="text-2xl lg:text-3xl font-black text-genki-yellow font-display">45<span class="text-sm font-normal">秒</span></div>
+            <div class="text-xs text-gray-400 font-semibold mt-1">平均受取スピード</div>
+          </div>
+          <div class="glass-card p-4 rounded-2xl border-l-4 border-l-genki-red">
+            <div class="text-2xl lg:text-3xl font-black text-genki-red font-display">2,400<span class="text-sm font-normal">貫/h</span></div>
+            <div class="text-xs text-gray-400 font-semibold mt-1">SR-2 ロボ成形能力</div>
+          </div>
+          <div class="glass-card p-4 rounded-2xl border-l-4 border-l-genki-gold">
+            <div class="text-2xl lg:text-3xl font-black text-genki-gold font-display">100<span class="text-sm font-normal">%</span></div>
+            <div class="text-xs text-gray-400 font-semibold mt-1">HACCP 衛生区分</div>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a href="#builder" class="px-8 py-4 rounded-full bg-genki-gradient text-genki-black font-extrabold text-base shadow-xl shadow-genki-yellow/30 hover:scale-105 hover:shadow-genki-yellow/50 transition-all flex items-center gap-3">
+            <i data-lucide="sliders" class="w-5 h-5"></i>
+            <span>カスタム寿司を作ってみる</span>
+          </a>
+          <a href="#blueprint" class="px-8 py-4 rounded-full glass-card hover:border-genki-yellow text-white font-bold text-base transition-all flex items-center gap-2">
+            <i data-lucide="layout" class="w-5 h-5 text-genki-yellow"></i>
+            <span>45㎡ 図面を探索</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Hero Right Column: 3D Visual Cards Showcase -->
+      <div class="lg:col-span-5 relative">
+        <div class="relative w-full aspect-square max-w-md mx-auto rounded-3xl overflow-hidden glass-card border-2 border-genki-yellow/40 p-3 shadow-2xl animate-float">
+          <img src="/genki/hero_sushi.jpg" 
+               alt="Futuristic 3D Genki Sushi Express Visual" 
+               class="w-full h-full object-cover rounded-2xl shadow-inner"
+               onerror="this.onerror=null; this.src='file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_express_hero_sushi_1784680273186.jpg';">
+          
+          <!-- Official Logo Badge Overlay -->
+          <div class="absolute top-6 left-6 p-2 rounded-2xl glass-card border border-white/20 flex items-center gap-3">
+            <img src="/genki/face_icon.jpg" class="w-8 h-8 rounded-lg object-contain bg-white" onerror="this.onerror=null; this.src='file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_sushi_official_face_icon_1784680605690.jpg';">
+            <span class="text-xs font-black text-white">GENKI SUSHI <span class="text-genki-red font-black italic">EXPRESS</span></span>
+          </div>
+
+          <!-- Pass-through Showcase Badge -->
+          <div class="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-xl border border-white/10 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-3 h-3 rounded-full bg-genki-yellow animate-ping"></div>
+              <div>
+                <div class="text-xs font-bold text-white uppercase tracking-wider">Pass-through Showcase</div>
+                <div class="text-[11px] text-gray-400">背面補充対応 作り置きケース</div>
+              </div>
+            </div>
+            <span class="px-3 py-1 bg-genki-red text-white font-extrabold text-xs rounded-full">LIVE PREP</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CONCEPT SECTION ==================== -->
+  <section id="concept" class="py-24 relative bg-genki-dark/60 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold tracking-widest text-genki-yellow uppercase mb-3">Reinventing QSR Sushi</h2>
+        <p class="text-3xl md:text-5xl font-black text-white leading-tight">
+          「寿司 × Subway」という<br><span class="text-gradient-genki">まったく新しい体験価値</span>
+        </p>
+        <p class="text-gray-400 mt-4 text-base">
+          従来の回転寿司・重厚なテイクアウトの常識を覆す。お客様が選ぶ喜びと、ロボティクスによる秒速提供を融合。
+        </p>
+      </div>
+
+      <!-- 3 Feature Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="glass-card glass-card-hover p-8 rounded-3xl relative overflow-hidden group">
+          <div class="w-14 h-14 rounded-2xl bg-genki-yellow/10 border border-genki-yellow/30 text-genki-yellow flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-genki-yellow group-hover:text-genki-black transition-all">
+            <i data-lucide="eye" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">1. 見せる組み立て対面カウンター</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Subwayのように前面の長尺ガラスケース越しに、成形シャリと朝引きネタが組み合わさるライブ感を体験。目でも美味しさを満喫。
+          </p>
+        </div>
+
+        <div class="glass-card glass-card-hover p-8 rounded-3xl relative overflow-hidden group">
+          <div class="w-14 h-14 rounded-2xl bg-genki-red/10 border border-genki-red/30 text-genki-red flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-genki-red group-hover:text-white transition-all">
+            <i data-lucide="bot" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">2. 衛生完全区画 × ロボティクス</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            後方の仕込み・炊飯・酢合わせエリアと、前方の接客エリアを完全遮断。ステンレス製「受渡し扉」経由で成形シャリ桶を供給。
+          </p>
+        </div>
+
+        <div class="glass-card glass-card-hover p-8 rounded-3xl relative overflow-hidden group">
+          <div class="w-14 h-14 rounded-2xl bg-genki-gold/10 border border-genki-gold/30 text-genki-gold flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-genki-gold group-hover:text-genki-black transition-all">
+            <i data-lucide="shopping-bag" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">3. 2系統分離型ショーケース</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            オーダーメード用の「提供用ケース」と、即買いパック用の「持ち帰りストック用ケース」を完全分離。ピーク時の混雑ゼロへ。
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== INTERACTIVE CUSTOM SUSHI BUILDER ==================== -->
+  <section id="builder" class="py-24 relative bg-genki-dark border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold tracking-widest text-genki-yellow uppercase mb-3">Interactive Express Simulator</h2>
+        <p class="text-3xl md:text-5xl font-black text-white">
+          あなただけの<span class="text-gradient-genki">カスタムExpressパック</span>
+        </p>
+        <p class="text-gray-400 mt-4 text-sm">
+          シャリ・ネタ・トッピングを選択すると、リアルタイムで調理スピードと栄養バランスがシミュレーションされます。
+        </p>
+      </div>
+
+      <!-- Builder Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Controls Left (7 cols) -->
+        <div class="lg:col-span-7 glass-card p-8 rounded-3xl space-y-6 border border-genki-yellow/30">
+          
+          <!-- Step 1: Rice Choice -->
+          <div>
+            <label class="block text-xs font-extrabold text-genki-yellow uppercase tracking-wider mb-3">STEP 1: シャリの選択</label>
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="setRice('赤酢特製シャリ', 10)" class="p-4 rounded-2xl glass-card text-left border border-genki-yellow/50 hover:bg-genki-yellow/20 transition-all font-bold text-sm text-white flex items-center justify-between">
+                <span>🌾 赤酢特製シャリ (熟成成形)</span>
+                <span class="text-xs text-genki-yellow font-mono">+10秒</span>
+              </button>
+              <button onclick="setRice('伝統白酢シャリ', 8)" class="p-4 rounded-2xl glass-card text-left border border-white/10 hover:bg-genki-yellow/20 transition-all font-bold text-sm text-white flex items-center justify-between">
+                <span>🍚 伝統純白酢シャリ</span>
+                <span class="text-xs text-genki-yellow font-mono">+8秒</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Neta Choice -->
+          <div>
+            <label class="block text-xs font-extrabold text-genki-yellow uppercase tracking-wider mb-3">STEP 2: メインネタの選択</label>
+            <div class="grid grid-cols-3 gap-3">
+              <button onclick="toggleNeta('ノルウェー産生サーモン', 380, 12)" class="p-3 rounded-xl glass-card text-center border border-white/10 hover:border-genki-red transition-all">
+                <div class="text-2xl mb-1">🍣</div>
+                <div class="text-xs font-bold text-white">生サーモン</div>
+                <div class="text-[10px] text-gray-400">¥380 / 12秒</div>
+              </button>
+              <button onclick="toggleNeta('極み本マグロ中トロ', 480, 15)" class="p-3 rounded-xl glass-card text-center border border-white/10 hover:border-genki-red transition-all">
+                <div class="text-2xl mb-1">🐟</div>
+                <div class="text-xs font-bold text-white">本マグロ中トロ</div>
+                <div class="text-[10px] text-gray-400">¥480 / 15秒</div>
+              </button>
+              <button onclick="toggleNeta('ボタン海老＆とびっこ', 420, 10)" class="p-3 rounded-xl glass-card text-center border border-white/10 hover:border-genki-red transition-all">
+                <div class="text-2xl mb-1">🦐</div>
+                <div class="text-xs font-bold text-white">ボタン海老</div>
+                <div class="text-[10px] text-gray-400">¥420 / 10秒</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Special Topping -->
+          <div>
+            <label class="block text-xs font-extrabold text-genki-yellow uppercase tracking-wider mb-3">STEP 3: 仕上げトッピング</label>
+            <div class="grid grid-cols-3 gap-3">
+              <button onclick="setTopping('炙りチーズマヨ', 120, 8)" class="p-3 rounded-xl glass-card text-center border border-white/10 hover:border-genki-gold transition-all">
+                <div class="text-xs font-bold text-white">🔥 炙りチーズマヨ</div>
+                <div class="text-[10px] text-gray-400">+¥120 / +8秒</div>
+              </button>
+              <button onclick="setTopping('トリュフ醤油ペースト', 180, 5)" class="p-3 rounded-xl glass-card text-center border border-white/10 hover:border-genki-gold transition-all">
+                <div class="text-xs font-bold text-white">✨ トリュフ醤油</div>
+                <div class="text-[10px] text-gray-400">+¥180 / +5秒</div>
+              </button>
+              <button onclick="setTopping('なし (素材そのまま)', 0, 0)" class="p-3 rounded-xl glass-card text-center border border-white/10 hover:border-genki-gold transition-all">
+                <div class="text-xs font-bold text-white">🍃 なし</div>
+                <div class="text-[10px] text-gray-400">+¥0 / +0秒</div>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Preview Result Right (5 cols) -->
+        <div class="lg:col-span-5 glass-card p-8 rounded-3xl border-2 border-genki-yellow flex flex-col justify-between h-full">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-genki-yellow text-genki-black font-extrabold text-xs uppercase">REALTIME SIMULATOR</span>
+              <img src="/genki/face_icon.jpg" class="w-8 h-8 rounded-lg bg-white object-contain" onerror="this.onerror=null; this.src='file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_sushi_official_face_icon_1784680605690.jpg';">
+            </div>
+
+            <h3 class="text-2xl font-black text-white mb-6">カスタム注文構成</h3>
+
+            <div class="space-y-3 mb-6 text-sm">
+              <div class="flex justify-between border-b border-white/10 pb-2">
+                <span class="text-gray-400">シャリ:</span>
+                <span id="custom-rice" class="font-bold text-white">赤酢特製シャリ</span>
+              </div>
+              <div class="flex justify-between border-b border-white/10 pb-2">
+                <span class="text-gray-400">選択ネタ:</span>
+                <span id="custom-neta" class="font-bold text-genki-yellow">ノルウェー産生サーモン</span>
+              </div>
+              <div class="flex justify-between border-b border-white/10 pb-2">
+                <span class="text-gray-400">トッピング:</span>
+                <span id="custom-topping" class="font-bold text-white">なし</span>
+              </div>
+            </div>
+
+            <!-- Calculated Time & Price Pill -->
+            <div class="grid grid-cols-2 gap-4 p-4 rounded-2xl bg-black/60 mb-6">
+              <div>
+                <div class="text-xs text-gray-400">予想調理時間</div>
+                <div id="custom-time" class="text-3xl font-black text-genki-yellow font-display">30<span class="text-sm font-normal">秒</span></div>
+              </div>
+              <div>
+                <div class="text-xs text-gray-400">合計価格(税込)</div>
+                <div id="custom-price" class="text-3xl font-black text-white font-display">¥500</div>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="orderCustomPack()" class="w-full py-4 rounded-full bg-genki-gradient text-genki-black font-extrabold text-sm shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-2">
+            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+            <span>この構成で注文リストに追加</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== INTERACTIVE 45㎡ BLUEPRINT EXPLORER ==================== -->
+  <section id="blueprint" class="py-24 relative bg-genki-black">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-bold text-genki-yellow uppercase tracking-widest mb-2">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <span>LLM Council 20名 専門家検証済み建築図面</span>
+          </div>
+          <h2 class="text-3xl md:text-5xl font-black text-white">
+            45㎡ 店舗レイアウト インタラクティブ探検
+          </h2>
+        </div>
+        <p class="text-sm text-gray-400 max-w-md">
+          幅9m × 奥行5mの極限空間に、最高峰の衛生基準（HACCP）と圧倒的オペレーション効率を凝縮。
+        </p>
+      </div>
+
+      <!-- Blueprint Interactive Container -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Image Viewer with Interactive Hotspots -->
+        <div class="lg:col-span-8 glass-card p-4 rounded-3xl border border-genki-yellow/30 relative overflow-hidden group">
+          
+          <div class="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-black">
+            <img src="/genki/blueprint.jpg" 
+                 alt="45sqm Blueprint Layout Image" 
+                 class="w-full h-full object-contain"
+                 onerror="this.onerror=null; this.src='file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_sushi_express_nanobananapro_1784619918073.jpg';">
+
+            <!-- Hotspot Buttons -->
+            <button onclick="selectZone('eatin')" class="absolute top-[65%] left-[18%] p-3 rounded-full bg-genki-yellow text-genki-black font-extrabold text-xs shadow-lg hover:scale-125 transition-transform animate-bounce" title="イートイン8席">
+              <i data-lucide="utensils" class="w-4 h-4"></i>
+            </button>
+            <button onclick="selectZone('showcase')" class="absolute top-[75%] left-[55%] p-3 rounded-full bg-genki-red text-white font-extrabold text-xs shadow-lg hover:scale-125 transition-transform animate-bounce" title="作り置きショーケース">
+              <i data-lucide="package" class="w-4 h-4"></i>
+            </button>
+            <button onclick="selectZone('hatch')" class="absolute top-[40%] left-[50%] p-3 rounded-full bg-genki-gold text-genki-black font-extrabold text-xs shadow-lg hover:scale-125 transition-transform animate-bounce" title="受渡し扉">
+              <i data-lucide="door-closed" class="w-4 h-4"></i>
+            </button>
+            <button onclick="selectZone('robot')" class="absolute top-[35%] left-[68%] p-3 rounded-full bg-blue-500 text-white font-extrabold text-xs shadow-lg hover:scale-125 transition-transform animate-bounce" title="シャリロボ SR-2">
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <div class="mt-4 flex items-center justify-between text-xs text-gray-400 px-2">
+            <span>※マップ上のピンをタップすると詳細解説が表示されます</span>
+            <span class="font-mono text-genki-yellow">ZONE AREA: 35㎡ (Kitchen/Shop) + 10㎡ (Backroom)</span>
+          </div>
+
+        </div>
+
+        <!-- Right: Dynamic Details Panel -->
+        <div class="lg:col-span-4 flex flex-col gap-4">
+          
+          <div id="zone-card" class="glass-card p-6 rounded-3xl border-l-4 border-l-genki-yellow transition-all duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span id="zone-tag" class="px-3 py-1 rounded-full bg-genki-yellow/20 text-genki-yellow text-xs font-bold">イートインエリア</span>
+              <span class="text-xs text-gray-500 font-mono">ZONE #01</span>
+            </div>
+            <h3 id="zone-title" class="text-xl font-bold text-white mb-2">店内イートイン 8席（L字型全面仕切り壁）</h3>
+            <p id="zone-desc" class="text-xs text-gray-300 leading-relaxed mb-4">
+              正方形テーブル2台・椅子計8脚を店舗左下に配置。厨房や米飯設備から物理分離された「下部壁＋上部透明ガラス」のL字型仕切り壁で、落ち着いた食事空間を保ちます。
+            </p>
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs">
+              <span class="text-gray-400">LLM Council 指摘反映</span>
+              <span id="zone-badge" class="text-genki-yellow font-bold">P1 居住性・視線遮断完了</span>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="selectZone('eatin')" class="p-3 rounded-xl glass-card text-left text-xs font-bold text-white hover:border-genki-yellow transition-colors">
+              🍽️ イートイン8席
+            </button>
+            <button onclick="selectZone('showcase')" class="p-3 rounded-xl glass-card text-left text-xs font-bold text-white hover:border-genki-red transition-colors">
+              🍱 ショーケース
+            </button>
+            <button onclick="selectZone('hatch')" class="p-3 rounded-xl glass-card text-left text-xs font-bold text-white hover:border-genki-gold transition-colors">
+              🚪 受渡し扉 (HACCP)
+            </button>
+            <button onclick="selectZone('robot')" class="p-3 rounded-xl glass-card text-left text-xs font-bold text-white hover:border-blue-400 transition-colors">
+              🤖 シャリロボ SR-2
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="py-12 border-t border-white/10 bg-genki-black text-gray-400 text-xs">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <img src="/genki/face_icon.jpg" class="w-8 h-8 rounded-lg bg-white object-contain" onerror="this.onerror=null; this.src='file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_sushi_official_face_icon_1784680605690.jpg';">
+        <span class="text-white font-bold text-sm">GENKI SUSHI <span class="text-genki-red font-black italic">EXPRESS</span></span>
+        <span class="text-gray-600">|</span>
+        <span>元気寿司株式会社 オフィシャルQSRプロジェクト</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="#blueprint" class="hover:text-genki-yellow transition-colors">45㎡ 建築図面</a>
+        <a href="#builder" class="hover:text-genki-yellow transition-colors">カスタムシミュレーター</a>
+        <a href="#" class="hover:text-genki-yellow transition-colors">利用規約</a>
+      </div>
+
+      <div class="text-gray-500">
+        © 2026 GENKI SUSHI CO., LTD. All Rights Reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== ORDER MODAL ==================== -->
+  <div id="order-modal-bg" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+    <div class="glass-card max-w-lg w-full rounded-3xl p-6 border border-genki-yellow/40 relative animate-float">
+      
+      <button onclick="closeOrderModal()" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-white rounded-full">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <img src="/genki/face_icon.jpg" class="w-10 h-10 rounded-xl bg-white object-contain" onerror="this.onerror=null; this.src='file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_sushi_official_face_icon_1784680605690.jpg';">
+        <div>
+          <h3 class="text-xl font-bold text-white">事前スピード注文 (45秒ピックアップ)</h3>
+          <p class="text-xs text-gray-400">保温機能付きテイクアウト棚 (T) よりお受け取りいただけます</p>
+        </div>
+      </div>
+
+      <!-- Selected Items List -->
+      <div id="modal-cart-items" class="my-4 max-h-48 overflow-y-auto space-y-2 pr-2">
+        <div class="text-center py-6 text-xs text-gray-500">カートに商品がありません</div>
+      </div>
+
+      <!-- Total Price -->
+      <div class="pt-4 border-t border-white/10 flex items-center justify-between mb-6">
+        <span class="text-sm font-bold text-gray-300">合計金額 (税込)</span>
+        <span id="modal-total-price" class="text-2xl font-black text-genki-yellow font-display">¥0</span>
+      </div>
+
+      <!-- Form -->
+      <form onsubmit="submitOrder(event)" class="space-y-3">
+        <div>
+          <label class="block text-xs font-bold text-gray-400 mb-1">お名前</label>
+          <input type="text" required placeholder="元気 太郎" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/10 text-white text-sm focus:border-genki-yellow outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-400 mb-1">受取予定時間</label>
+          <select class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/10 text-white text-sm focus:border-genki-yellow outline-none">
+            <option>最短 (約45秒〜3分後)</option>
+            <option>10分後</option>
+            <option>20分後</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-3.5 rounded-full bg-genki-gradient text-genki-black font-extrabold text-sm shadow-xl hover:scale-105 transition-all">
+          キャッシュレス決済して確定
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    lucide.createIcons();
+
+    // 1. Three.js Interactive Particles Background
+    const canvas = document.getElementById('hero-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const particleCount = 300;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+
+    const colorYellow = new THREE.Color(0xFFD100);
+    const colorRed = new THREE.Color(0xE60012);
+
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      positions[i] = (Math.random() - 0.5) * 16;
+      positions[i + 1] = (Math.random() - 0.5) * 16;
+      positions[i + 2] = (Math.random() - 0.5) * 16;
+
+      const mixColor = Math.random() > 0.35 ? colorYellow : colorRed;
+      colors[i] = mixColor.r;
+      colors[i + 1] = mixColor.g;
+      colors[i + 2] = mixColor.b;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const material = new THREE.PointsMaterial({
+      size: 0.09,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.85
+    });
+
+    const particlesMesh = new THREE.Points(geometry, material);
+    scene.add(particlesMesh);
+
+    camera.position.z = 5;
+
+    let mouseX = 0, mouseY = 0;
+    let speedMultiplier = 1;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 0.6;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 0.6;
+    });
+
+    function toggleSpeedMode() {
+      if (speedMultiplier === 1) {
+        speedMultiplier = 3;
+        document.getElementById('speed-text').innerText = 'SPEED: HYPER ⚡';
+        document.getElementById('speed-mode-btn').classList.add('text-genki-red');
+      } else {
+        speedMultiplier = 1;
+        document.getElementById('speed-text').innerText = 'SPEED: NORMAL';
+        document.getElementById('speed-mode-btn').classList.remove('text-genki-red');
+      }
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      particlesMesh.rotation.y += 0.002 * speedMultiplier;
+      particlesMesh.rotation.x += 0.001 * speedMultiplier;
+
+      camera.position.x += (mouseX - camera.position.x) * 0.05;
+      camera.position.y += (-mouseY - camera.position.y) * 0.05;
+      camera.lookAt(scene.position);
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // 2. Custom Sushi Builder Logic
+    let currentRice = { name: '赤酢特製シャリ', time: 10 };
+    let currentNeta = { name: 'ノルウェー産生サーモン', price: 380, time: 12 };
+    let currentTopping = { name: 'なし', price: 0, time: 0 };
+
+    function setRice(name, time) {
+      currentRice = { name, time };
+      updateBuilderUI();
+    }
+
+    function toggleNeta(name, price, time) {
+      currentNeta = { name, price, time };
+      updateBuilderUI();
+    }
+
+    function setTopping(name, price, time) {
+      currentTopping = { name, price, time };
+      updateBuilderUI();
+    }
+
+    function updateBuilderUI() {
+      document.getElementById('custom-rice').innerText = currentRice.name;
+      document.getElementById('custom-neta').innerText = currentNeta.name;
+      document.getElementById('custom-topping').innerText = currentTopping.name;
+
+      const totalTime = currentRice.time + currentNeta.time + currentTopping.time;
+      const totalPrice = currentNeta.price + currentTopping.price + 100;
+
+      document.getElementById('custom-time').innerHTML = `${totalTime}<span class="text-sm font-normal">秒</span>`;
+      document.getElementById('custom-price').innerText = `¥${totalPrice}`;
+    }
+
+    function orderCustomPack() {
+      const name = `カスタム: ${currentNeta.name} (${currentRice.name})`;
+      const price = currentNeta.price + currentTopping.price + 100;
+      addToOrder(name, price);
+    }
+
+    // 3. Zone Explorer Data
+    const zoneData = {
+      eatin: {
+        title: "店内イートイン 8席（L字型全面仕切り壁）",
+        tag: "イートインエリア",
+        desc: "正方形テーブル2台・椅子計8脚を店舗左下に配置。厨房や米飯設備から物理分離された「下部壁＋上部透明ガラス」のL字型仕切り壁で、落ち着いた食事空間を保ちます。",
+        badge: "P1 居住性・視線遮断完了"
+      },
+      showcase: {
+        title: "背面補充対応 作り置きガラスショーケース",
+        tag: "Grab & Go Showcase",
+        desc: "店舗正面に配置した長尺ガラスケース。スタッフが厨房内から直接商品を陳列・補充できる背面スルー構造を採用し、通路を塞がず秒速販売を実現。",
+        badge: "P0 背面スルー構造完了"
+      },
+      hatch: {
+        title: "中央受渡し扉（HACCP衛生隔離）",
+        tag: "衛生管理ハッチ",
+        desc: "仕込み・米飯エリアと前方接客エリアを完全壁で遮断。ステンレス製の受渡し棚から成形シャリ玉桶と仕込ネタのみを受渡す交差汚染ゼロ設計。",
+        badge: "HACCP 衛生区画完了"
+      },
+      robot: {
+        title: "シャリロボット SR-2 ＆ 交互作業台",
+        tag: "自動化ロボティクス",
+        desc: "SR1→作業台①→SR2→作業台② の交互配置。均一でふわっと解ける最高品質のシャリ玉を毎時数千個成形し、運搬桶へ自動供給。",
+        badge: "毎時2,400貫 超速成形"
+      }
+    };
+
+    function selectZone(key) {
+      const data = zoneData[key];
+      if (!data) return;
+      document.getElementById('zone-title').innerText = data.title;
+      document.getElementById('zone-tag').innerText = data.tag;
+      document.getElementById('zone-desc').innerText = data.desc;
+      document.getElementById('zone-badge').innerText = data.badge;
+    }
+
+    // 4. Cart Modal State
+    let cart = [];
+
+    function addToOrder(name, price) {
+      cart.push({ name, price });
+      updateCartModal();
+      openOrderModal();
+    }
+
+    function updateCartModal() {
+      const container = document.getElementById('modal-cart-items');
+      const totalEl = document.getElementById('modal-total-price');
+      if (cart.length === 0) {
+        container.innerHTML = '<div class="text-center py-6 text-xs text-gray-500">カートに商品がありません</div>';
+        totalEl.innerText = '¥0';
+        return;
+      }
+
+      let total = 0;
+      container.innerHTML = cart.map((item, idx) => {
+        total += item.price;
+        return `
+          <div class="flex items-center justify-between p-3 rounded-xl bg-white/5 text-xs text-white">
+            <span>${item.name}</span>
+            <div class="flex items-center gap-3">
+              <span class="font-bold text-genki-yellow">¥${item.price.toLocaleString()}</span>
+              <button onclick="removeItem(${idx})" class="text-gray-400 hover:text-genki-red font-bold">×</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+      totalEl.innerText = `¥${total.toLocaleString()}`;
+    }
+
+    function removeItem(idx) {
+      cart.splice(idx, 1);
+      updateCartModal();
+    }
+
+    function openOrderModal() {
+      document.getElementById('order-modal-bg').classList.remove('hidden');
+      document.getElementById('order-modal-bg').classList.add('flex');
+    }
+
+    function closeOrderModal() {
+      document.getElementById('order-modal-bg').classList.remove('flex');
+      document.getElementById('order-modal-bg').classList.add('hidden');
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+      alert('ご注文ありがとうございます！指定の受取予定時間に保温棚(T)にてお渡しいたします。');
+      cart = [];
+      updateCartModal();
+      closeOrderModal();
+    }
+  </script>
+
+</body>
+</html>
