@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元気寿司 エクスプレス 店舗レイアウト（パターン1＆2：平面図＋3D図）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            genki: {
+              yellow: '#FFD100',
+              gold: '#FF9900',
+              red: '#E60012',
+              black: '#07070A',
+              card: '#161622',
+              border: '#262638'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #07070A;
+      color: #F3F4F6;
+    }
+    @media print {
+      body { background-color: #ffffff !important; color: #000000 !important; }
+      .no-print { display: none !important; }
+      .glass-card { background: #ffffff !important; border: 1px solid #ccc !important; color: #000000 !important; }
+    }
+    .glass-card {
+      background: rgba(22, 22, 34, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+  <div class="max-w-6xl mx-auto space-y-10">
+    
+    <!-- Top Action Bar -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 glass-card p-6 rounded-2xl border-genki-yellow/40 no-print">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 bg-white rounded-xl p-1 flex items-center justify-center border-2 border-genki-yellow">
+          <img src="file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_sushi_official_face_icon_1784680605690.jpg" class="w-full h-full object-contain">
+        </div>
+        <div>
+          <h1 class="text-2xl font-black text-white">元気寿司 エクスプレス レイアウト検討書</h1>
+          <p class="text-xs text-genki-yellow font-mono">QSR / rayout 保存版 • 日本語完全表記仕様</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="window.print()" class="px-5 py-2.5 rounded-full bg-genki-yellow text-genki-black font-extrabold text-sm hover:bg-genki-gold transition-all flex items-center gap-2 shadow-lg">
+          <i data-lucide="printer" class="w-4 h-4"></i>
+          <span>印刷 / PDF出力</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Header Banner -->
+    <div class="text-center py-4 border-b border-white/10">
+      <h2 class="text-3xl md:text-4xl font-black text-white">元気寿司 エクスプレス QSR店舗レイアウト仕様</h2>
+      <p class="text-sm text-gray-400 mt-2">グローバル主要KIOSK型（Snowfox型 / Sushi Sushi型）に基づく平面図＋3D内観図（日本語表記のみ）</p>
+    </div>
+
+    <!-- SECTION 1: PATTERN 1 (Snowfox Style) -->
+    <section class="space-y-6">
+      <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-yellow">
+        <div class="flex items-center justify-between mb-2">
+          <span class="px-3 py-1 rounded-full bg-genki-yellow/20 text-genki-yellow text-xs font-bold">パターン 1 (Snowfoxスタイル)</span>
+          <span class="text-xs text-gray-400 font-mono">店舗面積: 45㎡ (幅9m × 奥行5m)</span>
+        </div>
+        <h3 class="text-2xl font-black text-white">即買テイクアウト型［フル Grab & Go ＋ オープン調理演出］</h3>
+        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+          正面に幅4mの多段オープン保冷ケースを大面積配置。顧客はパックを手にとって自動注文キオスク(K1/K2)またはレジで即決済（待ち時間ゼロ）。厨房はガラス越しにロール寿司作成を見せるオープン演出。
+        </p>
+      </div>
+
+      <!-- Pattern 1 Images Grid (Floorplan + 3D) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- 1-A: Floorplan -->
+        <div class="glass-card p-4 rounded-2xl space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm font-bold text-genki-yellow flex items-center gap-1.5">
+              <i data-lucide="layout" class="w-4 h-4"></i>
+              <span>【平面図】パターン1 即買テイクアウト型 (45㎡)</span>
+            </h4>
+            <a href="p1_floorplan_grabgo.jpg" download class="text-[11px] text-gray-400 hover:text-white no-print">画像ダウンロード</a>
+          </div>
+          <div class="aspect-video rounded-xl overflow-hidden bg-black border border-white/10">
+            <img src="p1_floorplan_grabgo.jpg" alt="パターン1 平面図" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 1-B: 3D View -->
+        <div class="glass-card p-4 rounded-2xl space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm font-bold text-genki-yellow flex items-center gap-1.5">
+              <i data-lucide="box" class="w-4 h-4"></i>
+              <span>【3D完成図】パターン1 即買テイクアウト型 (45㎡)</span>
+            </h4>
+            <a href="p1_3d_grabgo.jpg" download class="text-[11px] text-gray-400 hover:text-white no-print">画像ダウンロード</a>
+          </div>
+          <div class="aspect-video rounded-xl overflow-hidden bg-black border border-white/10">
+            <img src="p1_3d_grabgo.jpg" alt="パターン1 3D完成図" class="w-full h-full object-contain">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PATTERN 2 (Sushi Sushi Style) -->
+    <section class="space-y-6 pt-6">
+      <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-red">
+        <div class="flex items-center justify-between mb-2">
+          <span class="px-3 py-1 rounded-full bg-genki-red/20 text-genki-red text-xs font-bold">パターン 2 (Sushi Sushiスタイル)</span>
+          <span class="text-xs text-gray-400 font-mono">店舗面積: 48㎡ (幅9.6m × 奥行5m)</span>
+        </div>
+        <h3 class="text-2xl font-black text-white">対面指名注文型［手巻き・1貫対面ケース ＋ ライブロールカウンター］</h3>
+        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+          正面に長さ5.5mのロング対面ガラスケースを配置。手巻き寿司（Handroll）や単品握りを1貫ずつ指名注文して箱詰め。ケース裏でシェフが連続製造し、客単価を最大化。
+        </p>
+      </div>
+
+      <!-- Pattern 2 Images Grid (Floorplan + 3D) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- 2-A: Floorplan -->
+        <div class="glass-card p-4 rounded-2xl space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm font-bold text-genki-red flex items-center gap-1.5">
+              <i data-lucide="layout" class="w-4 h-4"></i>
+              <span>【平面図】パターン2 対面指名注文型 (48㎡)</span>
+            </h4>
+            <a href="p2_floorplan_pickmix.jpg" download class="text-[11px] text-gray-400 hover:text-white no-print">画像ダウンロード</a>
+          </div>
+          <div class="aspect-video rounded-xl overflow-hidden bg-black border border-white/10">
+            <img src="p2_floorplan_pickmix.jpg" alt="パターン2 平面図" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- 2-B: 3D View -->
+        <div class="glass-card p-4 rounded-2xl space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm font-bold text-genki-red flex items-center gap-1.5">
+              <i data-lucide="box" class="w-4 h-4"></i>
+              <span>【3D完成図】パターン2 対面指名注文型 (48㎡)</span>
+            </h4>
+            <a href="p2_3d_pickmix.jpg" download class="text-[11px] text-gray-400 hover:text-white no-print">画像ダウンロード</a>
+          </div>
+          <div class="aspect-video rounded-xl overflow-hidden bg-black border border-white/10">
+            <img src="p2_3d_pickmix.jpg" alt="パターン2 3D完成図" class="w-full h-full object-contain">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center py-6 text-xs text-gray-500 border-t border-white/10">
+      © 2026 GENKI SUSHI CO., LTD. QSR Store Layout Research.
+    </footer>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
