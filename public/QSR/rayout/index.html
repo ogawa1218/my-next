@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>元気寿司 エクスプレス 3方向3D立体パース ＆ 平面図コンプリートビューア</title>
+  <title>元気寿司 エクスプレス パターンA〜C 3D正面パース ＆ 平面図コンプリートビューア</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -60,8 +60,8 @@
           </svg>
         </div>
         <div>
-          <h1 class="text-2xl font-black text-white">元気寿司 エクスプレス 3D立体パース集 (3方向)</h1>
-          <p class="text-xs text-genki-yellow font-bold">添付レイアウト完全連動 45㎡店舗 (正面・左斜め・右斜め3D視点)</p>
+          <h1 class="text-2xl font-black text-white">元気寿司 エクスプレス 3D正面パース集 (全3パターン)</h1>
+          <p class="text-xs text-genki-yellow font-bold">平面図（壁面一直線型 / 45㎡）完全連動 ＆ リアルスケッチ風 3Dパース</p>
         </div>
       </div>
 
@@ -72,75 +72,75 @@
       </div>
     </div>
 
-    <!-- TABS FOR 3D VIEWS -->
+    <!-- TABS FOR PATTERNS -->
     <div class="flex flex-wrap items-center justify-center gap-4 no-print">
-      <button onclick="switchView('front')" id="tab-front" class="px-6 py-3 rounded-xl bg-genki-yellow text-genki-black font-extrabold text-sm shadow-lg transition-all">
-        方向1：正面立体 3Dパース
+      <button onclick="switchPattern('A')" id="tab-A" class="px-6 py-3 rounded-xl bg-genki-yellow text-genki-black font-extrabold text-sm shadow-lg transition-all">
+        パターンA: 標準平衡 3D正面パース
       </button>
-      <button onclick="switchView('left')" id="tab-left" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
-        方向2：左側斜め 3Dパース (客席・POS強調)
+      <button onclick="switchPattern('B')" id="tab-B" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
+        パターンB: ストック即売強化 3D正面パース
       </button>
-      <button onclick="switchView('right')" id="tab-right" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
-        方向3：右側斜め 3Dパース (進入・対面ケース強調)
+      <button onclick="switchPattern('C')" id="tab-C" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
+        パターンC: ライブ対面強化 3D正面パース
       </button>
-      <button onclick="switchView('plan')" id="tab-plan" class="px-6 py-3 rounded-xl glass-card text-genki-red font-bold text-sm hover:text-white transition-all border border-genki-red/40">
-        📐 2D建築平面図
+      <button onclick="switchPattern('plan')" id="tab-plan" class="px-6 py-3 rounded-xl glass-card text-genki-red font-bold text-sm hover:text-white transition-all border border-genki-red/40">
+        📐 2D建築平面図 (元画像)
       </button>
     </div>
 
     <!-- DIRECT ACCESS LINKS -->
     <div class="glass-card p-4 rounded-xl border border-genki-yellow/30 text-center no-print flex flex-wrap justify-center gap-4">
-      <span class="text-xs text-gray-300">※ 各3D視点の個別SVGファイルを直接開く：</span>
-      <a id="link-front" href="view3d_front.svg" target="_blank" class="text-xs font-bold text-genki-yellow underline hover:text-white">▶ 1.正面3D</a>
-      <a id="link-left" href="view3d_left.svg" target="_blank" class="text-xs font-bold text-sky-400 underline hover:text-white">▶ 2.左側斜め3D</a>
-      <a id="link-right" href="view3d_right.svg" target="_blank" class="text-xs font-bold text-orange-400 underline hover:text-white">▶ 3.右側斜め3D</a>
+      <span class="text-xs text-gray-300">※ 各パターンの高画質SVGファイルを直接開く：</span>
+      <a id="link-A" href="real3d_front.svg" target="_blank" class="text-xs font-bold text-genki-yellow underline hover:text-white">▶ パターンA 3D正面図</a>
+      <a id="link-B" href="real3d_patternB.svg" target="_blank" class="text-xs font-bold text-orange-400 underline hover:text-white">▶ パターンB 3D正面図</a>
+      <a id="link-C" href="real3d_patternC.svg" target="_blank" class="text-xs font-bold text-sky-400 underline hover:text-white">▶ パターンC 3D正面図</a>
       <a href="https://my-next-henna-beta.vercel.app/QSR/rayout/index.html" target="_blank" class="text-xs font-bold text-green-400 underline hover:text-white">🌐 オンラインWeb版(Vercel)</a>
     </div>
 
-    <!-- VIEW 1: FRONT 3D -->
-    <div id="view-front" class="space-y-6">
+    <!-- PATTERN A VIEW -->
+    <div id="view-A" class="space-y-6">
       <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-yellow">
-        <h3 class="text-xl font-bold text-white mb-1">【方向1：正面立体 3D透視パース】</h3>
-        <p class="text-xs text-gray-300">モール通路正面から店舗内観全体（前面カウンター、完全目隠し壁、背面壁面一直線機器ライン、敷地外8席）を見渡すメインパース。</p>
+        <h3 class="text-xl font-bold text-white mb-1">【パターンA: 標準平衡モデル 3D正面パース】</h3>
+        <p class="text-xs text-gray-300">平面図の全要件（Subway風対面ネタケース 2.5m / POS会計レジ / 持ち帰りケース 1.8m / 完全目隠し壁 / 背面壁面一直線機器ライン / 敷地外イートイン 8席 / 注記引き出し線）を完璧に3D可視化したリアルパース。</p>
       </div>
       <div class="glass-card p-4 rounded-2xl border border-genki-yellow/30 bg-white/5">
         <div class="aspect-[16/9] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
-          <object data="view3d_front.svg" type="image/svg+xml" class="w-full h-full min-h-[600px]"></object>
+          <object data="real3d_front.svg" type="image/svg+xml" class="w-full h-full min-h-[600px]"></object>
         </div>
       </div>
     </div>
 
-    <!-- VIEW 2: LEFT 3D -->
-    <div id="view-left" class="space-y-6 hidden">
-      <div class="glass-card p-6 rounded-2xl border-l-4 border-l-sky-500">
-        <h3 class="text-xl font-bold text-white mb-1">【方向2：左側斜め立体 3D視点パース】</h3>
-        <p class="text-xs text-gray-300">店舗左手前の「敷地外イートイン(8席)」と「左端配置のPOSレジ会計カウンター」の接続動線を強調したアングル。</p>
-      </div>
-      <div class="glass-card p-4 rounded-2xl border border-sky-500/30 bg-white/5">
-        <div class="aspect-[16/9] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
-          <object data="view3d_left.svg" type="image/svg+xml" class="w-full h-full min-h-[600px]"></object>
-        </div>
-      </div>
-    </div>
-
-    <!-- VIEW 3: RIGHT 3D -->
-    <div id="view-right" class="space-y-6 hidden">
+    <!-- PATTERN B VIEW -->
+    <div id="view-B" class="space-y-6 hidden">
       <div class="glass-card p-6 rounded-2xl border-l-4 border-l-orange-500">
-        <h3 class="text-xl font-bold text-white mb-1">【方向3：右側斜め立体 3D視点パース】</h3>
-        <p class="text-xs text-gray-300">お客様の入口アプローチとなる右手前からの視点。「Subway風対面ネタケース(2.5m)」と奥の「SUZUMO巻きロボ」を強調。</p>
+        <h3 class="text-xl font-bold text-white mb-1">【パターンB: ストック即売強化モデル 3D正面パース】</h3>
+        <p class="text-xs text-gray-300">前面の持ち帰り寿司ケースを3.5mに大型拡大。即買グラブ＆ゴー需要を最大化するレイアウトの3Dパース。</p>
       </div>
       <div class="glass-card p-4 rounded-2xl border border-orange-500/30 bg-white/5">
         <div class="aspect-[16/9] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
-          <object data="view3d_right.svg" type="image/svg+xml" class="w-full h-full min-h-[600px]"></object>
+          <object data="real3d_patternB.svg" type="image/svg+xml" class="w-full h-full min-h-[600px]"></object>
         </div>
       </div>
     </div>
 
-    <!-- VIEW PLAN: 2D FLOORPLAN -->
+    <!-- PATTERN C VIEW -->
+    <div id="view-C" class="space-y-6 hidden">
+      <div class="glass-card p-6 rounded-2xl border-l-4 border-l-sky-500">
+        <h3 class="text-xl font-bold text-white mb-1">【パターンC: ライブキッチン対面強化モデル 3D正面パース】</h3>
+        <p class="text-xs text-gray-300">前面のSubway風対面ネタケースを3.8mに大型拡大。鮮魚生ネタと職人の対面手渡しパフォーマンスを強調する3Dパース。</p>
+      </div>
+      <div class="glass-card p-4 rounded-2xl border border-sky-500/30 bg-white/5">
+        <div class="aspect-[16/9] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
+          <object data="real3d_patternC.svg" type="image/svg+xml" class="w-full h-full min-h-[600px]"></object>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAN VIEW -->
     <div id="view-plan" class="space-y-6 hidden">
       <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-red">
-        <h3 class="text-xl font-bold text-white mb-1">【2D超精密 建築平面図（元画像再現版）】</h3>
-        <p class="text-xs text-gray-300">ご提示いただいたレイアウト図面（壁面一直線型 / 45.0㎡ / 敷地外8席 / 炊飯器2台 / SUZUMO巻きロボ / 手洗い専用シンクHS / 完全目隠し壁）の元図面。</p>
+        <h3 class="text-xl font-bold text-white mb-1">【元画像 2D超精密 建築平面図】</h3>
+        <p class="text-xs text-gray-300">ご提示いただいた「店舗レイアウト平面図 45.0㎡ 厨房レイアウト案A | 壁面一直線型」のCAD図面。</p>
       </div>
       <div class="glass-card p-4 rounded-2xl border border-genki-red/30 bg-white/5">
         <div class="aspect-[16/10.5] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
@@ -156,8 +156,8 @@
   </div>
 
   <script>
-    function switchView(target) {
-      ['front', 'left', 'right', 'plan'].forEach(id => {
+    function switchPattern(target) {
+      ['A', 'B', 'C', 'plan'].forEach(id => {
         const content = document.getElementById(`view-${id}`);
         const tab = document.getElementById(`tab-${id}`);
         if (id === target) {
