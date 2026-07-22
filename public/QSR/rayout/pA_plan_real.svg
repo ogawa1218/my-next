@@ -1,0 +1,325 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <!-- Realistic Gradients and Shadows -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="3" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    <filter id="soft-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+    
+    <!-- Floor Gradients -->
+    <linearGradient id="kitchen-floor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFEDD5"/>
+      <stop offset="100%" stop-color="#FED7AA"/>
+    </linearGradient>
+    <linearGradient id="backroom-floor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+    <linearGradient id="eatin-floor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </linearGradient>
+
+    <!-- Equipment Metal Gradients -->
+    <linearGradient id="metal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+    <linearGradient id="rice-pot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="100%" stop-color="#EAB308"/>
+    </linearGradient>
+    <linearGradient id="suzumo-red" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEE2E2"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <linearGradient id="sink-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BAE6FD"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    
+    <!-- Flow Markers -->
+    <marker id="arrow-yellow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#EAB308"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563EB"/>
+    </marker>
+
+    <style>
+      .title { font-family: 'Noto Sans JP', sans-serif; font-weight: 900; fill: #0F172A; font-size: 24px; }
+      .subtitle { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; fill: #DC2626; font-size: 13px; }
+      .label-bold { font-family: 'Noto Sans JP', sans-serif; font-weight: 900; fill: #0F172A; font-size: 12px; }
+      .label-sub { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; fill: #475569; font-size: 10px; }
+      .tag-yellow { fill: #FEF08A; stroke: #CA8A04; stroke-width: 1.5; }
+      .tag-red { fill: #FEE2E2; stroke: #DC2626; stroke-width: 1.5; }
+      .flow-customer { stroke: #EAB308; stroke-width: 4; stroke-dasharray: 8,5; fill: none; marker-end: url(#arrow-yellow); }
+      .flow-staff { stroke: #2563EB; stroke-width: 3; fill: none; marker-end: url(#arrow-blue); }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#FFFFFF"/>
+
+  <!-- HEADER -->
+  <g transform="translate(40, 20)">
+    <circle cx="26" cy="26" r="24" fill="#FFD100" stroke="#000" stroke-width="2.5" filter="url(#soft-shadow)"/>
+    <path d="M 14 18 Q 26 10 38 18" stroke="#000" stroke-width="3.5" fill="none"/>
+    <circle cx="18" cy="26" r="3" fill="#000"/>
+    <circle cx="34" cy="26" r="3" fill="#000"/>
+    <circle cx="15" cy="31" r="4.5" fill="#E60012"/>
+    <circle cx="37" cy="31" r="4.5" fill="#E60012"/>
+    <path d="M 18 36 Q 26 42 34 36" stroke="#000" stroke-width="3.5" fill="none"/>
+    
+    <text x="65" y="26" class="title">元気寿司 エクスプレス リアル平面レイアウト図［パターンA：標準モデル］</text>
+    <text x="65" y="46" class="subtitle">【仕様】敷地45㎡ • 敷地外イートイン8席 • 炊飯器2台 • SUZUMO巻きロボ • 手洗い専用シンク(1台) • お客様視線遮断の目隠し壁 • 左側POS(会計後着席動線)</text>
+  </g>
+
+  <!-- OUTSIDE EAT-IN AREA (Left Side Outside) -->
+  <g transform="translate(40, 95)" filter="url(#shadow)">
+    <rect width="170" height="540" fill="url(#eatin-floor)" stroke="#0284C7" stroke-width="2.5" stroke-dasharray="6,4" rx="10"/>
+    <rect x="10" y="10" width="150" height="30" fill="#0284C7" rx="6"/>
+    <text x="85" y="30" class="label-bold" text-anchor="middle" fill="#FFFFFF">敷地外 イートイン (8席)</text>
+
+    <!-- Table 1 & Chairs -->
+    <g transform="translate(35, 90)">
+      <rect x="20" y="0" width="60" height="60" fill="#D97706" stroke="#78350F" stroke-width="3" rx="6" filter="url(#soft-shadow)"/>
+      <rect x="25" y="5" width="50" height="50" fill="#FBBF24" rx="4"/>
+      <!-- 4 Chairs -->
+      <rect x="-8" y="15" width="20" height="30" fill="#475569" rx="4"/>
+      <rect x="88" y="15" width="20" height="30" fill="#475569" rx="4"/>
+      <rect x="35" y="-18" width="30" height="20" fill="#475569" rx="4"/>
+      <rect x="35" y="58" width="30" height="20" fill="#475569" rx="4"/>
+      <text x="50" y="35" class="label-bold" text-anchor="middle" fill="#78350F">4席</text>
+    </g>
+
+    <!-- Table 2 & Chairs -->
+    <g transform="translate(35, 330)">
+      <rect x="20" y="0" width="60" height="60" fill="#D97706" stroke="#78350F" stroke-width="3" rx="6" filter="url(#soft-shadow)"/>
+      <rect x="25" y="5" width="50" height="50" fill="#FBBF24" rx="4"/>
+      <!-- 4 Chairs -->
+      <rect x="-8" y="15" width="20" height="30" fill="#475569" rx="4"/>
+      <rect x="88" y="15" width="20" height="30" fill="#475569" rx="4"/>
+      <rect x="35" y="-18" width="30" height="20" fill="#475569" rx="4"/>
+      <rect x="35" y="58" width="30" height="20" fill="#475569" rx="4"/>
+      <text x="50" y="35" class="label-bold" text-anchor="middle" fill="#78350F">4席</text>
+    </g>
+  </g>
+
+  <!-- MAIN STORE BOUNDARY (45sqm: 9m x 5m) -->
+  <g transform="translate(230, 95)" filter="url(#shadow)">
+    
+    <!-- Outer Walls (Thick Solid 2.5D Wall) -->
+    <rect width="920" height="540" fill="url(#kitchen-floor)" stroke="#1E293B" stroke-width="10" rx="6"/>
+
+    <!-- ZONE 1: BACKROOM (Top Right 10sqm) -->
+    <g transform="translate(700, 0)">
+      <rect width="220" height="250" fill="url(#backroom-floor)" stroke="#334155" stroke-width="6"/>
+      <text x="110" y="30" class="label-bold" text-anchor="middle" fill="#1E293B">バックルーム / 倉庫 (10㎡)</text>
+      
+      <!-- F Refrigerators -->
+      <g transform="translate(15, 50)" filter="url(#soft-shadow)">
+        <rect width="85" height="70" fill="url(#metal)" stroke="#334155" stroke-width="2" rx="4"/>
+        <line x1="57.5" y1="0" x2="57.5" y2="70" stroke="#475569" stroke-width="2"/>
+        <text x="42.5" y="42" class="label-bold" text-anchor="middle">F 業務用冷蔵庫</text>
+      </g>
+
+      <!-- Z Freezers -->
+      <g transform="translate(115, 50)" filter="url(#soft-shadow)">
+        <rect width="85" height="70" fill="url(#metal)" stroke="#334155" stroke-width="2" rx="4"/>
+        <line x1="42.5" y1="0" x2="42.5" y2="70" stroke="#475569" stroke-width="2"/>
+        <text x="42.5" y="42" class="label-bold" text-anchor="middle">Z 業務用冷凍庫</text>
+      </g>
+
+      <!-- WSS Storage -->
+      <g transform="translate(15, 145)" filter="url(#soft-shadow)">
+        <rect width="185" height="80" fill="url(#metal)" stroke="#334155" stroke-width="2" rx="4"/>
+        <text x="92.5" y="45" class="label-bold" text-anchor="middle">WSS 資材保管・ゴミ置き場</text>
+      </g>
+    </g>
+
+    <!-- REAR RICE LINE (Top Wall) -->
+    <g transform="translate(20, 15)">
+      <rect x="0" y="0" width="660" height="90" fill="#FED7AA" stroke="#EA580C" stroke-width="2" stroke-dasharray="4,2" rx="6"/>
+      
+      <!-- RW 洗米機 -->
+      <g transform="translate(10, 10)" filter="url(#soft-shadow)">
+        <rect width="60" height="70" fill="url(#metal)" stroke="#334155" stroke-width="2" rx="4"/>
+        <circle cx="30" cy="35" r="20" fill="#CBD5E1" stroke="#475569" stroke-width="2"/>
+        <text x="30" y="40" class="label-bold" text-anchor="middle" font-size="10">RW 洗米機</text>
+      </g>
+
+      <!-- RC1 炊飯器1 -->
+      <g transform="translate(80, 10)" filter="url(#soft-shadow)">
+        <rect width="65" height="70" fill="url(#metal)" stroke="#CA8A04" stroke-width="2" rx="4"/>
+        <circle cx="32.5" cy="35" r="24" fill="url(#rice-pot)" stroke="#B45309" stroke-width="2"/>
+        <text x="32.5" y="39" class="label-bold" text-anchor="middle" font-size="10">RC1 炊飯器</text>
+      </g>
+
+      <!-- RC2 炊飯器2 -->
+      <g transform="translate(155, 10)" filter="url(#soft-shadow)">
+        <rect width="65" height="70" fill="url(#metal)" stroke="#CA8A04" stroke-width="2" rx="4"/>
+        <circle cx="32.5" cy="35" r="24" fill="url(#rice-pot)" stroke="#B45309" stroke-width="2"/>
+        <text x="32.5" y="39" class="label-bold" text-anchor="middle" font-size="10">RC2 炊飯器</text>
+      </g>
+
+      <!-- SM 酢合わせ機 -->
+      <g transform="translate(230, 10)" filter="url(#soft-shadow)">
+        <rect width="65" height="70" fill="url(#metal)" stroke="#334155" stroke-width="2" rx="4"/>
+        <rect x="10" y="10" width="45" height="50" fill="url(#rice-pot)" stroke="#B45309" rx="4"/>
+        <text x="32.5" y="39" class="label-bold" text-anchor="middle" font-size="10">SM 酢合わせ</text>
+      </g>
+
+      <!-- SR1 シャリロボ1 -->
+      <g transform="translate(305, 10)" filter="url(#soft-shadow)">
+        <rect width="60" height="70" fill="url(#metal)" stroke="#334155" stroke-width="2" rx="4"/>
+        <circle cx="30" cy="30" r="16" fill="#F1F5F9" stroke="#0284C7" stroke-width="2"/>
+        <text x="30" y="34" class="label-bold" text-anchor="middle" font-size="9">SR1 シャリ</text>
+      </g>
+
+      <!-- シャリ作業台1 -->
+      <g transform="translate(375, 10)" filter="url(#soft-shadow)">
+        <rect width="55" height="70" fill="url(#metal)" stroke="#334155" stroke-width="2" rx="4"/>
+        <rect x="8" y="15" width="39" height="40" fill="#FEF08A" stroke="#CA8A04" rx="2"/>
+        <text x="27.5" y="38" class="label-bold" text-anchor="middle" font-size="9">シャリ桶1</text>
+      </g>
+
+      <!-- SR2 シャリロボ2 -->
+      <g transform="translate(440, 10)" filter="url(#soft-shadow)">
+        <rect width="60" height="70" fill="url(#metal)" stroke="#334155" stroke-width="2" rx="4"/>
+        <circle cx="30" cy="30" r="16" fill="#F1F5F9" stroke="#0284C7" stroke-width="2"/>
+        <text x="30" y="34" class="label-bold" text-anchor="middle" font-size="9">SR2 シャリ</text>
+      </g>
+
+      <!-- SUZUMO 巻きロボ (NEW!) -->
+      <g transform="translate(510, 10)" filter="url(#soft-shadow)">
+        <rect width="70" height="70" fill="url(#suzumo-red)" stroke="#DC2626" stroke-width="2.5" rx="4"/>
+        <rect x="10" y="10" width="50" height="50" fill="#FFFFFF" stroke="#DC2626" rx="3"/>
+        <text x="35" y="33" class="label-bold" text-anchor="middle" font-size="10" fill="#DC2626">SUZUMO</text>
+        <text x="35" y="47" class="label-bold" text-anchor="middle" font-size="9" fill="#DC2626">巻きロボ</text>
+      </g>
+
+      <!-- シャリ作業台2 -->
+      <g transform="translate(590, 10)" filter="url(#soft-shadow)">
+        <rect width="60" height="70" fill="url(#metal)" stroke="#334155" stroke-width="2" rx="4"/>
+        <rect x="10" y="15" width="40" height="40" fill="#FEF08A" stroke="#CA8A04" rx="2"/>
+        <text x="30" y="38" class="label-bold" text-anchor="middle" font-size="9">シャリ桶2</text>
+      </g>
+    </g>
+
+    <!-- MIDDLE PREP & FISH AREA -->
+    <g transform="translate(40, 135)">
+      <rect x="0" y="0" width="620" height="100" fill="#FFFFFF" stroke="#475569" stroke-width="2" rx="6" filter="url(#soft-shadow)"/>
+      
+      <!-- S 仕込シンク -->
+      <g transform="translate(15, 15)">
+        <rect width="85" height="70" fill="url(#sink-blue)" stroke="#0284C7" stroke-width="2" rx="4"/>
+        <circle cx="42.5" cy="35" r="18" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.5"/>
+        <text x="42.5" y="40" class="label-bold" text-anchor="middle" fill="#0369A1">S 仕込シンク</text>
+      </g>
+
+      <!-- Dedicated Handwashing Sink (HS) NEW! -->
+      <g transform="translate(110, 15)">
+        <rect width="70" height="70" fill="url(#sink-blue)" stroke="#0284C7" stroke-width="2.5" rx="4"/>
+        <circle cx="35" cy="35" r="14" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
+        <text x="35" y="32" class="label-bold" text-anchor="middle" font-size="9" fill="#0284C7">手洗い専用</text>
+        <text x="35" y="46" class="label-bold" text-anchor="middle" font-size="9" fill="#0284C7">シンク (HS)</text>
+      </g>
+
+      <!-- 魚切付・ネタ準備台 -->
+      <g transform="translate(190, 15)">
+        <rect width="415" height="70" fill="url(#metal)" stroke="#475569" stroke-width="1.5" rx="4"/>
+        <!-- Chopping Board & Fish Graphics -->
+        <rect x="20" y="15" width="80" height="40" fill="#FDE68A" stroke="#B45309" rx="2"/>
+        <text x="60" y="38" class="label-bold" text-anchor="middle" font-size="9">まな板</text>
+        
+        <rect x="120" y="15" width="120" height="40" fill="#FECDD3" stroke="#E11D48" rx="2"/>
+        <text x="180" y="38" class="label-bold" text-anchor="middle" font-size="10" fill="#BE123C">新鮮生ネタトレー</text>
+        
+        <text x="330" y="40" class="label-bold" text-anchor="middle">魚切付・ネタ仕込みライン</text>
+      </g>
+    </g>
+
+    <!-- COMPLETE BLIND PARTITION WALL (お客様から仕込み場が見えない完全目隠し壁) -->
+    <g transform="translate(0, 260)">
+      <rect x="0" y="0" width="700" height="16" fill="#334155" stroke="#0F172A" stroke-width="2"/>
+      <rect x="0" y="4" width="700" height="8" fill="#475569"/>
+      <text x="350" y="-8" class="label-bold" text-anchor="middle" fill="#DC2626">【完全目隠し仕切り壁】 (お客様から後方仕込み場が完全に見えない壁)</text>
+      
+      <!-- Stainless Pass-through Hatch (受渡し扉) -->
+      <g transform="translate(440, -4)">
+        <rect width="110" height="24" fill="#FEF08A" stroke="#CA8A04" stroke-width="2" rx="3"/>
+        <text x="55" y="16" class="label-bold" text-anchor="middle" font-size="10" fill="#78350F">受渡し扉(HACCP)</text>
+      </g>
+    </g>
+
+    <!-- FRONT LIVE KITCHEN & FRONT COUNTER (Bottom Area) -->
+    <g transform="translate(20, 295)">
+      
+      <!-- POS Register on Left Edge (イートイン入口直近) -->
+      <g transform="translate(10, 85)" filter="url(#shadow)">
+        <rect width="90" height="120" fill="url(#suzumo-red)" stroke="#DC2626" stroke-width="3" rx="6"/>
+        <rect x="10" y="15" width="70" height="50" fill="#1E293B" rx="3"/>
+        <text x="45" y="45" class="label-bold" text-anchor="middle" fill="#FFD100" font-size="11">POS画面</text>
+        <text x="45" y="85" class="label-bold" text-anchor="middle" fill="#DC2626" font-size="12">POS会計レジ</text>
+        <text x="45" y="102" class="small-label" text-anchor="middle" font-weight="bold">(左側配置)</text>
+      </g>
+
+      <!-- Subway-style Live Kitchen Showcase (Left Side) -->
+      <g transform="translate(110, 85)" filter="url(#shadow)">
+        <rect width="340" height="120" fill="#FEF9C3" stroke="#CA8A04" stroke-width="3" rx="6"/>
+        
+        <!-- Live Glass Counter Graphics -->
+        <rect x="15" y="15" width="310" height="45" fill="#FFFFFF" stroke="#CA8A04" stroke-width="2" rx="3"/>
+        <!-- Sushi Items Inside Case -->
+        <circle cx="45" cy="37" r="10" fill="#EF4444"/>
+        <circle cx="85" cy="37" r="10" fill="#F97316"/>
+        <circle cx="125" cy="37" r="10" fill="#EAB308"/>
+        <circle cx="165" cy="37" r="10" fill="#10B981"/>
+        <circle cx="205" cy="37" r="10" fill="#3B82F6"/>
+        <text x="260" y="41" class="small-label" font-weight="bold" fill="#B45309">ネタ多数</text>
+
+        <text x="170" y="80" class="label-bold" text-anchor="middle" fill="#B45309">【Subway風 対面ライブネタケース】</text>
+        <text x="170" y="100" class="small-label" text-anchor="middle" font-weight="bold">(目の前で手渡し・組み立てライブキッチン)</text>
+      </g>
+
+      <!-- Sales Stock Takeaway Showcase (Right Side) -->
+      <g transform="translate(460, 85)" filter="url(#shadow)">
+        <rect width="210" height="120" fill="#FFEDD5" stroke="#C2410C" stroke-width="3" rx="6"/>
+        
+        <rect x="15" y="15" width="180" height="45" fill="#FFFFFF" stroke="#C2410C" stroke-width="2" rx="3"/>
+        <!-- Pack Boxes Inside -->
+        <rect x="25" y="22" width="40" height="30" fill="#FDBA74" rx="2"/>
+        <rect x="75" y="22" width="40" height="30" fill="#FDBA74" rx="2"/>
+        <rect x="125" y="22" width="40" height="30" fill="#FDBA74" rx="2"/>
+
+        <text x="105" y="80" class="label-bold" text-anchor="middle" fill="#C2410C">【持ち帰りストック】</text>
+        <text x="105" y="100" class="label-bold" text-anchor="middle" fill="#C2410C">販売用パックケース</text>
+      </g>
+
+      <!-- Pickup Shelf T -->
+      <g transform="translate(680, 85)" filter="url(#shadow)">
+        <rect width="80" height="120" fill="url(#rice-pot)" stroke="#B45309" stroke-width="2" rx="6"/>
+        <text x="40" y="60" class="label-bold" text-anchor="middle" fill="#78350F">保温棚</text>
+        <text x="40" y="78" class="label-bold" text-anchor="middle" fill="#78350F">(T)</text>
+      </g>
+
+    </g>
+
+    <!-- CUSTOMER FLOW LINE (Yellow Dotted) -->
+    <!-- Entrance right -> Right Stock Case -> Left Live Showcase -> Left POS Checkout -> Left Outside Seating -->
+    <path d="M 760 520 L 460 520 L 220 520 L 65 520 L 65 440 L -70 440" class="flow-customer"/>
+    <text x="520" y="540" class="label-bold" fill="#CA8A04">①商品を見る・選ぶ</text>
+    <text x="130" y="540" class="label-bold" fill="#DC2626">②左側POSで会計</text>
+    <text x="-50" y="420" class="label-bold" fill="#0284C7">③そのまま左外の客席へ移動</text>
+
+    <!-- STAFF FLOW LINE (Blue Solid) -->
+    <path d="M 620 85 L 620 175 L 485 175 L 485 280 L 280 280 L 280 380" class="flow-staff"/>
+    <text x="500" y="225" class="small-label" fill="#2563EB" font-weight="bold">受渡し扉</text>
+
+  </g>
+
+</svg>
