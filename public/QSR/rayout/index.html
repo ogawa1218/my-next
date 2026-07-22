@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>元気寿司 エクスプレス 公式店舗建築図面 ＆ 3Dパース</title>
+  <title>元気寿司 エクスプレス 3方向3D立体パース ＆ 平面図コンプリートビューア</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -45,10 +45,9 @@
 
   <div class="max-w-7xl mx-auto space-y-8">
     
-    <!-- Top Action Bar -->
+    <!-- Header -->
     <div class="flex flex-col md:flex-row items-center justify-between gap-4 glass-card p-6 rounded-2xl border-genki-yellow/40 no-print">
       <div class="flex items-center gap-4">
-        <!-- Logo Mascot Vector -->
         <div class="w-12 h-12 bg-white rounded-xl p-1 flex items-center justify-center border-2 border-genki-yellow shrink-0">
           <svg viewBox="0 0 56 56" class="w-full h-full">
             <circle cx="28" cy="28" r="24" fill="#FFD100" stroke="#000" stroke-width="2.5"/>
@@ -61,123 +60,118 @@
           </svg>
         </div>
         <div>
-          <h1 class="text-2xl font-black text-white">元気寿司 エクスプレス 公式店舗建築図面</h1>
-          <p class="text-xs text-genki-yellow font-bold">3Dパース ＋ 超精密建築平面図 一体型プロフェッショナル仕様 (45㎡)</p>
+          <h1 class="text-2xl font-black text-white">元気寿司 エクスプレス 3D立体パース集 (3方向)</h1>
+          <p class="text-xs text-genki-yellow font-bold">添付レイアウト完全連動 45㎡店舗 (正面・左斜め・右斜め3D視点)</p>
         </div>
       </div>
 
       <div class="flex items-center gap-3">
-        <button onclick="downloadSVG()" class="px-6 py-3 rounded-full bg-genki-red text-white font-extrabold text-xs md:text-sm hover:bg-red-700 transition-all flex items-center gap-2 shadow-lg">
-          <span>表示中図面(SVG)を保存</span>
-        </button>
         <button onclick="window.print()" class="px-6 py-3 rounded-full bg-genki-yellow text-genki-black font-extrabold text-xs md:text-sm hover:bg-genki-gold transition-all flex items-center gap-2 shadow-lg">
-          <span>印刷 / PDF出力</span>
+          <span>高画質印刷 / PDF出力</span>
         </button>
       </div>
     </div>
 
-    <!-- TABS -->
-    <div class="flex items-center justify-center gap-4 no-print">
-      <button onclick="switchTab('A')" id="tab-A" class="px-6 py-3 rounded-xl bg-genki-yellow text-genki-black font-extrabold text-sm shadow-lg transition-all">
-        パターンA: 標準平衡モデル (45㎡)
+    <!-- TABS FOR 3D VIEWS -->
+    <div class="flex flex-wrap items-center justify-center gap-4 no-print">
+      <button onclick="switchView('front')" id="tab-front" class="px-6 py-3 rounded-xl bg-genki-yellow text-genki-black font-extrabold text-sm shadow-lg transition-all">
+        方向1：正面立体 3Dパース
       </button>
-      <button onclick="switchTab('B')" id="tab-B" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
-        パターンB: ストック即売強化モデル (45㎡)
+      <button onclick="switchView('left')" id="tab-left" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
+        方向2：左側斜め 3Dパース (客席・POS強調)
       </button>
-      <button onclick="switchTab('C')" id="tab-C" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
-        パターンC: ライブキッチン対面強化モデル (45㎡)
+      <button onclick="switchView('right')" id="tab-right" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
+        方向3：右側斜め 3Dパース (進入・対面ケース強調)
+      </button>
+      <button onclick="switchView('plan')" id="tab-plan" class="px-6 py-3 rounded-xl glass-card text-genki-red font-bold text-sm hover:text-white transition-all border border-genki-red/40">
+        📐 2D建築平面図
       </button>
     </div>
 
-    <!-- DIRECT ACCESS LINKS FOR BROWSERS WITH STRICT SECURITY -->
-    <div class="glass-card p-4 rounded-xl border border-genki-yellow/30 text-center no-print">
-      <span class="text-xs text-gray-300 mr-3">※ ブラウザ環境で画像がうまく読み込めない場合は、以下の直接リンクをご利用ください：</span>
-      <a id="direct-link-svg" href="patternA.svg" target="_blank" class="text-xs font-bold text-genki-yellow underline hover:text-white mr-4">▶ パターンA 図面ファイルを直接別タブで開く</a>
-      <a href="https://my-next-henna-beta.vercel.app/QSR/rayout/index.html" target="_blank" class="text-xs font-bold text-sky-400 underline hover:text-white">🌐 オンラインWeb版で見る (Vercel)</a>
+    <!-- DIRECT ACCESS LINKS -->
+    <div class="glass-card p-4 rounded-xl border border-genki-yellow/30 text-center no-print flex flex-wrap justify-center gap-4">
+      <span class="text-xs text-gray-300">※ 各3D視点の個別SVGファイルを直接開く：</span>
+      <a id="link-front" href="view3d_front.svg" target="_blank" class="text-xs font-bold text-genki-yellow underline hover:text-white">▶ 1.正面3D</a>
+      <a id="link-left" href="view3d_left.svg" target="_blank" class="text-xs font-bold text-sky-400 underline hover:text-white">▶ 2.左側斜め3D</a>
+      <a id="link-right" href="view3d_right.svg" target="_blank" class="text-xs font-bold text-orange-400 underline hover:text-white">▶ 3.右側斜め3D</a>
+      <a href="https://my-next-henna-beta.vercel.app/QSR/rayout/index.html" target="_blank" class="text-xs font-bold text-green-400 underline hover:text-white">🌐 オンラインWeb版(Vercel)</a>
     </div>
 
-    <!-- CONTENT PATTERN A -->
-    <div id="content-A" class="space-y-6">
+    <!-- VIEW 1: FRONT 3D -->
+    <div id="view-front" class="space-y-6">
       <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-yellow">
-        <h3 class="text-xl font-bold text-white mb-2">パターンA［3Dパース ＋ 超精密建築平面図（標準平衡モデル）］</h3>
-        <p class="text-xs text-gray-300 leading-relaxed">
-          【上段: 3D完成イメージパース】 ＋ 【下段: 45㎡プロフェッショナル建築平面図】の一体化図面。敷地外イートイン(8席)、炊飯器2台、SUZUMO巻きロボ、手洗い専用シンク(HS)、完全目隠し壁、左側POS、右から左へ流れる一方向動線を網羅。
-        </p>
+        <h3 class="text-xl font-bold text-white mb-1">【方向1：正面立体 3D透視パース】</h3>
+        <p class="text-xs text-gray-300">モール通路正面から店舗内観全体（前面カウンター、完全目隠し壁、背面壁面一直線機器ライン、敷地外8席）を見渡すメインパース。</p>
       </div>
       <div class="glass-card p-4 rounded-2xl border border-genki-yellow/30 bg-white/5">
-        <div class="aspect-[16/10.5] w-full rounded-xl overflow-hidden bg-white shadow-2xl flex items-center justify-center">
-          <object id="obj-A" data="patternA.svg" type="image/svg+xml" class="w-full h-full min-h-[650px]">
-            <img src="patternA.svg" alt="パターンA プロ平面図" class="w-full h-full object-contain">
-          </object>
+        <div class="aspect-[16/9] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
+          <object data="view3d_front.svg" type="image/svg+xml" class="w-full h-full min-h-[600px]"></object>
         </div>
       </div>
     </div>
 
-    <!-- CONTENT PATTERN B -->
-    <div id="content-B" class="space-y-6 hidden">
+    <!-- VIEW 2: LEFT 3D -->
+    <div id="view-left" class="space-y-6 hidden">
+      <div class="glass-card p-6 rounded-2xl border-l-4 border-l-sky-500">
+        <h3 class="text-xl font-bold text-white mb-1">【方向2：左側斜め立体 3D視点パース】</h3>
+        <p class="text-xs text-gray-300">店舗左手前の「敷地外イートイン(8席)」と「左端配置のPOSレジ会計カウンター」の接続動線を強調したアングル。</p>
+      </div>
+      <div class="glass-card p-4 rounded-2xl border border-sky-500/30 bg-white/5">
+        <div class="aspect-[16/9] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
+          <object data="view3d_left.svg" type="image/svg+xml" class="w-full h-full min-h-[600px]"></object>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 3: RIGHT 3D -->
+    <div id="view-right" class="space-y-6 hidden">
+      <div class="glass-card p-6 rounded-2xl border-l-4 border-l-orange-500">
+        <h3 class="text-xl font-bold text-white mb-1">【方向3：右側斜め立体 3D視点パース】</h3>
+        <p class="text-xs text-gray-300">お客様の入口アプローチとなる右手前からの視点。「Subway風対面ネタケース(2.5m)」と奥の「SUZUMO巻きロボ」を強調。</p>
+      </div>
+      <div class="glass-card p-4 rounded-2xl border border-orange-500/30 bg-white/5">
+        <div class="aspect-[16/9] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
+          <object data="view3d_right.svg" type="image/svg+xml" class="w-full h-full min-h-[600px]"></object>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW PLAN: 2D FLOORPLAN -->
+    <div id="view-plan" class="space-y-6 hidden">
       <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-red">
-        <h3 class="text-xl font-bold text-white mb-2">パターンB［3Dパース ＋ 超精密建築平面図（ストック即売強化モデル）］</h3>
-        <p class="text-xs text-gray-300 leading-relaxed">
-          前面右側の「持ち帰り寿司ストックケース」を3.5mに大型拡大。即買需要を最大化し、左端POSで会計して左外イートインまたは持ち帰りへ。
-        </p>
+        <h3 class="text-xl font-bold text-white mb-1">【2D超精密 建築平面図（元画像再現版）】</h3>
+        <p class="text-xs text-gray-300">ご提示いただいたレイアウト図面（壁面一直線型 / 45.0㎡ / 敷地外8席 / 炊飯器2台 / SUZUMO巻きロボ / 手洗い専用シンクHS / 完全目隠し壁）の元図面。</p>
       </div>
       <div class="glass-card p-4 rounded-2xl border border-genki-red/30 bg-white/5">
-        <div class="aspect-[16/10.5] w-full rounded-xl overflow-hidden bg-white shadow-2xl flex items-center justify-center">
-          <object id="obj-B" data="patternB.svg" type="image/svg+xml" class="w-full h-full min-h-[650px]">
-            <img src="patternB.svg" alt="パターンB プロ平面図" class="w-full h-full object-contain">
-          </object>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONTENT PATTERN C -->
-    <div id="content-C" class="space-y-6 hidden">
-      <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-gold">
-        <h3 class="text-xl font-bold text-white mb-2">パターンC［3Dパース ＋ 超精密建築平面図（Subway風 ライブ対面強化モデル）］</h3>
-        <p class="text-xs text-gray-300 leading-relaxed">
-          前面左側の「Subway風対面ネタケース」を3.8mに大型拡大。職人の対面手渡し＆ライブ組み立て演出を最大強調。
-        </p>
-      </div>
-      <div class="glass-card p-4 rounded-2xl border border-genki-gold/30 bg-white/5">
-        <div class="aspect-[16/10.5] w-full rounded-xl overflow-hidden bg-white shadow-2xl flex items-center justify-center">
-          <object id="obj-C" data="patternC.svg" type="image/svg+xml" class="w-full h-full min-h-[650px]">
-            <img src="patternC.svg" alt="パターンC プロ平面図" class="w-full h-full object-contain">
-          </object>
+        <div class="aspect-[16/10.5] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
+          <object data="patternA.svg" type="image/svg+xml" class="w-full h-full min-h-[600px]"></object>
         </div>
       </div>
     </div>
 
     <footer class="text-center py-6 text-xs text-gray-500 border-t border-white/10">
-      © 2026 GENKI SUSHI CO., LTD. QSR Store Layout Research.
+      © 2026 GENKI SUSHI CO., LTD. QSR Store Layout 3D Perspective Research.
     </footer>
 
   </div>
 
   <script>
-    let currentPattern = 'A';
-
-    function switchTab(target) {
-      currentPattern = target;
-      ['A', 'B', 'C'].forEach(id => {
-        const content = document.getElementById(`content-${id}`);
+    function switchView(target) {
+      ['front', 'left', 'right', 'plan'].forEach(id => {
+        const content = document.getElementById(`view-${id}`);
         const tab = document.getElementById(`tab-${id}`);
         if (id === target) {
           content.classList.remove('hidden');
-          tab.className = 'px-6 py-3 rounded-xl bg-genki-yellow text-genki-black font-extrabold text-sm shadow-lg transition-all';
+          tab.className = (id === 'plan') 
+            ? 'px-6 py-3 rounded-xl bg-genki-red text-white font-extrabold text-sm shadow-lg transition-all'
+            : 'px-6 py-3 rounded-xl bg-genki-yellow text-genki-black font-extrabold text-sm shadow-lg transition-all';
         } else {
           content.classList.add('hidden');
-          tab.className = 'px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all';
+          tab.className = (id === 'plan')
+            ? 'px-6 py-3 rounded-xl glass-card text-genki-red font-bold text-sm hover:text-white transition-all border border-genki-red/40'
+            : 'px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all';
         }
       });
-      document.getElementById('direct-link-svg').href = `pattern${currentPattern}.svg`;
-      document.getElementById('direct-link-svg').innerText = `▶ パターン${currentPattern} 図面ファイルを直接別タブで開く`;
-    }
-
-    function downloadSVG() {
-      const a = document.createElement('a');
-      a.download = `Genki_Sushi_Express_Pattern${currentPattern}.svg`;
-      a.href = `pattern${currentPattern}.svg`;
-      a.click();
     }
   </script>
 </body>

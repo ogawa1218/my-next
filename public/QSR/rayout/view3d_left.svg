@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; }
+      .title-main { font-weight: 900; font-size: 30px; fill: #0F172A; }
+      .title-sub { font-weight: 900; font-size: 18px; fill: #E60012; }
+      .label-head { font-weight: 900; font-size: 14px; fill: #FFFFFF; }
+      .label-equip { font-weight: 700; font-size: 11px; fill: #1E293B; }
+      .label-bold { font-weight: 900; font-size: 13px; fill: #0F172A; }
+      .drop-shadow { filter: drop-shadow(4px 6px 8px rgba(0,0,0,0.25)); }
+      .soft-shadow { filter: drop-shadow(2px 3px 4px rgba(0,0,0,0.15)); }
+      .glow-neon { filter: drop-shadow(0px 0px 8px rgba(255,209,0,0.8)); }
+    </style>
+
+    <linearGradient id="skyBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="wallBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="floorStore" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFEDD5"/>
+      <stop offset="100%" stop-color="#FED7AA"/>
+    </linearGradient>
+    <linearGradient id="floorAisle" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </linearGradient>
+    <linearGradient id="metalSS" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="25%" stop-color="#F1F5F9"/>
+      <stop offset="70%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+    <linearGradient id="woodTable" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="redSuzumo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEE2E2"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+
+    <pattern id="hatchBlind" width="12" height="12" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#DC2626" stroke-width="4"/>
+    </pattern>
+
+    <marker id="arrowYellow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#CA8A04"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#F8FAFC"/>
+
+  <!-- HEADER BANNER -->
+  <g transform="translate(60, 40)">
+    <circle cx="26" cy="24" r="22" fill="#FFD100" stroke="#000" stroke-width="2.5" class="drop-shadow"/>
+    <path d="M 13 15 Q 26 6 39 15" stroke="#000" stroke-width="2.5" fill="none"/>
+    <circle cx="18" cy="23" r="2.5" fill="#000"/>
+    <circle cx="34" cy="23" r="2.5" fill="#000"/>
+    <circle cx="15" cy="28" r="4" fill="#E60012"/>
+    <circle cx="37" cy="28" r="4" fill="#E60012"/>
+    <path d="M 19 33 Q 26 38 33 33" stroke="#000" stroke-width="2.5" fill="none"/>
+
+    <text x="65" y="18" class="title-main">元気寿司 エクスプレス <tspan class="title-sub">Genki Sushi Express</tspan></text>
+    <text x="65" y="42" font-weight="900" font-size="16" fill="#475569">【方向2：左側斜め立体 3D視点】 敷地外イートイン(8席) ＆ POSレジ会計動線強調パース</text>
+    
+    <g transform="translate(1300, -10)">
+      <rect width="500" height="46" fill="#0284C7" rx="8" class="drop-shadow"/>
+      <text x="250" y="28" class="label-head" text-anchor="middle" font-size="14" fill="#FFFFFF">視点：店舗左手前（イートイン席）から見た3Dバードアイ視点</text>
+    </g>
+  </g>
+
+  <!-- MAIN 3D PERSPECTIVE VIEW (LEFT ANGLE) -->
+  <g transform="translate(60, 110)" class="drop-shadow">
+    <rect width="1800" height="910" fill="#0F172A" rx="16"/>
+
+    <g transform="translate(50, 40)">
+      <!-- BACK WALL -->
+      <polygon points="200,60 1650,60 1650,480 200,480" fill="url(#wallBack)"/>
+
+      <!-- STORE FLOOR (Pitched Left-to-Right Angle) -->
+      <polygon points="350,480 1650,480 1780,780 -20,780" fill="url(#floorStore)"/>
+
+      <!-- EAT-IN AISLE FLOOR (Emphasized Foreground Left) -->
+      <polygon points="-20,780 480,780 350,480 200,480" fill="url(#floorAisle)"/>
+      <line x1="350" y1="480" x2="480" y2="780" stroke="#0284C7" stroke-width="4" stroke-dasharray="8,5"/>
+
+      <!-- TOP NEON SIGNBOARD -->
+      <g transform="translate(180, 30)">
+        <polygon points="0,0 1480,0 1480,55 0,55" fill="#07070A" stroke="#FFD100" stroke-width="3" class="glow-neon"/>
+        <circle cx="480" cy="27.5" r="18" fill="#FFD100"/>
+        <text x="515" y="36" font-weight="900" font-size="28" fill="#FFFFFF">元気寿司 <tspan fill="#E60012">EXPRESS</tspan></text>
+      </g>
+
+      <!-- FOREGROUND LEFT: OUTSIDE SEATING (8 SEATS EMPHASIZED) -->
+      <g transform="translate(20, 520)" class="drop-shadow">
+        <polygon points="0,0 360,0 420,230 0,230" fill="none" stroke="#0284C7" stroke-width="4" stroke-dasharray="8,4"/>
+        <rect x="20" y="-15" width="220" height="36" fill="#0284C7" rx="6"/>
+        <text x="130" y="8" font-weight="900" font-size="15" fill="#FFFFFF" text-anchor="middle">敷地外イートイン (8席手前)</text>
+
+        <!-- Table 1 (Large 3D Perspective) -->
+        <g transform="translate(40, 30)">
+          <polygon points="0,0 110,0 120,80 0,80" fill="url(#woodTable)" stroke="#78350F" stroke-width="3"/>
+          <circle cx="-12" cy="40" r="14" fill="#475569"/>
+          <circle cx="132" cy="40" r="14" fill="#475569"/>
+          <circle cx="55" cy="-12" r="14" fill="#475569"/>
+          <circle cx="60" cy="92" r="14" fill="#475569"/>
+          <text x="55" y="48" font-weight="900" font-size="16" fill="#78350F" text-anchor="middle">テーブル1 (4席)</text>
+        </g>
+
+        <!-- Table 2 -->
+        <g transform="translate(190, 110)">
+          <polygon points="0,0 110,0 120,80 0,80" fill="url(#woodTable)" stroke="#78350F" stroke-width="3"/>
+          <circle cx="-12" cy="40" r="14" fill="#475569"/>
+          <circle cx="132" cy="40" r="14" fill="#475569"/>
+          <circle cx="55" cy="-12" r="14" fill="#475569"/>
+          <circle cx="60" cy="92" r="14" fill="#475569"/>
+          <text x="55" y="48" font-weight="900" font-size="16" fill="#78350F" text-anchor="middle">テーブル2 (4席)</text>
+        </g>
+      </g>
+
+      <!-- POS REGISTER (CLOSE TO LEFT EAT-IN) -->
+      <g transform="translate(460, 560)" class="drop-shadow">
+        <polygon points="0,30 140,30 155,160 0,160" fill="url(#redSuzumo)" stroke="#DC2626" stroke-width="4"/>
+        <rect x="15" y="0" width="110" height="50" fill="#0F172A" rx="6"/>
+        <text x="70" y="30" font-weight="900" font-size="14" fill="#FFD100" text-anchor="middle">POS画面</text>
+        <text x="70" y="105" font-weight="900" font-size="17" fill="#DC2626" text-anchor="middle">POS会計レジ</text>
+        <text x="70" y="130" font-weight="900" font-size="12" fill="#7F1D1D" text-anchor="middle">(直近動線)</text>
+      </g>
+
+      <!-- SUBWAY SHOWCASE & TAKEAWAY SHOWCASE -->
+      <g transform="translate(630, 560)" class="drop-shadow">
+        <polygon points="0,50 480,50 540,160 0,160" fill="#FEF9C3" stroke="#CA8A04" stroke-width="3.5"/>
+        <polygon points="0,0 480,0 480,50 0,50" fill="#FEF08A" stroke="#CA8A04"/>
+        <text x="260" y="110" font-weight="900" font-size="18" fill="#78350F" text-anchor="middle">【Subway風 対面ネタケース 2.5m】</text>
+      </g>
+      <g transform="translate(1200, 560)" class="drop-shadow">
+        <polygon points="0,50 320,50 350,160 0,160" fill="#FFEDD5" stroke="#C2410C" stroke-width="3.5"/>
+        <text x="160" y="110" font-weight="900" font-size="16" fill="#9A3412" text-anchor="middle">持ち帰りケース 1.8m</text>
+      </g>
+
+      <!-- KITCHEN BACK LINE -->
+      <g transform="translate(360, 470)">
+        <polygon points="0,0 1200,0 1200,30 0,30" fill="url(#hatchBlind)" stroke="#DC2626" stroke-width="3"/>
+        <text x="600" y="-10" font-weight="900" font-size="16" fill="#DC2626" text-anchor="middle">完全目隠し仕切り壁 (HACCP受渡し扉)</text>
+      </g>
+
+      <!-- FLOW LINE -->
+      <path d="M 1500 730 L 1000 730 L 530 730 L 530 680 L 250 680" fill="none" stroke="#FFD100" stroke-width="6" stroke-dasharray="10,6" marker-end="url(#arrowYellow)"/>
+      <text x="750" y="760" font-weight="900" font-size="15" fill="#FFD100">一方向動線：注文 ➔ 会計(左側POS) ➔ そのまま左外客席へ直行</text>
+    </g>
+  </g>
+</svg>

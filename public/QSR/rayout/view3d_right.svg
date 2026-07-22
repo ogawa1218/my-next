@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; }
+      .title-main { font-weight: 900; font-size: 30px; fill: #0F172A; }
+      .title-sub { font-weight: 900; font-size: 18px; fill: #E60012; }
+      .label-head { font-weight: 900; font-size: 14px; fill: #FFFFFF; }
+      .label-equip { font-weight: 700; font-size: 11px; fill: #1E293B; }
+      .label-bold { font-weight: 900; font-size: 13px; fill: #0F172A; }
+      .drop-shadow { filter: drop-shadow(4px 6px 8px rgba(0,0,0,0.25)); }
+      .soft-shadow { filter: drop-shadow(2px 3px 4px rgba(0,0,0,0.15)); }
+      .glow-neon { filter: drop-shadow(0px 0px 8px rgba(255,209,0,0.8)); }
+    </style>
+
+    <linearGradient id="skyBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="wallBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="floorStore" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFEDD5"/>
+      <stop offset="100%" stop-color="#FED7AA"/>
+    </linearGradient>
+    <linearGradient id="metalSS" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="25%" stop-color="#F1F5F9"/>
+      <stop offset="70%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+
+    <pattern id="hatchBlind" width="12" height="12" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#DC2626" stroke-width="4"/>
+    </pattern>
+
+    <marker id="arrowYellow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#CA8A04"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#F8FAFC"/>
+
+  <!-- HEADER BANNER -->
+  <g transform="translate(60, 40)">
+    <circle cx="26" cy="24" r="22" fill="#FFD100" stroke="#000" stroke-width="2.5" class="drop-shadow"/>
+    <path d="M 13 15 Q 26 6 39 15" stroke="#000" stroke-width="2.5" fill="none"/>
+    <circle cx="18" cy="23" r="2.5" fill="#000"/>
+    <circle cx="34" cy="23" r="2.5" fill="#000"/>
+    <circle cx="15" cy="28" r="4" fill="#E60012"/>
+    <circle cx="37" cy="28" r="4" fill="#E60012"/>
+    <path d="M 19 33 Q 26 38 33 33" stroke="#000" stroke-width="2.5" fill="none"/>
+
+    <text x="65" y="18" class="title-main">元気寿司 エクスプレス <tspan class="title-sub">Genki Sushi Express</tspan></text>
+    <text x="65" y="42" font-weight="900" font-size="16" fill="#475569">【方向3：右側斜め立体 3D視点】 進入動線 ＆ 前面ネタケース・バック厨房機器強調パース</text>
+    
+    <g transform="translate(1300, -10)">
+      <rect width="500" height="46" fill="#EA580C" rx="8" class="drop-shadow"/>
+      <text x="250" y="28" class="label-head" text-anchor="middle" font-size="14" fill="#FFFFFF">視点：モール通路右手前（顧客入口側）から店内を見通す3Dパース</text>
+    </g>
+  </g>
+
+  <!-- MAIN 3D PERSPECTIVE VIEW (RIGHT ANGLE) -->
+  <g transform="translate(60, 110)" class="drop-shadow">
+    <rect width="1800" height="910" fill="#0F172A" rx="16"/>
+
+    <g transform="translate(50, 40)">
+      <!-- BACK WALL -->
+      <polygon points="100,60 1550,60 1550,480 100,480" fill="url(#wallBack)"/>
+
+      <!-- STORE FLOOR -->
+      <polygon points="100,480 1550,480 1820,780 150,780" fill="url(#floorStore)"/>
+
+      <!-- TOP NEON SIGNBOARD -->
+      <g transform="translate(80, 30)">
+        <polygon points="0,0 1500,0 1500,55 0,55" fill="#07070A" stroke="#FFD100" stroke-width="3" class="glow-neon"/>
+        <circle cx="680" cy="27.5" r="18" fill="#FFD100"/>
+        <text x="715" y="36" font-weight="900" font-size="28" fill="#FFFFFF">元気寿司 <tspan fill="#E60012">EXPRESS</tspan></text>
+      </g>
+
+      <!-- FOREGROUND RIGHT: ENTRANCE & SUBWAY SHOWCASE EMPHASIS -->
+      <g transform="translate(800, 540)" class="drop-shadow">
+        <polygon points="0,50 650,50 720,170 0,170" fill="#FEF9C3" stroke="#CA8A04" stroke-width="4"/>
+        <polygon points="0,0 650,0 650,50 0,50" fill="#FEF08A" stroke="#CA8A04"/>
+        <polygon points="25,55 620,55 680,160 25,160" fill="#BAE6FD" opacity="0.6" stroke="#38BDF8"/>
+        <text x="350" y="110" font-weight="900" font-size="22" fill="#78350F" text-anchor="middle">【Subway風 対面ネタケース 2.5m】 (入口正面手前)</text>
+        <text x="350" y="140" font-weight="900" font-size="14" fill="#B45309" text-anchor="middle">★鮮魚生ネタ保冷ケースを正面でアピール</text>
+      </g>
+
+      <!-- MIDGROUND: POS REGISTER -->
+      <g transform="translate(600, 550)" class="drop-shadow">
+        <polygon points="0,30 150,30 165,160 0,160" fill="#FEE2E2" stroke="#DC2626" stroke-width="3.5"/>
+        <rect x="15" y="0" width="110" height="50" fill="#0F172A" rx="6"/>
+        <text x="75" y="30" font-weight="900" font-size="14" fill="#FFD100" text-anchor="middle">POS画面</text>
+        <text x="75" y="105" font-weight="900" font-size="17" fill="#DC2626" text-anchor="middle">POS会計レジ</text>
+      </g>
+
+      <!-- MIDGROUND: TAKEAWAY SHOWCASE -->
+      <g transform="translate(240, 560)" class="drop-shadow">
+        <polygon points="0,50 320,50 350,160 0,160" fill="#FFEDD5" stroke="#C2410C" stroke-width="3.5"/>
+        <text x="160" y="110" font-weight="900" font-size="16" fill="#9A3412" text-anchor="middle">作り置き・持ち帰りケース</text>
+      </g>
+
+      <!-- KITCHEN BACK LINE & SUZUMO ROLL ROBOT EMPHASIS -->
+      <g transform="translate(150, 160)">
+        <!-- SUZUMO Roll Robot (Highlighted) -->
+        <g transform="translate(680, 140)" class="drop-shadow">
+          <polygon points="0,0 120,0 120,135 0,135" fill="#FEE2E2" stroke="#DC2626" stroke-width="4" rx="4"/>
+          <rect x="15" y="15" width="90" height="65" fill="#FFFFFF" stroke="#DC2626" stroke-width="2" rx="4"/>
+          <text x="60" y="45" font-weight="900" font-size="13" fill="#DC2626" text-anchor="middle">SUZUMO</text>
+          <text x="60" y="65" font-weight="900" font-size="12" fill="#DC2626" text-anchor="middle">巻きロボ</text>
+        </g>
+
+        <!-- RC1 & RC2 -->
+        <g transform="translate(480, 160)">
+          <polygon points="0,0 90,0 90,110 0,110" fill="url(#metalSS)" stroke="#B45309" stroke-width="2"/>
+          <circle cx="45" cy="40" r="24" fill="#FEF08A" stroke="#B45309" stroke-width="2"/>
+          <text x="45" y="85" class="label-equip" text-anchor="middle">RC1 IH炊飯器</text>
+        </g>
+        <g transform="translate(580, 160)">
+          <polygon points="0,0 90,0 90,110 0,110" fill="url(#metalSS)" stroke="#B45309" stroke-width="2"/>
+          <circle cx="45" cy="40" r="24" fill="#FEF08A" stroke="#B45309" stroke-width="2"/>
+          <text x="45" y="85" class="label-equip" text-anchor="middle">RC2 IH炊飯器</text>
+        </g>
+        <!-- Dedicated Handwash Sink (HS) -->
+        <g transform="translate(240, 160)">
+          <polygon points="0,0 70,0 70,110 0,110" fill="url(#metalSS)" stroke="#0284C7" stroke-width="2.5"/>
+          <circle cx="35" cy="40" r="18" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
+          <text x="35" y="85" class="label-equip" text-anchor="middle" font-size="10" fill="#0284C7">手洗シンク(HS)</text>
+        </g>
+      </g>
+
+      <!-- BLIND WALL -->
+      <g transform="translate(150, 470)">
+        <polygon points="0,0 1350,0 1350,30 0,30" fill="url(#hatchBlind)" stroke="#DC2626" stroke-width="3"/>
+        <text x="675" y="-10" font-weight="900" font-size="16" fill="#DC2626" text-anchor="middle">完全目隠し仕切り壁 (受渡し扉付き)</text>
+      </g>
+
+      <!-- CUSTOMER ENTRY FLOW -->
+      <path d="M 1600 730 L 1100 730 L 760 730 L 550 730 L 200 730" fill="none" stroke="#FFD100" stroke-width="6" stroke-dasharray="10,6" marker-end="url(#arrowYellow)"/>
+      <text x="1150" y="760" font-weight="900" font-size="15" fill="#FFD100">①右側より店舗進入 ➔ 対面ネタケースで注文 ➔ 左へ進み会計</text>
+    </g>
+  </g>
+</svg>
