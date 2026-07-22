@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>元気寿司 エクスプレス リアル手描き2.5D確定平面図 3パターン</title>
+  <title>元気寿司 エクスプレス 確定平面図 3パターン［公式完成版］</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -23,7 +23,7 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     body {
@@ -47,95 +47,90 @@
 
   <div class="max-w-6xl mx-auto space-y-8">
     
-    <!-- Header Action Bar -->
+    <!-- Header Bar -->
     <div class="flex flex-col md:flex-row items-center justify-between gap-4 glass-card p-6 rounded-2xl border-genki-yellow/40 no-print">
       <div class="flex items-center gap-4">
         <div class="w-12 h-12 bg-white rounded-xl p-1 flex items-center justify-center border-2 border-genki-yellow">
           <img src="file:///C:/Users/ogawa.m/.gemini/antigravity/brain/71f91b3e-2430-4adc-87cb-f3af4fba4b0e/genki_sushi_official_face_icon_1784680605690.jpg" class="w-full h-full object-contain">
         </div>
         <div>
-          <h1 class="text-2xl font-black text-white">元気寿司 エクスプレス リアル手描き2.5D確定平面図 3パターン</h1>
-          <p class="text-xs text-genki-yellow font-mono">添付画像質感完全再現 • 日本語限定表記 • 元気寿司QSR公式</p>
+          <h1 class="text-2xl font-black text-white">元気寿司 エクスプレス 確定平面図 3パターン</h1>
+          <p class="text-xs text-genki-yellow font-mono">QSR / rayout 整理統合版 • 添付画像スタイル完全再現 • 日本語限定表記</p>
         </div>
       </div>
 
       <div class="flex items-center gap-3">
-        <button onclick="window.print()" class="px-6 py-3 rounded-full bg-genki-yellow text-genki-black font-extrabold text-sm hover:bg-genki-gold transition-all flex items-center gap-2 shadow-lg">
+        <button onclick="downloadJPG()" class="px-5 py-2.5 rounded-full bg-genki-red text-white font-extrabold text-xs md:text-sm hover:bg-red-700 transition-all flex items-center gap-2 shadow-lg">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>表示中パターンのJPGを保存</span>
+        </button>
+        <button onclick="window.print()" class="px-5 py-2.5 rounded-full bg-genki-yellow text-genki-black font-extrabold text-xs md:text-sm hover:bg-genki-gold transition-all flex items-center gap-2 shadow-lg">
           <i data-lucide="printer" class="w-4 h-4"></i>
-          <span>印刷 / 高解像度PDF出力保存</span>
+          <span>印刷 / PDF出力</span>
         </button>
       </div>
     </div>
 
-    <!-- Title Banner -->
-    <div class="text-center py-4 border-b border-white/10">
-      <h2 class="text-3xl font-black text-white">
-        GENKI SUSHI <span class="text-genki-red italic">EXPRESS</span> 超リアル2.5D平面図
-      </h2>
-      <p class="text-xs text-gray-400 mt-2">
-        敷地外イートイン(8席) • 炊飯器2台 • SUZUMO巻きロボ • 手洗い専用シンク(1台) • お客様視線遮断の完全目隠し壁 • 左側POS(会計後着席動線)
-      </p>
-    </div>
-
     <!-- TABS -->
     <div class="flex items-center justify-center gap-4 no-print">
-      <button onclick="switchTab('pA')" id="tab-pA" class="px-6 py-3 rounded-xl bg-genki-yellow text-genki-black font-extrabold text-sm shadow-lg transition-all">
+      <button onclick="switchTab('A')" id="tab-A" class="px-6 py-3 rounded-xl bg-genki-yellow text-genki-black font-extrabold text-sm shadow-lg transition-all">
         パターンA: 標準平衡モデル (45㎡)
       </button>
-      <button onclick="switchTab('pB')" id="tab-pB" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
+      <button onclick="switchTab('B')" id="tab-B" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
         パターンB: ストック即売強化モデル (45㎡)
       </button>
-      <button onclick="switchTab('pC')" id="tab-pC" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
+      <button onclick="switchTab('C')" id="tab-C" class="px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all">
         パターンC: ライブキッチン対面強化モデル (45㎡)
       </button>
     </div>
 
-    <!-- CONTENT CONTAINERS -->
-
-    <!-- PATTERN A -->
-    <div id="content-pA" class="space-y-6">
+    <!-- CONTENT PATTERN A -->
+    <div id="content-A" class="space-y-6">
       <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-yellow">
-        <h3 class="text-xl font-bold text-white mb-2">パターンA［標準平衡モデル (45㎡)］</h3>
+        <h3 class="text-xl font-bold text-white mb-2">パターンA［標準平衡モデル］</h3>
         <p class="text-xs text-gray-300 leading-relaxed">
-          元の添付図面と全く同じ2.5Dシャドウ質感とリアル機器描画。左側にSubway風対面ネタケース(2.5m)、右側に持ち帰りストックケース(1.8m)、左端にPOSレジ。右/中央で商品を選び、左端POSで会計してそのまま左外側のイートイン席(8席)へ進む完璧な一方向動線。
+          添付図面と全く同じ高精度ベクターグラフィック。左側にSubway風対面ネタケース(2.5m)、右側に持ち帰りストックケース(1.8m)、左端にPOSレジ。右/中央で商品を選び、左端POSで会計してそのまま左外側のイートイン席(8席)へ進む完璧な一方向動線。
         </p>
       </div>
       <div class="glass-card p-4 rounded-2xl border border-genki-yellow/30 bg-white/5">
-        <div class="aspect-[16/9] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
-          <img src="pA_plan_real.svg" alt="パターンA リアル平面図" class="w-full h-full object-contain">
+        <div class="aspect-[16/9.5] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
+          <img id="img-A" src="patternA.svg" alt="パターンA 平面図" class="w-full h-full object-contain">
         </div>
       </div>
     </div>
 
-    <!-- PATTERN B -->
-    <div id="content-pB" class="space-y-6 hidden">
+    <!-- CONTENT PATTERN B -->
+    <div id="content-B" class="space-y-6 hidden">
       <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-red">
-        <h3 class="text-xl font-bold text-white mb-2">パターンB［ストック即売テイクアウト強化モデル (45㎡)］</h3>
+        <h3 class="text-xl font-bold text-white mb-2">パターンB［ストック即売テイクアウト強化モデル］</h3>
         <p class="text-xs text-gray-300 leading-relaxed">
           前面右側の持ち帰りストックケースを3.5mに大型拡大。パック寿司を大量陳列し、ピーク時の待ち時間ゼロ即売を実現。左端POSで会計してすぐ左外席または持ち帰りへ。
         </p>
       </div>
       <div class="glass-card p-4 rounded-2xl border border-genki-red/30 bg-white/5">
-        <div class="aspect-[16/9] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
-          <img src="pB_plan_real.svg" alt="パターンB リアル平面図" class="w-full h-full object-contain">
+        <div class="aspect-[16/9.5] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
+          <img id="img-B" src="patternB.svg" alt="パターンB 平面図" class="w-full h-full object-contain">
         </div>
       </div>
     </div>
 
-    <!-- PATTERN C -->
-    <div id="content-pC" class="space-y-6 hidden">
+    <!-- CONTENT PATTERN C -->
+    <div id="content-C" class="space-y-6 hidden">
       <div class="glass-card p-6 rounded-2xl border-l-4 border-l-genki-gold">
-        <h3 class="text-xl font-bold text-white mb-2">パターンC［Subway風 ライブキッチン対面強化モデル (45㎡)］</h3>
+        <h3 class="text-xl font-bold text-white mb-2">パターンC［Subway風 ライブキッチン対面強化モデル］</h3>
         <p class="text-xs text-gray-300 leading-relaxed">
           前面左側のSubway風対面ネタケースを3.8mに大型拡大。お客様の目の前で新鮮生ネタの手渡し・寿司職人の組み立てライブ演出を最大強調。会計後、そのまま左外の客席へ移動。
         </p>
       </div>
       <div class="glass-card p-4 rounded-2xl border border-genki-gold/30 bg-white/5">
-        <div class="aspect-[16/9] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
-          <img src="pC_plan_real.svg" alt="パターンC リアル平面図" class="w-full h-full object-contain">
+        <div class="aspect-[16/9.5] w-full rounded-xl overflow-hidden bg-white shadow-2xl">
+          <img id="img-C" src="patternC.svg" alt="パターンC 平面図" class="w-full h-full object-contain">
         </div>
       </div>
     </div>
+
+    <!-- Hidden Canvas for JPG Export -->
+    <canvas id="exportCanvas" class="hidden"></canvas>
 
     <footer class="text-center py-6 text-xs text-gray-500 border-t border-white/10">
       © 2026 GENKI SUSHI CO., LTD. QSR Store Layout Research.
@@ -146,8 +141,11 @@
   <script>
     lucide.createIcons();
 
+    let currentPattern = 'A';
+
     function switchTab(target) {
-      ['pA', 'pB', 'pC'].forEach(id => {
+      currentPattern = target;
+      ['A', 'B', 'C'].forEach(id => {
         const content = document.getElementById(`content-${id}`);
         const tab = document.getElementById(`tab-${id}`);
         if (id === target) {
@@ -158,6 +156,29 @@
           tab.className = 'px-6 py-3 rounded-xl glass-card text-gray-300 font-bold text-sm hover:text-white transition-all';
         }
       });
+    }
+
+    function downloadJPG() {
+      const svgFileName = `pattern${currentPattern}.svg`;
+      const jpgFileName = `pattern${currentPattern}.jpg`;
+      
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = function() {
+        const canvas = document.getElementById('exportCanvas');
+        canvas.width = 1920;
+        canvas.height = 1140;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        
+        const a = document.createElement('a');
+        a.download = jpgFileName;
+        a.href = canvas.toDataURL('image/jpeg', 0.95);
+        a.click();
+      };
+      img.src = svgFileName;
     }
   </script>
 </body>
